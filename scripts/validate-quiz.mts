@@ -21,6 +21,7 @@ import {
 import {
   FEATURE_MAX,
   FEATURE_MIN,
+  FILTER_FEATURES,
   NEUTRAL,
   rankBreeds,
   type BreedData,
@@ -35,6 +36,10 @@ const fail = (msg: string) => {
 // ── 1) 도달 가능성 불변식 ──
 console.log("== 도달 가능성 불변식 검사 ==");
 for (const f of FEATURE_KEYS) {
+  if (FILTER_FEATURES.has(f)) {
+    console.log(`  ⏭ ${f} (필터형 — 거리 계산 제외, 아래 필터 검사에서 확인)`);
+    continue;
+  }
   let sumMax = 0;
   let sumMin = 0;
   for (const q of QUESTIONS) {
@@ -65,8 +70,23 @@ for (const q of QUESTIONS)
       if (!Number.isInteger(v)) fail(`${q.id} 선택지${i + 1}: ${k}=${v} 정수 아님`);
     }
 
-// ── 2) 랜덤 응답 시뮬레이션 ──
+// ── 2) 절대 필터 검사: 어떤 선택을 해도 후보 풀이 충분한지 ──
 const breeds = readJson<BreedData[]>(path.join(ROOT, "public", "data", "breeds.json"));
+console.log("\n== 절대 필터 검사 ==");
+for (const q of QUESTIONS)
+  for (const [i, o] of q.options.entries()) {
+    if (!o.filters) continue;
+    for (const [f, [min, max]] of Object.entries(o.filters) as [
+      FeatureKey,
+      [number, number],
+    ][]) {
+      const count = breeds.filter(
+        (b) => b.features[f] >= min && b.features[f] <= max,
+      ).length;
+      if (count < 3) fail(`${q.id} 선택지${i + 1}: ${f} [${min},${max}] 후보 ${count}종 — 너무 적음`);
+      else console.log(`  ✓ ${q.id} 선택지${i + 1}: ${f} [${min},${max}] → 후보 ${count}종`);
+    }
+  }
 const N = 20000;
 const top1Count = new Map<string, number>();
 for (let n = 0; n < N; n++) {

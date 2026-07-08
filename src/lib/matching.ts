@@ -18,6 +18,16 @@ export const NEUTRAL = 30;
 export const FEATURE_MIN = 10;
 export const FEATURE_MAX = 50;
 
+/**
+ * 필터형 feature: 어떤 선택지의 filters에 등장하는 feature는
+ * 절대 필터(후보 컷)로만 쓰이고 거리 계산에서는 항상 제외된다. (현재: size)
+ */
+export const FILTER_FEATURES: ReadonlySet<FeatureKey> = new Set(
+  QUESTIONS.flatMap((q) =>
+    q.options.flatMap((o) => Object.keys(o.filters ?? {}) as FeatureKey[]),
+  ),
+);
+
 /** public/data/breeds.json 의 항목 (파이프라인 4-build.mts 산출물) */
 export interface BreedData {
   id: string;
@@ -58,13 +68,13 @@ export interface MatchResult {
 }
 
 /**
- * 표시용 매칭률 (2026-07-08 보정): 100 − 거리 × 1.5
- * 이론상 최대 거리(40) 대신 실측 분포에 맞춘 계수. 랜덤 응답 3,000회 기준
- * 1위 거리가 4~14(중앙값 8.8)라서, 이 공식이면 1위가 보통 87~94%로 표시된다.
+ * 표시용 매칭률 (2026-07-08 재보정): 100 − 거리 × 1.4
+ * 이론상 최대 거리(40) 대신 실측 분포에 맞춘 계수. 크기 절대 필터 도입 후
+ * 랜덤 응답 3,000회 재측정: 1위 거리 4.8~15(중앙값 9.6) → 1위가 보통 87~93%로 표시.
  * 순위 계산에는 영향 없음 (정렬은 distance 기준).
  */
 export function toSimilarity(distance: number): number {
-  return Math.max(0, Math.min(100, Math.round(100 - distance * 1.5)));
+  return Math.max(0, Math.min(100, Math.round(100 - distance * 1.4)));
 }
 
 /** 응답 배열(문항별 선택 인덱스)로 사용자 프로필을 만든다. */
@@ -86,6 +96,7 @@ export function buildProfile(answers: number[]): UserProfile {
     profile[f] = Math.max(FEATURE_MIN, Math.min(FEATURE_MAX, profile[f]));
 
   const active = FEATURE_KEYS.filter((f) => {
+    if (FILTER_FEATURES.has(f)) return false;
     const cond = CONDITIONAL_FEATURES[f];
     if (!cond) return true;
     const qi = QUESTIONS.findIndex((q) => q.id === cond.questionId);
@@ -93,6 +104,27 @@ export function buildProfile(answers: number[]): UserProfile {
   });
 
   return { profile, active };
+}
+
+/** 응답에서 절대 필터 범위를 수집한다 (같은 feature에 여러 필터면 교집합). */
+export function collectFilters(
+  answers: number[],
+): Partial<Record<FeatureKey, [number, number]>> {
+  const ranges: Partial<Record<FeatureKey, [number, number]>> = {};
+  for (let qi = 0; qi < QUESTIONS.length; qi++) {
+    const filters = QUESTIONS[qi].options[answers[qi]]?.filters;
+    if (!filters) continue;
+    for (const [f, [min, max]] of Object.entries(filters) as [
+      FeatureKey,
+      readonly [number, number],
+    ][]) {
+      const prev = ranges[f];
+      ranges[f] = prev
+        ? [Math.max(prev[0], min), Math.min(prev[1], max)]
+        : [min, max];
+    }
+  }
+  return ranges;
 }
 
 /** 전체 견종을 유사도순으로 정렬해 상위 topN을 반환한다. */
@@ -103,7 +135,17 @@ export function rankBreeds(
 ): MatchResult[] {
   const { profile, active } = buildProfile(answers);
 
-  return breeds
+  // 절대 필터: 범위 밖 견종은 후보에서 제외 (필터 결과가 비면 안전하게 전체로 폴백)
+  const ranges = collectFilters(answers);
+  let pool = breeds.filter((b) =>
+    Object.entries(ranges).every(([f, r]) => {
+      const v = b.features[f as FeatureKey];
+      return v >= r[0] && v <= r[1];
+    }),
+  );
+  if (pool.length === 0) pool = breeds;
+
+  return pool
     .map((breed) => {
       const distance =
         active.reduce((s, f) => s + Math.abs(profile[f] - breed.features[f]), 0) /

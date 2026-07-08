@@ -39,6 +39,12 @@ export type FeatureKey = (typeof FEATURE_KEYS)[number];
 export interface QuizOption {
   label: string;
   scores: Partial<Record<FeatureKey, number>>;
+  /**
+   * 절대 필터 (2026-07-08): 이 선택지를 고르면 해당 feature 값이 범위 안인
+   * 견종만 후보로 남긴다. 필터가 쓰인 feature는 거리 계산에서 제외된다.
+   * 확실한 수치로 갈리는 요구조건(크기 등)에만 사용.
+   */
+  filters?: Partial<Record<FeatureKey, readonly [number, number]>>;
 }
 
 export interface QuizQuestion {
@@ -349,30 +355,48 @@ export const QUESTIONS: QuizQuestion[] = [
     options: [
       {
         label: "벽이 얇아서 층간소음이 걱정되는 집이에요 — 조용해야 해요",
-        scores: { apartment_friendly: 20, barking: -5, size: -5 },
+        scores: { apartment_friendly: 20, barking: -5 },
       },
       {
         label: "나 하나로도 꽉 차는 아늑한 원룸이에요",
-        scores: { apartment_friendly: 10, barking: -2, size: -3 },
+        scores: { apartment_friendly: 10, barking: -2 },
       },
       {
         label: "방이 여러 개인 널찍한 아파트예요",
-        scores: { apartment_friendly: -8, barking: 0, size: 2 },
+        scores: { apartment_friendly: -8, barking: 0 },
       },
       {
         label: "마당 있는 단독주택 — 대형견도 마음껏 뛰놀 수 있어요",
-        scores: { apartment_friendly: -20, barking: 5, size: 5 },
+        scores: { apartment_friendly: -20, barking: 5 },
       },
     ],
   },
   {
+    // 크기는 델타가 아닌 절대 필터 — 선택한 크기 범위 밖의 견종은 후보에서 제외
+    // (경계값은 인접 밴드와 공유해서 딱 잘라도 풀이 좁아지지 않게. 밴드별 32~104종)
     id: "size",
     text: "강아지를 품에 안는 상상을 해보세요. 어떤 느낌이 좋아요?",
     options: [
-      { label: "한 손에 쏙 들어오는 콩알만 한 아기", scores: { size: -15 } },
-      { label: "무릎 위에 딱 맞는 사이즈", scores: { size: -5 } },
-      { label: "안으면 팔이 꽉 차는 든든한 중형견", scores: { size: 5 } },
-      { label: "오히려 걔가 날 안아줄 것 같은 대형견", scores: { size: 15 } },
+      {
+        label: "한 손에 쏙 들어오는 콩알만 한 아기",
+        scores: {},
+        filters: { size: [10, 20] },
+      },
+      {
+        label: "무릎 위에 딱 맞는 사이즈",
+        scores: {},
+        filters: { size: [20, 30] },
+      },
+      {
+        label: "안으면 팔이 꽉 차는 든든한 중형견",
+        scores: {},
+        filters: { size: [30, 40] },
+      },
+      {
+        label: "오히려 걔가 날 안아줄 것 같은 대형견",
+        scores: {},
+        filters: { size: [40, 50] },
+      },
     ],
   },
 ];
