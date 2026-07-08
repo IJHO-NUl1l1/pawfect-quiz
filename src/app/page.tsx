@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -11,8 +12,8 @@ export default function Home() {
         재미있는 퀴즈로 내 라이프스타일에 딱 맞는 강아지를 찾아보세요.
         나와 어울리는 견종 Top 3를 알려드려요!
       </p>
-      <Button size="lg" disabled>
-        퀴즈 시작하기 (준비 중)
+      <Button size="lg" nativeButton={false} render={<Link href="/quiz" />}>
+        퀴즈 시작하기
       </Button>
     </main>
   );
