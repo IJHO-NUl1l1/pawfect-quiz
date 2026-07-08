@@ -15,6 +15,7 @@
 import path from "node:path";
 import { DATA_DIR, ROOT, readJson, writeJson } from "./util.mts";
 import { nameKo } from "./name-ko.mts";
+import { descKo } from "./desc-ko.mts";
 
 interface MergedBreed {
   id: string;
@@ -40,7 +41,13 @@ interface MergedBreed {
   };
 }
 
-/** 확정 특징 세트 — 각 항목이 퀴즈 질문 하나가 된다. */
+/**
+ * 점수 스케일: 소스의 1~5점을 ×10 해서 10~50으로 저장한다 (2026-07-08, CLAUDE.md 수행 과제).
+ * 여러 문항의 증감을 누적하는 채점(선택지당 ±3~±15 수준)을 정수로 표현하기 위함.
+ */
+const SCALE = 10;
+
+/** 확정 특징 세트 (소스 원값 1~5 기준, 저장 시 SCALE 적용) */
 const FEATURES: Record<string, (m: MergedBreed) => number> = {
   apartment_friendly: (m) => Number(m.dogtime.a1_adapts_well_to_apartment_living),
   size: (m) => m.registry.physical.size,
@@ -60,16 +67,22 @@ const FEATURES: Record<string, (m: MergedBreed) => number> = {
   coat_length: (m) => Number(m.registry.physical.coatLength),
   weight_gain: (m) => Number(m.dogtime.c5_potential_for_weight_gain),
   cold_tolerance: (m) => Number(m.dogtime.a5_tolerates_cold_weather),
+  // 2026-07-08 성격 축 보강: 독립성(방랑·모험 성향), 격렬함(표현 강도).
+  // AKC 트레이트는 변별력 미달로 탈락, DogTime 미사용 점수 재채택 (std 1.16 / 1.07)
+  independence: (m) => Number(m.dogtime.d6_wanderlust_potential),
+  intensity: (m) => Number(m.dogtime.e2_intensity),
 };
 
 const merged = readJson<MergedBreed[]>(path.join(DATA_DIR, "merged.json"));
 
 const missingKo: string[] = [];
+const missingDesc: string[] = [];
 const breeds = merged.map((m) => {
   const ko = nameKo[m.id];
   if (!ko) missingKo.push(m.id);
+  if (!descKo[m.id]) missingDesc.push(m.id);
   const features = Object.fromEntries(
-    Object.entries(FEATURES).map(([k, get]) => [k, get(m)]),
+    Object.entries(FEATURES).map(([k, get]) => [k, get(m) * SCALE]),
   );
   const g = m.registry.general;
   return {
@@ -83,6 +96,7 @@ const breeds = merged.map((m) => {
       lifespan: m.dogapi?.life_span ?? String(g.lifespan),
       traits: g.personalityTraits,
       description: g.shortDescription,
+      descriptionKo: descKo[m.id] ?? null,
       temperament: m.dogapi?.temperament ?? null,
       popularity: g.popularity,
     },
@@ -97,9 +111,12 @@ const breeds = merged.map((m) => {
 
 // --- 검증 ---
 const bad = breeds.filter((b) =>
-  Object.values(b.features).some((v) => !Number.isInteger(v) || v < 1 || v > 5),
+  Object.values(b.features).some(
+    (v) => !Number.isInteger(v) || v < 1 * SCALE || v > 5 * SCALE || v % SCALE !== 0,
+  ),
 );
-if (bad.length) throw new Error(`1~5 범위를 벗어난 특징값: ${bad.map((b) => b.id).join(", ")}`);
+if (bad.length)
+  throw new Error(`10~50 (×${SCALE}) 범위를 벗어난 특징값: ${bad.map((b) => b.id).join(", ")}`);
 
 // 변별력 새니티 체크: 견종 쌍 간 특징 벡터 평균 L1 거리 (0에 가까우면 다 비슷하다는 뜻)
 const keys = Object.keys(FEATURES);
@@ -121,3 +138,4 @@ console.log(`breeds.json 생성: ${breeds.length}종 × 특징 ${keys.length}개
 console.log(`특징 벡터 평균 L1 거리: ${(sum / cnt).toFixed(2)} (특징당 ${(sum / cnt / keys.length).toFixed(2)})`);
 console.log(`특징 벡터가 완전히 동일한 견종 쌍: ${identical}쌍`);
 if (missingKo.length) console.log(`한글명 누락 (영문 대체): ${missingKo.join(", ")}`);
+if (missingDesc.length) console.log(`한국어 설명 누락 (영문 대체): ${missingDesc.join(", ")}`);

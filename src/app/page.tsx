@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-6 p-8 text-center">
       <span className="text-6xl">🐶</span>
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+      <h1 className="font-heading text-4xl tracking-tight text-primary sm:text-5xl">
         Pawfect Quiz
       </h1>
       <p className="max-w-md text-balance text-muted-foreground">

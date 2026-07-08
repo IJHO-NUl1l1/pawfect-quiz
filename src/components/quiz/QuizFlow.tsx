@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { QUESTIONS } from "@/data/questions";
-import { Button } from "@/components/ui/button";
+import PawPrint from "@/components/quiz/PawPrint";
+import QuizResult from "@/components/quiz/QuizResult";
 
 const AUTO_ADVANCE_MS = 350;
 
@@ -13,6 +13,60 @@ const variants = {
   center: { x: 0, opacity: 1 },
   exit: (dir: 1 | -1) => ({ x: dir * -60, opacity: 0 }),
 };
+
+/** 선택지별 발바닥 변주 — 라이트(작게) → 헤비(크게), 색·기울기·위치도 다르게 */
+const PAW_VARIANTS = [
+  { size: 20, rotate: -14, className: "right-4 text-chart-3" },
+  { size: 26, rotate: 10, className: "right-8 text-chart-2" },
+  { size: 32, rotate: -8, className: "right-5 text-chart-5" },
+  { size: 40, rotate: 14, className: "right-7 text-chart-1" },
+];
+
+function OptionButton({
+  label,
+  index,
+  selected,
+  onSelect,
+}: {
+  label: string;
+  index: number;
+  selected: boolean;
+  onSelect: () => void;
+}) {
+  const paw = PAW_VARIANTS[index % PAW_VARIANTS.length];
+  return (
+    <motion.button
+      onClick={onSelect}
+      initial="rest"
+      whileHover="hover"
+      whileTap="hover"
+      animate={selected ? "hover" : "rest"}
+      className={`relative overflow-hidden rounded-2xl border-2 p-4 pr-14 text-left text-[15px] leading-snug transition-colors ${
+        selected
+          ? "border-primary bg-primary/10 font-semibold"
+          : "border-border bg-card hover:border-primary/40 hover:bg-accent/60"
+      }`}
+    >
+      {label}
+      {/* 아래에서 쏙 올라오는 발바닥 (모바일은 탭/선택 시) */}
+      <motion.span
+        aria-hidden
+        className={`pointer-events-none absolute bottom-0 ${paw.className}`}
+        variants={{
+          rest: { y: "115%", opacity: 0, rotate: paw.rotate + 24 },
+          hover: {
+            y: "18%",
+            opacity: 0.9,
+            rotate: paw.rotate,
+            transition: { type: "spring", stiffness: 380, damping: 22 },
+          },
+        }}
+      >
+        <PawPrint size={paw.size} />
+      </motion.span>
+    </motion.button>
+  );
+}
 
 export default function QuizFlow() {
   const [step, setStep] = useState(0);
@@ -32,7 +86,7 @@ export default function QuizFlow() {
       next[step] = optionIdx;
       return next;
     });
-    // 선택 하이라이트를 잠깐 보여준 뒤 자동으로 다음 문항
+    // 선택 하이라이트(+발바닥)를 잠깐 보여준 뒤 자동으로 다음 문항
     setTimeout(() => {
       setDirection(1);
       setStep((s) => s + 1);
@@ -52,37 +106,7 @@ export default function QuizFlow() {
     setStep(0);
   }
 
-  if (done) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex flex-1 flex-col items-center justify-center gap-6 p-8 text-center"
-      >
-        <motion.span
-          className="text-6xl"
-          animate={{ rotate: [0, -10, 10, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, repeatDelay: 0.8 }}
-        >
-          🐾
-        </motion.span>
-        <h2 className="text-2xl font-bold">답변 완료!</h2>
-        <p className="max-w-sm text-balance text-muted-foreground">
-          12개의 답변을 모두 받았어요.
-          <br />
-          결과 매칭은 지금 열심히 만드는 중이에요 — 조금만 기다려주세요!
-        </p>
-        <div className="flex gap-3">
-          <Button variant="outline" onClick={restart}>
-            다시 해보기
-          </Button>
-          <Button nativeButton={false} render={<Link href="/" />}>
-            처음으로
-          </Button>
-        </div>
-      </motion.div>
-    );
-  }
+  if (done) return <QuizResult answers={answers as number[]} onRestart={restart} />;
 
   const q = QUESTIONS[step];
 
@@ -125,26 +149,19 @@ export default function QuizFlow() {
             <p className="mb-2 text-sm font-medium text-primary">
               Q{step + 1}.
             </p>
-            <h2 className="mb-8 text-balance text-2xl font-bold leading-snug">
+            <h2 className="mb-8 font-heading text-balance text-2xl leading-snug sm:text-[1.7rem]">
               {q.text}
             </h2>
             <div className="flex flex-col gap-3">
-              {q.options.map((opt, i) => {
-                const selected = answers[step] === i;
-                return (
-                  <button
-                    key={i}
-                    onClick={() => select(i)}
-                    className={`rounded-2xl border-2 p-4 text-left text-[15px] leading-snug transition-colors ${
-                      selected
-                        ? "border-primary bg-primary/10 font-semibold"
-                        : "border-border bg-card hover:border-primary/40 hover:bg-accent"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                );
-              })}
+              {q.options.map((opt, i) => (
+                <OptionButton
+                  key={i}
+                  label={opt.label}
+                  index={i}
+                  selected={answers[step] === i}
+                  onSelect={() => select(i)}
+                />
+              ))}
             </div>
           </motion.div>
         </AnimatePresence>

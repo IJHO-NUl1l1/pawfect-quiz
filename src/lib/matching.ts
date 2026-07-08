@@ -1,0 +1,115 @@
+/**
+ * 매칭 로직 (로드맵 2단계) — 채점 메커니즘은 CLAUDE.md 참고.
+ *
+ * 흐름: 응답(문항별 선택 인덱스) → 프로필 누적(중립 30 ± delta, 10~50 클램프)
+ *      → 조건부 feature 활성 판별 → 견종 벡터와 평균 L1 거리 → Top N.
+ *
+ * 참고: node 스크립트(scripts/validate-quiz.mts)에서도 import하므로
+ * 경로 별칭(@/) 대신 상대 경로 + 확장자를 사용한다.
+ */
+import {
+  CONDITIONAL_FEATURES,
+  FEATURE_KEYS,
+  QUESTIONS,
+  type FeatureKey,
+} from "../data/questions.ts";
+
+export const NEUTRAL = 30;
+export const FEATURE_MIN = 10;
+export const FEATURE_MAX = 50;
+
+/** public/data/breeds.json 의 항목 (파이프라인 4-build.mts 산출물) */
+export interface BreedData {
+  id: string;
+  nameEn: string;
+  nameKo: string;
+  features: Record<FeatureKey, number>;
+  meta: {
+    group: string;
+    weightKg: number;
+    lifespan: string;
+    traits: string[];
+    description: string;
+    descriptionKo: string | null;
+    temperament: string | null;
+    popularity: number | null;
+  };
+  images: {
+    card: string;
+    cardSmall: string;
+    indoors: string;
+    outdoors: string;
+  };
+}
+
+export interface UserProfile {
+  /** feature별 누적 점수 (10~50) */
+  profile: Record<FeatureKey, number>;
+  /** 거리 계산에 포함되는 feature (조건부 미활성은 제외됨) */
+  active: FeatureKey[];
+}
+
+export interface MatchResult {
+  breed: BreedData;
+  /** 활성 feature 평균 L1 거리 (0 = 완벽 일치, 최대 40) */
+  distance: number;
+  /** 0~100 표시용 매칭률 */
+  similarity: number;
+}
+
+/**
+ * 표시용 매칭률 (2026-07-08 보정): 100 − 거리 × 1.5
+ * 이론상 최대 거리(40) 대신 실측 분포에 맞춘 계수. 랜덤 응답 3,000회 기준
+ * 1위 거리가 4~14(중앙값 8.8)라서, 이 공식이면 1위가 보통 87~94%로 표시된다.
+ * 순위 계산에는 영향 없음 (정렬은 distance 기준).
+ */
+export function toSimilarity(distance: number): number {
+  return Math.max(0, Math.min(100, Math.round(100 - distance * 1.5)));
+}
+
+/** 응답 배열(문항별 선택 인덱스)로 사용자 프로필을 만든다. */
+export function buildProfile(answers: number[]): UserProfile {
+  if (answers.length !== QUESTIONS.length)
+    throw new Error(`응답 수 ${answers.length} ≠ 문항 수 ${QUESTIONS.length}`);
+
+  const profile = Object.fromEntries(
+    FEATURE_KEYS.map((f) => [f, NEUTRAL]),
+  ) as Record<FeatureKey, number>;
+
+  for (let qi = 0; qi < QUESTIONS.length; qi++) {
+    const option = QUESTIONS[qi].options[answers[qi]];
+    if (!option) throw new Error(`문항 ${QUESTIONS[qi].id}: 선택 인덱스 ${answers[qi]} 없음`);
+    for (const [k, v] of Object.entries(option.scores))
+      profile[k as FeatureKey] += v;
+  }
+  for (const f of FEATURE_KEYS)
+    profile[f] = Math.max(FEATURE_MIN, Math.min(FEATURE_MAX, profile[f]));
+
+  const active = FEATURE_KEYS.filter((f) => {
+    const cond = CONDITIONAL_FEATURES[f];
+    if (!cond) return true;
+    const qi = QUESTIONS.findIndex((q) => q.id === cond.questionId);
+    return answers[qi] === cond.optionIndex;
+  });
+
+  return { profile, active };
+}
+
+/** 전체 견종을 유사도순으로 정렬해 상위 topN을 반환한다. */
+export function rankBreeds(
+  breeds: BreedData[],
+  answers: number[],
+  topN = 3,
+): MatchResult[] {
+  const { profile, active } = buildProfile(answers);
+
+  return breeds
+    .map((breed) => {
+      const distance =
+        active.reduce((s, f) => s + Math.abs(profile[f] - breed.features[f]), 0) /
+        active.length;
+      return { breed, distance, similarity: toSimilarity(distance) };
+    })
+    .sort((a, b) => a.distance - b.distance)
+    .slice(0, topN);
+}

@@ -4,7 +4,8 @@
  * 4-build.mts에서 매핑이 없는 견종은 영문명이 그대로 표시된다 (경고 출력).
  *
  * ⚠️ 항목 추가 전 CLAUDE.md의 "추측 절대 금지 원칙" 필독.
- * 확립된 통용 표기만 수록, 임의 음차 금지 (없으면 영문명 표시).
+ * 통용 표기가 있으면 그것을 우선, 없으면 외래어 표기법에 따른 음차 표기
+ * (2026-07-08 변경: UI 전면 한글화 — 이름 표기는 사실 주장이 아닌 표기 변환).
  */
 export const nameKo: Record<string, string> = {
   chihuahua: "치와와",
@@ -173,7 +174,7 @@ export const nameKo: Record<string, string> = {
   "portuguese-podengo-pequeno": "포르투기즈 포뎅고 페케노",
   "skye-terrier": "스카이 테리어",
   azawakh: "아자와크",
-  // 믹스견 — 한국에서 표기가 확립된 것만 수록
+  // 믹스견 — 통용 표기 (확립된 것)
   puggle: "퍼글",
   labradoodle: "래브라두들",
   goldendoodle: "골든두들",
@@ -182,4 +183,24 @@ export const nameKo: Record<string, string> = {
   pomsky: "폼스키",
   cavapoo: "카바푸",
   bernedoodle: "버니두들",
+  // 믹스견 — 통용 표기 미확립, 외래어 표기법 음차 (2026-07-08 한글화 방침)
+  chiweenie: "치위니",
+  yorkipoo: "요키푸",
+  schnoodle: "슈누들",
+  morkie: "몰키",
+  aussiedoodle: "오시두들",
+  chorkie: "초키",
+  pitsky: "핏스키",
+  goldador: "골다도르",
+  shorkie: "쇼키",
+  boxador: "복사도르",
+  bullmatian: "불마시안",
+  doxiepoo: "독시푸",
+  sheepadoodle: "쉽아두들",
+  cheagle: "치글",
+  springador: "스프링가도르",
+  shihpoo: "시푸",
+  bordoodle: "보더두들",
+  cockalier: "코카리어",
+  cavachon: "카바숑",
 };

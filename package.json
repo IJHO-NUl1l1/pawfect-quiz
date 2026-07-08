@@ -11,6 +11,7 @@
     "data:merge": "node scripts/2-merge.mts",
     "data:analyze": "node scripts/3-analyze.mts",
     "data:build": "node scripts/4-build.mts",
+    "quiz:validate": "node scripts/validate-quiz.mts",
     "data:all": "npm run data:fetch && npm run data:merge && npm run data:analyze && npm run data:build"
   },
   "dependencies": {
