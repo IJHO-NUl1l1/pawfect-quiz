@@ -22,11 +22,12 @@ export default function InfoTip({ label, text }: { label: string; text: string }
   useLayoutEffect(() => {
     if (!open || !btnRef.current) return;
     const b = btnRef.current.getBoundingClientRect();
-    const half = TIP_W / 2;
     const center = b.left + b.width / 2;
+    // 아이콘 중앙 정렬을 기본으로 하되, 좌우 끝이 화면(±MARGIN)을 넘지 않게 클램프.
+    // left는 툴팁의 왼쪽 끝이므로 상한은 innerWidth - TIP_W - MARGIN.
     const left = Math.min(
-      Math.max(center - half, MARGIN),
-      window.innerWidth - half - MARGIN,
+      Math.max(center - TIP_W / 2, MARGIN),
+      window.innerWidth - TIP_W - MARGIN,
     );
     setPos({ top: b.top - MARGIN, left });
   }, [open]);
