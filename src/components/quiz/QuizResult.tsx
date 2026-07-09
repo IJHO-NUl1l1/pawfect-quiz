@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Lightbox, { type LightboxImage } from "@/components/quiz/Lightbox";
 import InfoTip from "@/components/quiz/InfoTip";
+import ShareModal from "@/components/quiz/ShareModal";
 
 // 이미지 로딩 전 표시할 따뜻한 톤 blur 자리표시 (외부 URL은 blurDataURL 직접 지정 필요)
 const BLUR =
@@ -25,9 +26,13 @@ const BLUR =
 export default function QuizResult({
   answers,
   onRestart,
+  shared = false,
 }: {
   answers: number[];
-  onRestart: () => void;
+  /** 퀴즈 완료 화면의 "다시 해보기" 콜백. 공유(/r) 뷰에서는 불필요. */
+  onRestart?: () => void;
+  /** 공유 링크로 열린 뷰 여부 — 하단 CTA가 "나도 테스트하기"로 바뀐다. */
+  shared?: boolean;
 }) {
   const [results, setResults] = useState<MatchResult[] | null>(null);
   const [error, setError] = useState(false);
@@ -35,6 +40,8 @@ export default function QuizResult({
   const [detailIdx, setDetailIdx] = useState<number | null>(null);
   // 확대해서 보는 사진 (null = 라이트박스 닫힘)
   const [zoom, setZoom] = useState<LightboxImage | null>(null);
+  // 공유 모달
+  const [shareOpen, setShareOpen] = useState(false);
 
   useEffect(() => {
     fetch("/data/breeds.json")
@@ -54,7 +61,7 @@ export default function QuizResult({
           결과를 불러오지 못했어요. 잠시 후 다시 시도해주세요.
         </p>
         <Button variant="outline" onClick={onRestart}>
-          다시 해보기
+          {shared ? "처음으로" : "다시 해보기"}
         </Button>
       </div>
     );
@@ -184,16 +191,43 @@ export default function QuizResult({
         )}
       </AnimatePresence>
 
+      {/* 공유하기 — 결과 화면의 핵심 CTA */}
+      <Button size="lg" className="w-full" onClick={() => setShareOpen(true)}>
+        🐾 결과 공유하기
+      </Button>
+
       <div className="flex gap-3">
-        <Button variant="outline" onClick={onRestart}>
-          다시 해보기
-        </Button>
-        <Button nativeButton={false} render={<Link href="/" />}>
-          처음으로
-        </Button>
+        {shared ? (
+          <Button
+            variant="outline"
+            nativeButton={false}
+            render={<Link href="/quiz" />}
+          >
+            나도 테스트하기
+          </Button>
+        ) : (
+          <>
+            <Button variant="outline" onClick={onRestart}>
+              다시 해보기
+            </Button>
+            <Button
+              variant="outline"
+              nativeButton={false}
+              render={<Link href="/" />}
+            >
+              처음으로
+            </Button>
+          </>
+        )}
       </div>
 
       <Lightbox image={zoom} onClose={() => setZoom(null)} />
+      <ShareModal
+        open={shareOpen}
+        onClose={() => setShareOpen(false)}
+        answers={answers}
+        top={first}
+      />
     </motion.div>
   );
 }
