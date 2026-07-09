@@ -41,14 +41,14 @@ function OptionButton({
       whileHover="hover"
       whileTap="hover"
       animate={selected ? "hover" : "rest"}
-      className={`relative overflow-hidden rounded-2xl border-2 p-4 pr-14 text-left text-[15px] leading-snug transition-colors ${
+      className={`relative overflow-hidden rounded-2xl border-2 p-4 text-left text-[15px] leading-snug transition-colors ${
         selected
           ? "border-primary bg-primary/10 font-semibold"
           : "border-border bg-card hover:border-primary/40 hover:bg-accent/60"
       }`}
     >
       {label}
-      {/* 아래에서 쏙 올라오는 발바닥 (모바일은 탭/선택 시) */}
+      {/* 오른쪽 아래에서 올라오는 발바닥 (모바일은 탭/선택 시) */}
       <motion.span
         aria-hidden
         className={`pointer-events-none absolute bottom-0 ${paw.className}`}
@@ -56,7 +56,7 @@ function OptionButton({
           rest: { y: "115%", opacity: 0, rotate: paw.rotate + 24 },
           hover: {
             y: "18%",
-            opacity: 0.9,
+            opacity: 0.85,
             rotate: paw.rotate,
             transition: { type: "spring", stiffness: 380, damping: 22 },
           },
