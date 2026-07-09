@@ -12,6 +12,7 @@ import {
   FEATURE_KEYS,
   QUESTIONS,
   type FeatureKey,
+  type FilterKey,
 } from "../data/questions.ts";
 
 export const NEUTRAL = 30;
@@ -19,14 +20,27 @@ export const FEATURE_MIN = 10;
 export const FEATURE_MAX = 50;
 
 /**
- * 필터형 feature: 어떤 선택지의 filters에 등장하는 feature는
- * 절대 필터(후보 컷)로만 쓰이고 거리 계산에서는 항상 제외된다. (현재: size)
+ * 거리 계산에서 제외되는 feature.
+ * - filters에 등장하는 feature (절대 필터가 후보 컷을 전담)
+ * - size: 크기 축은 몸무게(weightKg) 필터가 전담하므로 항상 제외
+ *   (registry size 등급은 몸무게와 모순되는 견종이 있어 필터 기준으로도 쓰지 않음)
  */
-export const FILTER_FEATURES: ReadonlySet<FeatureKey> = new Set(
-  QUESTIONS.flatMap((q) =>
-    q.options.flatMap((o) => Object.keys(o.filters ?? {}) as FeatureKey[]),
+export const DISTANCE_EXCLUDED_FEATURES: ReadonlySet<FeatureKey> = new Set([
+  "size",
+  ...QUESTIONS.flatMap((q) =>
+    q.options.flatMap(
+      (o) =>
+        Object.keys(o.filters ?? {}).filter((k) =>
+          (FEATURE_KEYS as readonly string[]).includes(k),
+        ) as FeatureKey[],
+    ),
   ),
-);
+]);
+
+/** 필터 키의 견종 측 값 (feature 점수 또는 실측 몸무게) */
+function filterValue(breed: BreedData, key: FilterKey): number {
+  return key === "weightKg" ? breed.meta.weightKg : breed.features[key];
+}
 
 /** public/data/breeds.json 의 항목 (파이프라인 4-build.mts 산출물) */
 export interface BreedData {
@@ -96,7 +110,7 @@ export function buildProfile(answers: number[]): UserProfile {
     profile[f] = Math.max(FEATURE_MIN, Math.min(FEATURE_MAX, profile[f]));
 
   const active = FEATURE_KEYS.filter((f) => {
-    if (FILTER_FEATURES.has(f)) return false;
+    if (DISTANCE_EXCLUDED_FEATURES.has(f)) return false;
     const cond = CONDITIONAL_FEATURES[f];
     if (!cond) return true;
     const qi = QUESTIONS.findIndex((q) => q.id === cond.questionId);
@@ -106,16 +120,16 @@ export function buildProfile(answers: number[]): UserProfile {
   return { profile, active };
 }
 
-/** 응답에서 절대 필터 범위를 수집한다 (같은 feature에 여러 필터면 교집합). */
+/** 응답에서 절대 필터 범위를 수집한다 (같은 키에 여러 필터면 교집합). */
 export function collectFilters(
   answers: number[],
-): Partial<Record<FeatureKey, [number, number]>> {
-  const ranges: Partial<Record<FeatureKey, [number, number]>> = {};
+): Partial<Record<FilterKey, [number, number]>> {
+  const ranges: Partial<Record<FilterKey, [number, number]>> = {};
   for (let qi = 0; qi < QUESTIONS.length; qi++) {
     const filters = QUESTIONS[qi].options[answers[qi]]?.filters;
     if (!filters) continue;
     for (const [f, [min, max]] of Object.entries(filters) as [
-      FeatureKey,
+      FilterKey,
       readonly [number, number],
     ][]) {
       const prev = ranges[f];
@@ -139,7 +153,7 @@ export function rankBreeds(
   const ranges = collectFilters(answers);
   let pool = breeds.filter((b) =>
     Object.entries(ranges).every(([f, r]) => {
-      const v = b.features[f as FeatureKey];
+      const v = filterValue(b, f as FilterKey);
       return v >= r[0] && v <= r[1];
     }),
   );

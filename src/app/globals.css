@@ -129,3 +129,12 @@
     @apply font-sans;
   }
 }
+
+/* 스크롤은 되지만 스크롤바는 보이지 않게 (전역) — @layer 밖에 둬서 프루닝 방지 */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* 구형 Edge/IE */
+}
+html::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/최신 Edge */
+}

@@ -18,10 +18,11 @@ import {
   QUESTIONS,
   type FeatureKey,
 } from "../src/data/questions.ts";
+import type { FilterKey } from "../src/data/questions.ts";
 import {
+  DISTANCE_EXCLUDED_FEATURES,
   FEATURE_MAX,
   FEATURE_MIN,
-  FILTER_FEATURES,
   NEUTRAL,
   rankBreeds,
   type BreedData,
@@ -36,8 +37,8 @@ const fail = (msg: string) => {
 // ── 1) 도달 가능성 불변식 ──
 console.log("== 도달 가능성 불변식 검사 ==");
 for (const f of FEATURE_KEYS) {
-  if (FILTER_FEATURES.has(f)) {
-    console.log(`  ⏭ ${f} (필터형 — 거리 계산 제외, 아래 필터 검사에서 확인)`);
+  if (DISTANCE_EXCLUDED_FEATURES.has(f)) {
+    console.log(`  ⏭ ${f} (거리 계산 제외 — 절대 필터 전담, 아래 필터 검사에서 확인)`);
     continue;
   }
   let sumMax = 0;
@@ -73,16 +74,19 @@ for (const q of QUESTIONS)
 // ── 2) 절대 필터 검사: 어떤 선택을 해도 후보 풀이 충분한지 ──
 const breeds = readJson<BreedData[]>(path.join(ROOT, "public", "data", "breeds.json"));
 console.log("\n== 절대 필터 검사 ==");
+const filterValue = (b: BreedData, key: FilterKey) =>
+  key === "weightKg" ? b.meta.weightKg : b.features[key];
 for (const q of QUESTIONS)
   for (const [i, o] of q.options.entries()) {
     if (!o.filters) continue;
     for (const [f, [min, max]] of Object.entries(o.filters) as [
-      FeatureKey,
+      FilterKey,
       [number, number],
     ][]) {
-      const count = breeds.filter(
-        (b) => b.features[f] >= min && b.features[f] <= max,
-      ).length;
+      const count = breeds.filter((b) => {
+        const v = filterValue(b, f);
+        return v >= min && v <= max;
+      }).length;
       if (count < 3) fail(`${q.id} 선택지${i + 1}: ${f} [${min},${max}] 후보 ${count}종 — 너무 적음`);
       else console.log(`  ✓ ${q.id} 선택지${i + 1}: ${f} [${min},${max}] → 후보 ${count}종`);
     }

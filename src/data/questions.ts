@@ -36,15 +36,19 @@ export const FEATURE_KEYS = [
 
 export type FeatureKey = (typeof FEATURE_KEYS)[number];
 
+/** 절대 필터가 참조할 수 있는 값: feature 점수 또는 실측 몸무게(kg) */
+export type FilterKey = FeatureKey | "weightKg";
+
 export interface QuizOption {
   label: string;
   scores: Partial<Record<FeatureKey, number>>;
   /**
-   * 절대 필터 (2026-07-08): 이 선택지를 고르면 해당 feature 값이 범위 안인
-   * 견종만 후보로 남긴다. 필터가 쓰인 feature는 거리 계산에서 제외된다.
-   * 확실한 수치로 갈리는 요구조건(크기 등)에만 사용.
+   * 절대 필터 (2026-07-08): 이 선택지를 고르면 해당 값이 범위 안인
+   * 견종만 후보로 남긴다. 확실한 수치로 갈리는 요구조건(크기 등)에만 사용.
+   * 크기는 registry의 size 등급이 부정확한 견종이 있어(스탠더드 푸들 24.9kg=2등급 등)
+   * 실측 몸무게(weightKg) 기준으로 필터한다.
    */
-  filters?: Partial<Record<FeatureKey, readonly [number, number]>>;
+  filters?: Partial<Record<FilterKey, readonly [number, number]>>;
 }
 
 export interface QuizQuestion {
@@ -372,30 +376,32 @@ export const QUESTIONS: QuizQuestion[] = [
     ],
   },
   {
-    // 크기는 델타가 아닌 절대 필터 — 선택한 크기 범위 밖의 견종은 후보에서 제외
-    // (경계값은 인접 밴드와 공유해서 딱 잘라도 풀이 좁아지지 않게. 밴드별 32~104종)
+    // 크기는 델타가 아닌 절대 필터 — 선택한 범위 밖의 견종은 후보에서 제외.
+    // 실측 몸무게 기준 (한국 통용: 소형 ~10kg / 중형 10~25kg / 대형 25kg+).
+    // 콩알 컷은 4kg→5kg로 확장 (≤4kg는 9종뿐이라 결과 쏠림, ≤5kg면 24종).
+    // 밴드별 후보: 24 / 41 / 58 / 70종.
     id: "size",
     text: "강아지를 품에 안는 상상을 해보세요. 어떤 느낌이 좋아요?",
     options: [
       {
-        label: "한 손에 쏙 들어오는 콩알만 한 아기",
+        label: "한 손에 쏙 들어오는 콩알만 한 아기 (~5kg)",
         scores: {},
-        filters: { size: [10, 20] },
+        filters: { weightKg: [0, 5] },
       },
       {
-        label: "무릎 위에 딱 맞는 사이즈",
+        label: "무릎 위에 딱 맞는 아담한 사이즈 (5~10kg)",
         scores: {},
-        filters: { size: [20, 30] },
+        filters: { weightKg: [5, 10] },
       },
       {
-        label: "안으면 팔이 꽉 차는 든든한 중형견",
+        label: "안으면 팔이 꽉 차는 든든한 중형견 (10~25kg)",
         scores: {},
-        filters: { size: [30, 40] },
+        filters: { weightKg: [10, 25] },
       },
       {
-        label: "오히려 걔가 날 안아줄 것 같은 대형견",
+        label: "오히려 걔가 날 안아줄 것 같은 대형견 (25kg~)",
         scores: {},
-        filters: { size: [40, 50] },
+        filters: { weightKg: [25, 999] },
       },
     ],
   },

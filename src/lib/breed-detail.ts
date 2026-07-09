@@ -81,6 +81,17 @@ export const GROUP_KO: Record<string, string> = {
   Terrier: "테리어",
 };
 
+/** 그룹별 한 줄 설명 (견종의 전통적 역할 분류 — 정보 아이콘 툴팁용) */
+export const GROUP_DESC: Record<string, string> = {
+  Companion: "곁에서 함께하는 반려 목적으로 길러진 품종이에요. (예: 치와와, 말티즈)",
+  Working: "썰매·구조·경비 등 사람의 일을 돕도록 길러진 품종이에요. (예: 허스키, 로트와일러)",
+  Herding: "양·소 등 가축을 몰도록 길러진 품종이에요. (예: 보더 콜리, 코기)",
+  Sporting: "새 사냥을 돕도록 길러진 활동적인 품종이에요. (예: 리트리버, 스패니얼)",
+  Hound: "뛰어난 후각·시각으로 사냥감을 쫓도록 길러진 품종이에요. (예: 비글, 닥스훈트)",
+  Guardian: "가축과 집을 지키도록 길러진 든든한 품종이에요. (예: 마스티프, 그레이트 피레니즈)",
+  Terrier: "쥐·여우 등 소동물을 사냥하도록 길러진 다부진 품종이에요. (예: 요크셔 테리어)",
+};
+
 /** 상세 패널의 지표 바 (0~50 값) */
 export function getBreedStats(breed: BreedData) {
   return [

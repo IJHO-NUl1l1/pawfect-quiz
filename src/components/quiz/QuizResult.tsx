@@ -5,8 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { rankBreeds, type BreedData, type MatchResult } from "@/lib/matching";
-import { GROUP_KO, getBreedBadges, getBreedStats } from "@/lib/breed-detail";
+import {
+  GROUP_DESC,
+  GROUP_KO,
+  getBreedBadges,
+  getBreedStats,
+} from "@/lib/breed-detail";
 import { Button } from "@/components/ui/button";
+import Lightbox, { type LightboxImage } from "@/components/quiz/Lightbox";
+import InfoTip from "@/components/quiz/InfoTip";
 
 export default function QuizResult({
   answers,
@@ -19,6 +26,8 @@ export default function QuizResult({
   const [error, setError] = useState(false);
   // 상세 패널: 몇 위 견종을 펼쳐 보고 있는지 (null = 닫힘)
   const [detailIdx, setDetailIdx] = useState<number | null>(null);
+  // 확대해서 보는 사진 (null = 라이트박스 닫힘)
+  const [zoom, setZoom] = useState<LightboxImage | null>(null);
 
   useEffect(() => {
     fetch("/data/breeds.json")
@@ -72,16 +81,22 @@ export default function QuizResult({
         <span className="text-sm font-semibold text-primary">
           🥇 1위 · 매칭률 {first.similarity}%
         </span>
-        <div className="relative size-48 overflow-hidden rounded-2xl bg-muted sm:size-56">
+        <button
+          onClick={() =>
+            setZoom({ src: first.breed.images.card, alt: first.breed.nameKo })
+          }
+          aria-label={`${first.breed.nameKo} 사진 확대`}
+          className="group relative size-48 overflow-hidden rounded-2xl bg-muted sm:size-56"
+        >
           <Image
             src={first.breed.images.card}
             alt={first.breed.nameKo}
             fill
             sizes="(max-width: 640px) 192px, 224px"
-            className="object-cover"
+            className="object-cover transition-transform group-hover:scale-105"
             priority
           />
-        </div>
+        </button>
         <div>
           <h2 className="font-heading text-3xl">{first.breed.nameKo}</h2>
           {first.breed.nameKo !== first.breed.nameEn && (
@@ -106,30 +121,37 @@ export default function QuizResult({
           const idx = i + 1;
           const open = detailIdx === idx;
           return (
-            <button
+            <div
               key={r.breed.id}
               onClick={() => setDetailIdx(open ? null : idx)}
-              className={`flex flex-col items-center gap-2 rounded-2xl border-2 bg-card p-4 text-center transition-colors ${
+              className={`flex cursor-pointer flex-col items-center gap-2 rounded-2xl border-2 bg-card p-4 text-center transition-colors ${
                 open ? "border-primary/40" : "border-border hover:border-primary/25"
               }`}
             >
               <span className="text-xs font-medium text-muted-foreground">
                 {idx === 1 ? "🥈 2위" : "🥉 3위"} · {r.similarity}%
               </span>
-              <div className="relative size-24 overflow-hidden rounded-xl bg-muted">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setZoom({ src: r.breed.images.card, alt: r.breed.nameKo });
+                }}
+                aria-label={`${r.breed.nameKo} 사진 확대`}
+                className="group relative size-24 overflow-hidden rounded-xl bg-muted"
+              >
                 <Image
                   src={r.breed.images.cardSmall}
                   alt={r.breed.nameKo}
                   fill
                   sizes="96px"
-                  className="object-cover"
+                  className="object-cover transition-transform group-hover:scale-105"
                 />
-              </div>
+              </button>
               <p className="text-sm font-semibold leading-tight">{r.breed.nameKo}</p>
               <span className="text-[11px] text-muted-foreground">
                 {open ? "상세 닫기" : "눌러서 상세 보기"}
               </span>
-            </button>
+            </div>
           );
         })}
       </div>
@@ -145,7 +167,7 @@ export default function QuizResult({
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="w-full overflow-hidden"
           >
-            <BreedDetail result={results[detailIdx]} />
+            <BreedDetail result={results[detailIdx]} onZoom={setZoom} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -158,11 +180,19 @@ export default function QuizResult({
           처음으로
         </Button>
       </div>
+
+      <Lightbox image={zoom} onClose={() => setZoom(null)} />
     </motion.div>
   );
 }
 
-function BreedDetail({ result }: { result: MatchResult }) {
+function BreedDetail({
+  result,
+  onZoom,
+}: {
+  result: MatchResult;
+  onZoom: (img: LightboxImage) => void;
+}) {
   const { breed } = result;
   const badges = getBreedBadges(breed);
   const good = badges.filter((b) => b.kind === "good");
@@ -172,21 +202,30 @@ function BreedDetail({ result }: { result: MatchResult }) {
   return (
     <div className="flex flex-col gap-5 rounded-3xl border bg-card p-6">
       <p className="font-heading text-lg">
-        {breed.nameKo}는 어떤 아이일까요?
+        <span className="text-primary">{breed.nameKo}</span>는 어떤 아이일까요?
       </p>
 
-      {/* 기본 정보 */}
+      {/* 기본 정보 — 세 칸 라벨 줄 높이를 h-5로 통일해 값 정렬 맞춤 */}
       <div className="grid grid-cols-3 gap-2 text-center">
-        {[
-          ["몸무게", `${breed.meta.weightKg}kg`],
-          ["기대 수명", `${breed.meta.lifespan}년`],
-          ["그룹", GROUP_KO[breed.meta.group] ?? breed.meta.group],
-        ].map(([k, v]) => (
-          <div key={k} className="rounded-xl bg-muted/60 px-2 py-3">
-            <p className="text-[11px] text-muted-foreground">{k}</p>
-            <p className="text-sm font-semibold">{v}</p>
-          </div>
-        ))}
+        <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 px-2 py-3">
+          <p className="flex h-5 items-center text-xs text-muted-foreground">몸무게</p>
+          <p className="text-base font-semibold">{breed.meta.weightKg}kg</p>
+        </div>
+        <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 px-2 py-3">
+          <p className="flex h-5 items-center text-xs text-muted-foreground">기대 수명</p>
+          <p className="text-base font-semibold">{breed.meta.lifespan}년</p>
+        </div>
+        <div className="flex flex-col items-center gap-1 rounded-xl bg-muted/60 px-2 py-3">
+          <p className="flex h-5 items-center gap-1 text-xs text-muted-foreground">
+            그룹
+            {GROUP_DESC[breed.meta.group] && (
+              <InfoTip label="그룹" text={GROUP_DESC[breed.meta.group]} />
+            )}
+          </p>
+          <p className="text-base font-semibold">
+            {GROUP_KO[breed.meta.group] ?? breed.meta.group}
+          </p>
+        </div>
       </div>
 
       {/* 장점 / 미리 알아둘 점 — 전부 feature 점수에서 파생 (추측 없음) */}
@@ -242,17 +281,25 @@ function BreedDetail({ result }: { result: MatchResult }) {
 
       {/* 일상 사진 */}
       <div className="grid grid-cols-2 gap-2">
-        {[breed.images.indoors, breed.images.outdoors].map((src, i) => (
-          <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-muted">
-            <Image
-              src={src}
-              alt={`${breed.nameKo} ${i === 0 ? "실내" : "실외"} 사진`}
-              fill
-              sizes="(max-width: 640px) 45vw, 280px"
-              className="object-cover"
-            />
-          </div>
-        ))}
+        {[breed.images.indoors, breed.images.outdoors].map((src, i) => {
+          const alt = `${breed.nameKo} ${i === 0 ? "실내" : "실외"} 사진`;
+          return (
+            <button
+              key={src}
+              onClick={() => onZoom({ src, alt })}
+              aria-label={`${alt} 확대`}
+              className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-muted"
+            >
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="(max-width: 640px) 45vw, 280px"
+                className="object-cover transition-transform group-hover:scale-105"
+              />
+            </button>
+          );
+        })}
       </div>
     </div>
   );
