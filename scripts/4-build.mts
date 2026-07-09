@@ -101,10 +101,13 @@ const breeds = merged.map((m) => {
       popularity: g.popularity,
     },
     images: {
-      card: m.registry.images.large.studio,
-      cardSmall: m.registry.images.small.studio,
-      indoors: m.registry.images.large.indoors,
-      outdoors: m.registry.images.large.outdoors,
+      // 표시용은 전부 small(jpg, ~200-250KB), 확대(라이트박스)용만 large(png)
+      card: m.registry.images.small.studio,
+      cardLarge: m.registry.images.large.studio,
+      indoors: m.registry.images.small.indoors,
+      indoorsLarge: m.registry.images.large.indoors,
+      outdoors: m.registry.images.small.outdoors,
+      outdoorsLarge: m.registry.images.large.outdoors,
     },
   };
 });

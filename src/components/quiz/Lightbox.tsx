@@ -67,6 +67,13 @@ export default function Lightbox({
               height={720}
               sizes="(max-width: 640px) 90vw, 560px"
               className="h-auto max-h-[85vh] w-auto rounded-2xl object-contain sm:max-h-[80vh]"
+              placeholder="blur"
+              blurDataURL={
+                "data:image/svg+xml;base64," +
+                btoa(
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="#ece3d6"/></svg>',
+                )
+              }
               priority
             />
             {/* 닫기 버튼 — 우측 상단 */}

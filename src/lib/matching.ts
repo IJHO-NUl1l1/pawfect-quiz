@@ -59,10 +59,13 @@ export interface BreedData {
     popularity: number | null;
   };
   images: {
+    // 표시용(small jpg) + 확대용(large png)
     card: string;
-    cardSmall: string;
+    cardLarge: string;
     indoors: string;
+    indoorsLarge: string;
     outdoors: string;
+    outdoorsLarge: string;
   };
 }
 

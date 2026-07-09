@@ -15,6 +15,13 @@ import { Button } from "@/components/ui/button";
 import Lightbox, { type LightboxImage } from "@/components/quiz/Lightbox";
 import InfoTip from "@/components/quiz/InfoTip";
 
+// 이미지 로딩 전 표시할 따뜻한 톤 blur 자리표시 (외부 URL은 blurDataURL 직접 지정 필요)
+const BLUR =
+  "data:image/svg+xml;base64," +
+  btoa(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="#ece3d6"/></svg>',
+  );
+
 export default function QuizResult({
   answers,
   onRestart,
@@ -83,7 +90,7 @@ export default function QuizResult({
         </span>
         <button
           onClick={() =>
-            setZoom({ src: first.breed.images.card, alt: first.breed.nameKo })
+            setZoom({ src: first.breed.images.cardLarge, alt: first.breed.nameKo })
           }
           aria-label={`${first.breed.nameKo} 사진 확대`}
           className="group relative size-48 overflow-hidden rounded-2xl bg-muted sm:size-56"
@@ -94,6 +101,8 @@ export default function QuizResult({
             fill
             sizes="(max-width: 640px) 192px, 224px"
             className="object-cover transition-transform group-hover:scale-105"
+            placeholder="blur"
+            blurDataURL={BLUR}
             priority
           />
         </button>
@@ -134,17 +143,20 @@ export default function QuizResult({
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setZoom({ src: r.breed.images.card, alt: r.breed.nameKo });
+                  setZoom({ src: r.breed.images.cardLarge, alt: r.breed.nameKo });
                 }}
                 aria-label={`${r.breed.nameKo} 사진 확대`}
                 className="group relative size-24 overflow-hidden rounded-xl bg-muted"
               >
                 <Image
-                  src={r.breed.images.cardSmall}
+                  src={r.breed.images.card}
                   alt={r.breed.nameKo}
                   fill
                   sizes="96px"
                   className="object-cover transition-transform group-hover:scale-105"
+                  placeholder="blur"
+                  blurDataURL={BLUR}
+                  priority
                 />
               </button>
               <p className="text-sm font-semibold leading-tight">{r.breed.nameKo}</p>
@@ -279,14 +291,17 @@ function BreedDetail({
         ))}
       </div>
 
-      {/* 일상 사진 */}
+      {/* 일상 사진 — 표시는 small, 확대는 large */}
       <div className="grid grid-cols-2 gap-2">
-        {[breed.images.indoors, breed.images.outdoors].map((src, i) => {
-          const alt = `${breed.nameKo} ${i === 0 ? "실내" : "실외"} 사진`;
+        {[
+          { src: breed.images.indoors, large: breed.images.indoorsLarge, ko: "실내" },
+          { src: breed.images.outdoors, large: breed.images.outdoorsLarge, ko: "실외" },
+        ].map(({ src, large, ko }) => {
+          const alt = `${breed.nameKo} ${ko} 사진`;
           return (
             <button
               key={src}
-              onClick={() => onZoom({ src, alt })}
+              onClick={() => onZoom({ src: large, alt })}
               aria-label={`${alt} 확대`}
               className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-muted"
             >
@@ -296,6 +311,9 @@ function BreedDetail({
                 fill
                 sizes="(max-width: 640px) 45vw, 280px"
                 className="object-cover transition-transform group-hover:scale-105"
+                placeholder="blur"
+                blurDataURL={BLUR}
+                priority
               />
             </button>
           );
