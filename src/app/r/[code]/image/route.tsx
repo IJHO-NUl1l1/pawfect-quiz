@@ -1,7 +1,8 @@
 /**
- * 공유 카드 이미지 (1200×630 PNG) — 서버 렌더링.
- * OG 미리보기(카톡·트위터 썸네일) + 다운로드 + Web Share에 공용으로 쓰인다.
- * 서버에서 그리므로 외부 견종 이미지의 CORS 문제가 없다.
+ * 공유 카드 이미지 (세로형 900×1200 PNG) — 서버 렌더링.
+ * OG 미리보기(카톡·트위터 썸네일) + 다운로드 + Web Share에 공용.
+ * 세로형 + 중앙 정렬이라 카톡·인스타에서 양옆 잘림 없이 들어간다.
+ * 서버 렌더이므로 외부 견종 이미지의 CORS 문제가 없다.
  */
 import { ImageResponse } from "next/og";
 import { readFileSync } from "node:fs";
@@ -10,7 +11,7 @@ import { decodeAnswers } from "@/lib/share";
 import { rankBreeds, type BreedData } from "@/lib/matching";
 
 export const runtime = "nodejs";
-export const size = { width: 1200, height: 630 };
+export const size = { width: 900, height: 1200 };
 export const contentType = "image/png";
 
 let breedsCache: BreedData[] | null = null;
@@ -51,30 +52,42 @@ export async function GET(
           width: "100%",
           height: "100%",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          gap: 56,
+          justifyContent: "center",
           padding: 72,
-          background: "linear-gradient(135deg, #fbf6ec 0%, #f3e7d3 100%)",
+          background: "linear-gradient(160deg, #fbf6ec 0%, #f2e5d0 100%)",
           fontFamily: "Jua",
+          textAlign: "center",
         }}
       >
+        <div style={{ display: "flex", fontSize: 40, color: "#b07a44" }}>
+          🐾 나와 찰떡인 강아지는
+        </div>
         <img
           src={top.breed.images.card}
-          width={420}
-          height={420}
-          style={{ borderRadius: 40, objectFit: "cover" }}
+          width={620}
+          height={620}
+          style={{ borderRadius: 48, objectFit: "cover", margin: "36px 0" }}
         />
-        <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-          <div style={{ fontSize: 34, color: "#b07a44" }}>🐾 나와 찰떡인 강아지는</div>
-          <div style={{ fontSize: 96, color: "#5a3e28", lineHeight: 1.1, marginTop: 8 }}>
-            {top.breed.nameKo}
-          </div>
-          <div style={{ fontSize: 44, color: "#8a6a4a", marginTop: 20 }}>
-            {`매칭률 ${top.similarity}%`}
-          </div>
-          <div style={{ fontSize: 30, color: "#a9906f", marginTop: 40 }}>
-            Pawfect Quiz · 나에게 맞는 강아지 찾기
-          </div>
+        <div style={{ display: "flex", fontSize: 96, color: "#5a3e28", lineHeight: 1.1 }}>
+          {top.breed.nameKo}
+        </div>
+        <div
+          style={{
+            display: "flex",
+            fontSize: 52,
+            color: "#fff",
+            background: "#c98a4b",
+            borderRadius: 999,
+            padding: "14px 44px",
+            marginTop: 32,
+          }}
+        >
+          {`매칭률 ${top.similarity}%`}
+        </div>
+        <div style={{ display: "flex", fontSize: 32, color: "#a9906f", marginTop: 56 }}>
+          Pawfect Quiz · 나에게 맞는 강아지 찾기
         </div>
       </div>
     ),

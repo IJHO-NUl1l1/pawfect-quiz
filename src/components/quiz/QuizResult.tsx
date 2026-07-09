@@ -26,13 +26,9 @@ const BLUR =
 export default function QuizResult({
   answers,
   onRestart,
-  shared = false,
 }: {
   answers: number[];
-  /** 퀴즈 완료 화면의 "다시 해보기" 콜백. 공유(/r) 뷰에서는 불필요. */
-  onRestart?: () => void;
-  /** 공유 링크로 열린 뷰 여부 — 하단 CTA가 "나도 테스트하기"로 바뀐다. */
-  shared?: boolean;
+  onRestart: () => void;
 }) {
   const [results, setResults] = useState<MatchResult[] | null>(null);
   const [error, setError] = useState(false);
@@ -61,7 +57,7 @@ export default function QuizResult({
           결과를 불러오지 못했어요. 잠시 후 다시 시도해주세요.
         </p>
         <Button variant="outline" onClick={onRestart}>
-          {shared ? "처음으로" : "다시 해보기"}
+          다시 해보기
         </Button>
       </div>
     );
@@ -197,28 +193,12 @@ export default function QuizResult({
       </Button>
 
       <div className="flex gap-3">
-        {shared ? (
-          <Button
-            variant="outline"
-            nativeButton={false}
-            render={<Link href="/quiz" />}
-          >
-            나도 테스트하기
-          </Button>
-        ) : (
-          <>
-            <Button variant="outline" onClick={onRestart}>
-              다시 해보기
-            </Button>
-            <Button
-              variant="outline"
-              nativeButton={false}
-              render={<Link href="/" />}
-            >
-              처음으로
-            </Button>
-          </>
-        )}
+        <Button variant="outline" onClick={onRestart}>
+          다시 해보기
+        </Button>
+        <Button variant="outline" nativeButton={false} render={<Link href="/" />}>
+          처음으로
+        </Button>
       </div>
 
       <Lightbox image={zoom} onClose={() => setZoom(null)} />

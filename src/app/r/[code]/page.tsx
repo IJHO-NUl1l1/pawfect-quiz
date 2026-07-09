@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { decodeAnswers, siteUrl } from "@/lib/share";
 import { rankBreeds, type BreedData } from "@/lib/matching";
-import SharedResult from "@/components/quiz/SharedResult";
+import RecipientLanding from "@/components/quiz/RecipientLanding";
 
 function loadBreeds(): BreedData[] {
   const file = path.join(process.cwd(), "public", "data", "breeds.json");
@@ -32,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: [{ url: image, width: 1200, height: 630 }],
+      images: [{ url: image, width: 900, height: 1200 }],
     },
     twitter: { card: "summary_large_image", title, description, images: [image] },
   };
@@ -47,5 +47,7 @@ export default async function SharedResultPage({
   const answers = decodeAnswers(code);
   if (!answers) notFound();
 
-  return <SharedResult answers={answers} />;
+  // 공유받기용 티저 — 전체 결과가 아니라 1위 미리보기 + "나도 해보기" 유도
+  const [top] = rankBreeds(loadBreeds(), answers);
+  return <RecipientLanding top={top} />;
 }
