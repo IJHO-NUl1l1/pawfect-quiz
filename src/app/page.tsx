@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import PawPrint from "@/components/quiz/PawPrint";
 
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-6 p-8 text-center">
-      <span className="text-6xl">🐶</span>
+      {/* 브랜드 마크 — 이모지 대신 SVG라 모든 기기에서 동일하게 렌더된다 */}
+      <span className="flex size-24 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <PawPrint size={48} />
+      </span>
       <h1 className="font-heading text-4xl tracking-tight text-primary sm:text-5xl">
         Pawfect Quiz
       </h1>

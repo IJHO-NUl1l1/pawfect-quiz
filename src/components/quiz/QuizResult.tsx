@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { Trophy, Medal, Lightbulb, Heart, Frown } from "lucide-react";
 import { rankBreeds, type BreedData, type MatchResult } from "@/lib/matching";
+import PawPrint from "@/components/quiz/PawPrint";
 import {
   GROUP_DESC,
   GROUP_KO,
@@ -52,7 +54,7 @@ export default function QuizResult({
   if (error)
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-4 p-8 text-center">
-        <span className="text-5xl">🙀</span>
+        <Frown className="size-12 text-muted-foreground" />
         <p className="text-muted-foreground">
           결과를 불러오지 못했어요. 잠시 후 다시 시도해주세요.
         </p>
@@ -66,11 +68,11 @@ export default function QuizResult({
     return (
       <div className="flex flex-1 flex-col items-center justify-center gap-4 p-8 text-center">
         <motion.span
-          className="text-6xl"
+          className="text-primary"
           animate={{ rotate: [0, -10, 10, -10, 0] }}
           transition={{ repeat: Infinity, duration: 1.2 }}
         >
-          🐾
+          <PawPrint size={56} />
         </motion.span>
         <p className="text-muted-foreground">나와 맞는 강아지를 찾는 중…</p>
       </div>
@@ -88,8 +90,8 @@ export default function QuizResult({
 
       {/* 1위 카드 */}
       <div className="flex w-full flex-col items-center gap-4 rounded-3xl border-2 border-primary/25 bg-card p-6 text-center shadow-sm">
-        <span className="text-sm font-semibold text-primary">
-          🥇 1위 · 매칭률 {first.similarity}%
+        <span className="flex items-center gap-1.5 text-sm font-semibold text-primary">
+          <Trophy className="size-4 text-amber-400" /> 1위 · 매칭률 {first.similarity}%
         </span>
         <button
           onClick={() =>
@@ -123,7 +125,7 @@ export default function QuizResult({
           variant={detailIdx === 0 ? "secondary" : "default"}
           onClick={() => setDetailIdx(detailIdx === 0 ? null : 0)}
         >
-          🐾 이 아이에 대해 더 알아보기
+          <PawPrint /> 이 아이에 대해 더 알아보기
         </Button>
       </div>
 
@@ -140,8 +142,9 @@ export default function QuizResult({
                 open ? "border-primary/40" : "border-border hover:border-primary/25"
               }`}
             >
-              <span className="text-xs font-medium text-muted-foreground">
-                {idx === 1 ? "🥈 2위" : "🥉 3위"} · {r.similarity}%
+              <span className="flex items-center gap-1 text-xs font-medium text-muted-foreground">
+                <Medal className={`size-3.5 ${idx === 1 ? "text-zinc-400" : "text-amber-700"}`} />
+                {idx === 1 ? "2위" : "3위"} · {r.similarity}%
               </span>
               <button
                 onClick={(e) => {
@@ -189,7 +192,7 @@ export default function QuizResult({
 
       {/* 공유하기 — 결과 화면의 핵심 CTA */}
       <Button size="lg" className="w-full" onClick={() => setShareOpen(true)}>
-        🐾 결과 공유하기
+        <PawPrint /> 결과 공유하기
       </Button>
 
       <div className="flex gap-3">
@@ -257,7 +260,9 @@ function BreedDetail({
       {/* 장점 / 미리 알아둘 점 — 전부 feature 점수에서 파생 (추측 없음) */}
       {good.length > 0 && (
         <div>
-          <p className="mb-2 text-sm font-semibold">💛 이런 점이 좋아요</p>
+          <p className="mb-2 flex items-center gap-1.5 text-sm font-semibold">
+            <Heart className="size-4 fill-rose-400 text-rose-400" /> 이런 점이 좋아요
+          </p>
           <div className="flex flex-wrap gap-1.5">
             {good.map((b) => (
               <span
@@ -272,7 +277,9 @@ function BreedDetail({
       )}
       {care.length > 0 && (
         <div>
-          <p className="mb-2 text-sm font-semibold">💡 미리 알아두세요</p>
+          <p className="mb-2 flex items-center gap-1.5 text-sm font-semibold">
+            <Lightbulb className="size-4 text-amber-500" /> 미리 알아두세요
+          </p>
           <div className="flex flex-wrap gap-1.5">
             {care.map((b) => (
               <span

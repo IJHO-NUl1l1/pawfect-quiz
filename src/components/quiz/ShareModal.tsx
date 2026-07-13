@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Script from "next/script";
 import { AnimatePresence, motion } from "framer-motion";
+import { Share2, Link2, Download, Check } from "lucide-react";
 import type { MatchResult } from "@/lib/matching";
 import { encodeAnswers, resultUrl, siteUrl } from "@/lib/share";
 
@@ -34,7 +35,13 @@ export default function ShareModal({
 
   const code = encodeAnswers(answers);
   const url = resultUrl(answers);
+  // 카카오 스크랩·OG용은 공개 canonical URL(siteUrl)이어야 한다.
   const imageUrl = `${siteUrl()}/r/${code}/image`;
+  // 다운로드·blob fetch는 현재 접속한 오리진에서 받아야 same-origin이 된다.
+  // (siteUrl이 다른 도메인을 가리키면 cross-origin이라 download 속성이 무시되고
+  //  브라우저가 이미지로 이동만 함 — localhost에서 나던 버그의 원인)
+  const localImageUrl =
+    typeof window !== "undefined" ? `${window.location.origin}/r/${code}/image` : imageUrl;
   const title = `나랑 찰떡인 강아지는 ${top.breed.nameKo}! (${top.similarity}%)`;
   const desc = "Pawfect Quiz로 나에게 맞는 강아지를 찾아보세요 🐶";
 
@@ -75,7 +82,7 @@ export default function ShareModal({
   // 이미지 파일 확보 (다운로드·Web Share 공용)
   async function getImageFile(): Promise<File | null> {
     try {
-      const res = await fetch(imageUrl);
+      const res = await fetch(localImageUrl);
       if (!res.ok) return null;
       const blob = await res.blob();
       return new File([blob], `pawfect-${top.breed.id}.png`, { type: "image/png" });
@@ -126,7 +133,7 @@ export default function ShareModal({
   // (async fetch를 거치면 Safari 등에서 사용자 제스처가 소실돼 다운로드가 막힐 수 있음)
   function saveImage() {
     const a = document.createElement("a");
-    a.href = imageUrl;
+    a.href = localImageUrl;
     a.download = `pawfect-${top.breed.id}.png`;
     document.body.appendChild(a);
     a.click();
@@ -184,18 +191,22 @@ export default function ShareModal({
                   disabled={busy}
                   className="flex items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
                 >
-                  <span className="text-lg">📤</span>
+                  <Share2 className="size-5" />
                   {busy ? "처리 중…" : "공유하기"}
                 </button>
 
                 {/* 보조 유틸 — 링크 복사 / 이미지 저장 */}
                 <div className="grid grid-cols-2 gap-3">
                   <ShareButton
-                    emoji="🔗"
+                    icon={copied ? <Check className="size-5" /> : <Link2 className="size-5" />}
                     label={copied ? "복사됐어요!" : "링크 복사"}
                     onClick={copyLink}
                   />
-                  <ShareButton emoji="⬇️" label="이미지 저장" onClick={saveImage} />
+                  <ShareButton
+                    icon={<Download className="size-5" />}
+                    label="이미지 저장"
+                    onClick={saveImage}
+                  />
                 </div>
               </div>
 
@@ -237,29 +248,26 @@ function KakaoButton({ disabled, onClick }: { disabled?: boolean; onClick: () =>
 }
 
 function ShareButton({
-  emoji,
+  icon,
   label,
   onClick,
   disabled,
   busy,
-  hint,
 }: {
-  emoji: string;
+  icon: ReactNode;
   label: string;
   onClick: () => void;
   disabled?: boolean;
   busy?: boolean;
-  hint?: string;
 }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled || busy}
-      className="flex flex-col items-center gap-1.5 rounded-2xl border-2 border-border bg-background p-4 transition-colors hover:border-primary/40 hover:bg-accent/50 disabled:cursor-not-allowed disabled:opacity-50"
+      className="flex flex-col items-center gap-1.5 rounded-2xl border-2 border-border bg-background p-4 text-primary transition-colors hover:border-primary/40 hover:bg-accent/50 disabled:cursor-not-allowed disabled:opacity-50"
     >
-      <span className="text-2xl">{emoji}</span>
-      <span className="text-sm font-medium">{busy ? "처리 중…" : label}</span>
-      {hint && <span className="text-[10px] text-muted-foreground">{hint}</span>}
+      {icon}
+      <span className="text-sm font-medium text-foreground">{busy ? "처리 중…" : label}</span>
     </button>
   );
 }

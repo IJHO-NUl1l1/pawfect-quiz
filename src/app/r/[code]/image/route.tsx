@@ -101,7 +101,7 @@ export async function GET(
           {`매칭률 ${top.similarity}%`}
         </div>
         <div style={{ display: "flex", fontSize: 32, color: "#a9906f", marginTop: 56 }}>
-          Pawfect Quiz · 나에게 맞는 강아지 찾기
+          Pawfect Quiz · 성향으로 찾는 나의 반려견
         </div>
       </div>
     ),

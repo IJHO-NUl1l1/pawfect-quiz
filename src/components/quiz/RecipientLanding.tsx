@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import type { MatchResult } from "@/lib/matching";
 import { Button } from "@/components/ui/button";
+import PawPrint from "@/components/quiz/PawPrint";
 
 const BLUR =
   "data:image/svg+xml;base64," +
@@ -24,7 +25,9 @@ export default function RecipientLanding({ top }: { top: MatchResult }) {
       animate={{ opacity: 1, y: 0 }}
       className="mx-auto flex w-full max-w-md flex-1 flex-col items-center justify-center gap-6 p-6 py-12 text-center"
     >
-      <p className="text-sm font-medium text-primary">🐾 친구가 찾은 강아지는</p>
+      <p className="flex items-center justify-center gap-1.5 text-sm font-medium text-primary">
+        <PawPrint size={16} /> 친구가 찾은 강아지는
+      </p>
 
       <div className="relative size-56 overflow-hidden rounded-3xl bg-muted shadow-sm sm:size-64">
         <Image
@@ -57,7 +60,7 @@ export default function RecipientLanding({ top }: { top: MatchResult }) {
       <div className="mt-2 flex w-full flex-col items-center gap-3">
         <p className="font-heading text-lg">나랑 찰떡인 강아지는 누구일까?</p>
         <Button size="lg" className="w-full" nativeButton={false} render={<Link href="/" />}>
-          🐶 나도 테스트하기
+          <PawPrint /> 나도 테스트하기
         </Button>
       </div>
     </motion.main>
