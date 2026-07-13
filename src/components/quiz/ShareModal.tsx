@@ -70,10 +70,13 @@ export default function ShareModal({
         imageHeight: 1200,
         link: { mobileWebUrl: url, webUrl: url },
       },
+      // 카드 탭·버튼 모두 티저(/r/{code}, "친구가 찾은 강아지는")로 보낸다.
+      // 티저 안의 "나도 테스트하기"가 퀴즈로 유도하는 funnel — 버튼이 홈으로 바로
+      // 가면 티저를 건너뛰므로, 목적지(결과 티저)에 맞춰 라벨도 "결과 보기"로 둔다.
       buttons: [
         {
-          title: "나도 테스트하기",
-          link: { mobileWebUrl: siteUrl(), webUrl: siteUrl() },
+          title: "결과 보기",
+          link: { mobileWebUrl: url, webUrl: url },
         },
       ],
     });
