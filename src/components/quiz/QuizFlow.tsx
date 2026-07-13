@@ -14,12 +14,12 @@ const variants = {
   exit: (dir: 1 | -1) => ({ x: dir * -60, opacity: 0 }),
 };
 
-/** 선택지별 발바닥 변주 — 라이트(작게) → 헤비(크게), 색·기울기·위치도 다르게 */
+/** 선택지별 발바닥 변주 — 라이트(작게) → 헤비(크게). 색은 브랜드 primary로 통일, 기울기·위치만 다르게 */
 const PAW_VARIANTS = [
-  { size: 20, rotate: -14, className: "right-4 text-chart-3" },
-  { size: 26, rotate: 10, className: "right-8 text-chart-2" },
-  { size: 32, rotate: -8, className: "right-5 text-chart-5" },
-  { size: 40, rotate: 14, className: "right-7 text-chart-1" },
+  { size: 28, rotate: -14, className: "right-4 text-primary" },
+  { size: 32, rotate: 10, className: "right-8 text-primary" },
+  { size: 36, rotate: -8, className: "right-5 text-primary" },
+  { size: 40, rotate: 14, className: "right-7 text-primary" },
 ];
 
 function OptionButton({
