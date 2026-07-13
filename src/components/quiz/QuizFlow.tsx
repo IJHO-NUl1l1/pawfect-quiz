@@ -14,10 +14,7 @@ const variants = {
   exit: (dir: 1 | -1) => ({ x: dir * -60, opacity: 0 }),
 };
 
-/**
- * 선택지별 발바닥 변주 — 라이트(작게) → 헤비(크게), 색·기울기·위치 모두 다르게.
- * selClass = 선택 시 하이라이트(테두리+배경)를 그 선지 발바닥 색과 통일.
- */
+// selClass = 선택 시 테두리+배경을 그 선지 발바닥 색과 통일
 const PAW_VARIANTS = [
   { size: 28, rotate: -14, pawClass: "right-4 text-chart-3", selClass: "border-chart-3 bg-chart-3/15" },
   { size: 32, rotate: 10, pawClass: "right-8 text-chart-2", selClass: "border-chart-2 bg-chart-2/15" },
@@ -51,7 +48,6 @@ function OptionButton({
       }`}
     >
       {label}
-      {/* 오른쪽 아래에서 올라오는 발바닥 (모바일은 탭/선택 시) */}
       <motion.span
         aria-hidden
         className={`pointer-events-none absolute bottom-0 ${paw.pawClass}`}
@@ -89,7 +85,6 @@ export default function QuizFlow() {
       next[step] = optionIdx;
       return next;
     });
-    // 선택 하이라이트(+발바닥)를 잠깐 보여준 뒤 자동으로 다음 문항
     setTimeout(() => {
       setDirection(1);
       setStep((s) => s + 1);
@@ -115,7 +110,6 @@ export default function QuizFlow() {
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col p-6">
-      {/* 상단: 이전 버튼 + 진행 표시 */}
       <div className="flex items-center gap-4">
         <button
           onClick={goBack}
@@ -128,6 +122,7 @@ export default function QuizFlow() {
         <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
           <motion.div
             className="h-full rounded-full bg-primary"
+            initial={{ width: 0 }}
             animate={{ width: `${((step + 1) / QUESTIONS.length) * 100}%` }}
             transition={{ type: "spring", stiffness: 120, damping: 20 }}
           />
@@ -137,7 +132,6 @@ export default function QuizFlow() {
         </span>
       </div>
 
-      {/* 문항 */}
       <div className="flex flex-1 flex-col justify-center">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div

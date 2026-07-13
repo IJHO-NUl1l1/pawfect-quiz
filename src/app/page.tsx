@@ -5,7 +5,6 @@ import PawPrint from "@/components/quiz/PawPrint";
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center gap-6 p-8 text-center">
-      {/* 브랜드 마크 — 이모지 대신 SVG라 모든 기기에서 동일하게 렌더된다 */}
       <span className="flex size-24 items-center justify-center rounded-full bg-primary/10 text-primary">
         <PawPrint size={48} />
       </span>

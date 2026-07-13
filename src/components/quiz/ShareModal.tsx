@@ -183,10 +183,9 @@ export default function ShareModal({
               </div>
 
               <div className="flex flex-col gap-3">
-                {/* 카카오톡 — 국내 1순위 채널. SDK 피드 카드(큰 이미지+CTA 버튼)라 시트 공유보다 품질이 높아 별도 유지 */}
+                {/* 카톡은 SDK 피드 카드 품질이 시트 공유보다 높아 별도 버튼으로 둔다 */}
                 <KakaoButton disabled={!KAKAO_KEY} onClick={shareKakao} />
 
-                {/* 공유하기 — OS 공유 시트 하나로 통합 (문자·인스타 스토리·기타 앱) */}
                 <button
                   onClick={shareSheet}
                   disabled={busy}
@@ -196,7 +195,6 @@ export default function ShareModal({
                   {busy ? "처리 중…" : "공유하기"}
                 </button>
 
-                {/* 보조 유틸 — 링크 복사 / 이미지 저장 */}
                 <div className="grid grid-cols-2 gap-3">
                   <ShareButton
                     icon={copied ? <Check className="size-5" /> : <Link2 className="size-5" />}
