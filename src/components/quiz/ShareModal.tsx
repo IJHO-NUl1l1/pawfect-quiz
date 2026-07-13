@@ -129,9 +129,22 @@ export default function ShareModal({
     setTimeout(() => URL.revokeObjectURL(href), 10_000);
   }
 
-  // 이미지 저장은 동일 출처(OG 라우트)라 blob fetch 없이 직접 앵커 다운로드가 가장 안정적이다.
-  // (async fetch를 거치면 Safari 등에서 사용자 제스처가 소실돼 다운로드가 막힐 수 있음)
-  function saveImage() {
+  // 모바일 브라우저(특히 iOS Safari)는 <a download>를 대부분 무시하고 이미지 화면으로
+  // 이동만 한다. 파일 공유가 되면(모바일 대부분) 공유 시트로 넘겨 '사진에 저장'을 쓰게 하고,
+  // 파일 공유가 없는 데스크톱에서만 same-origin 앵커 다운로드를 한다.
+  async function saveImage() {
+    setBusy(true);
+    const file = await getImageFile();
+    setBusy(false);
+    if (file && navigator.canShare?.({ files: [file] })) {
+      try {
+        // 캡션 없이 이미지만 — 시트에서 '사진에 저장' 선택 유도
+        await navigator.share({ files: [file] });
+      } catch {
+        /* 사용자가 시트에서 취소 */
+      }
+      return;
+    }
     const a = document.createElement("a");
     a.href = localImageUrl;
     a.download = `pawfect-${top.breed.id}.png`;
@@ -205,6 +218,7 @@ export default function ShareModal({
                   <ShareButton
                     icon={<Download className="size-5" />}
                     label="이미지 저장"
+                    busy={busy}
                     onClick={saveImage}
                   />
                 </div>
