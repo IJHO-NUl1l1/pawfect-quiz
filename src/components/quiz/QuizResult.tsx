@@ -110,7 +110,7 @@ export default function QuizResult({
           />
         </button>
         <div>
-          <h2 className="font-heading text-3xl">{first.breed.nameKo}</h2>
+          <h2 className="break-keep font-heading text-3xl">{first.breed.nameKo}</h2>
           {first.breed.nameKo !== first.breed.nameEn && (
             <p className="text-sm text-muted-foreground">{first.breed.nameEn}</p>
           )}
@@ -162,7 +162,7 @@ export default function QuizResult({
                   priority
                 />
               </button>
-              <p className="text-sm font-semibold leading-tight">{r.breed.nameKo}</p>
+              <p className="break-keep text-sm font-semibold leading-tight">{r.breed.nameKo}</p>
               <span className="text-[11px] text-muted-foreground">
                 {open ? "상세 닫기" : "눌러서 상세 보기"}
               </span>

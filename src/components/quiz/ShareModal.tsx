@@ -58,6 +58,9 @@ export default function ShareModal({
         title,
         description: desc,
         imageUrl,
+        // 세로형 카드(900×1200)임을 알려 카톡 피드에서 잘못 크롭되지 않게 한다.
+        imageWidth: 900,
+        imageHeight: 1200,
         link: { mobileWebUrl: url, webUrl: url },
       },
       buttons: [
@@ -81,37 +84,53 @@ export default function ShareModal({
     }
   }
 
-  async function shareImage() {
+  // 공유 시트 하나로 통합: 모바일이면 이미지+텍스트를 OS 시트로(문자·인스타 스토리·기타 앱),
+  // 파일 공유가 안 되는 데스크톱이면 링크 공유 시트 → 그마저 없으면 이미지 다운로드로 폴백.
+  async function shareSheet() {
     setBusy(true);
     const file = await getImageFile();
     setBusy(false);
-    // 모바일: 파일 공유 시트(인스타 스토리 등 선택 가능)
     if (file && navigator.canShare?.({ files: [file] })) {
       try {
         await navigator.share({ files: [file], text: `${title}\n${url}` });
+      } catch {
+        /* 사용자가 시트에서 취소 — 폴백 없음 */
+      }
+      return;
+    }
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text: desc, url });
         return;
       } catch {
-        /* 취소 시 폴백 없음 */
         return;
       }
     }
-    // 데스크톱 등: 이미지 다운로드
     if (file) downloadFile(file);
   }
 
   function downloadFile(file: File) {
+    const href = URL.createObjectURL(file);
     const a = document.createElement("a");
-    a.href = URL.createObjectURL(file);
+    a.href = href;
     a.download = file.name;
+    // Firefox는 DOM에 붙어 있어야 클릭이 다운로드로 이어진다.
+    document.body.appendChild(a);
     a.click();
-    URL.revokeObjectURL(a.href);
+    a.remove();
+    // 즉시 revoke하면 다운로드가 시작되기 전에 URL이 폐기돼 취소된다 → 다음 틱에 정리.
+    setTimeout(() => URL.revokeObjectURL(href), 10_000);
   }
 
-  async function saveImage() {
-    setBusy(true);
-    const file = await getImageFile();
-    setBusy(false);
-    if (file) downloadFile(file);
+  // 이미지 저장은 동일 출처(OG 라우트)라 blob fetch 없이 직접 앵커 다운로드가 가장 안정적이다.
+  // (async fetch를 거치면 Safari 등에서 사용자 제스처가 소실돼 다운로드가 막힐 수 있음)
+  function saveImage() {
+    const a = document.createElement("a");
+    a.href = imageUrl;
+    a.download = `pawfect-${top.breed.id}.png`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   }
 
   return (
@@ -155,17 +174,29 @@ export default function ShareModal({
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <ShareButton emoji="🔗" label={copied ? "복사됐어요!" : "링크 복사"} onClick={copyLink} />
-                <ShareButton
-                  emoji="💬"
-                  label="카카오톡"
-                  disabled={!KAKAO_KEY}
-                  hint={!KAKAO_KEY ? "준비 중" : undefined}
-                  onClick={shareKakao}
-                />
-                <ShareButton emoji="📷" label="인스타·기타" busy={busy} onClick={shareImage} />
-                <ShareButton emoji="⬇️" label="이미지 저장" busy={busy} onClick={saveImage} />
+              <div className="flex flex-col gap-3">
+                {/* 카카오톡 — 국내 1순위 채널. SDK 피드 카드(큰 이미지+CTA 버튼)라 시트 공유보다 품질이 높아 별도 유지 */}
+                <KakaoButton disabled={!KAKAO_KEY} onClick={shareKakao} />
+
+                {/* 공유하기 — OS 공유 시트 하나로 통합 (문자·인스타 스토리·기타 앱) */}
+                <button
+                  onClick={shareSheet}
+                  disabled={busy}
+                  className="flex items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+                >
+                  <span className="text-lg">📤</span>
+                  {busy ? "처리 중…" : "공유하기"}
+                </button>
+
+                {/* 보조 유틸 — 링크 복사 / 이미지 저장 */}
+                <div className="grid grid-cols-2 gap-3">
+                  <ShareButton
+                    emoji="🔗"
+                    label={copied ? "복사됐어요!" : "링크 복사"}
+                    onClick={copyLink}
+                  />
+                  <ShareButton emoji="⬇️" label="이미지 저장" onClick={saveImage} />
+                </div>
               </div>
 
               <button
@@ -179,6 +210,29 @@ export default function ShareModal({
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+/** 카카오 공식 심볼(말풍선) — 브랜드 가이드에 맞춘 노란 버튼용 */
+function KakaoLogo() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12 3.4c-4.97 0-9 3.18-9 7.11 0 2.54 1.68 4.77 4.2 6.03-.14.5-.9 3.1-.93 3.31 0 0-.02.16.08.22.1.06.22.01.22.01.29-.04 3.36-2.2 3.9-2.57.48.07.98.1 1.53.1 4.97 0 9-3.18 9-7.11 0-3.93-4.03-7.11-9-7.11z" />
+    </svg>
+  );
+}
+
+/** 카카오톡 공유 버튼 — 공식 노란색(#FEE500) + 심볼 (Kakao 브랜드 가이드) */
+function KakaoButton({ disabled, onClick }: { disabled?: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className="flex items-center justify-center gap-2 rounded-2xl bg-[#FEE500] py-3.5 font-medium text-[#191919] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+    >
+      <KakaoLogo />
+      카카오톡{disabled && <span className="text-xs opacity-60">(준비 중)</span>}
+    </button>
   );
 }
 

@@ -45,6 +45,10 @@ export async function GET(
   const [top] = rankBreeds(loadBreeds(), answers);
   const jua = await loadFont();
 
+  // 이름 길이에 따라 폰트 크기를 낮춰 긴 견종명이 뱃지·푸터와 겹치거나 잘리지 않게 한다.
+  const name = top.breed.nameKo;
+  const nameSize = name.length > 13 ? 58 : name.length > 9 ? 72 : 96;
+
   return new ImageResponse(
     (
       <div
@@ -70,8 +74,18 @@ export async function GET(
           height={620}
           style={{ borderRadius: 48, objectFit: "cover", margin: "36px 0" }}
         />
-        <div style={{ display: "flex", fontSize: 96, color: "#5a3e28", lineHeight: 1.1 }}>
-          {top.breed.nameKo}
+        <div
+          style={{
+            display: "flex",
+            maxWidth: 760,
+            fontSize: nameSize,
+            color: "#5a3e28",
+            lineHeight: 1.15,
+            // 한글은 어절(공백) 단위로만 줄바꿈 — "화이트"가 "화/이트"로 쪼개지는 것 방지
+            wordBreak: "keep-all",
+          }}
+        >
+          {name}
         </div>
         <div
           style={{

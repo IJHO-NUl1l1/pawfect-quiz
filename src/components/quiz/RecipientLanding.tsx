@@ -40,7 +40,7 @@ export default function RecipientLanding({ top }: { top: MatchResult }) {
       </div>
 
       <div>
-        <h1 className="font-heading text-4xl text-primary">{top.breed.nameKo}</h1>
+        <h1 className="break-keep font-heading text-4xl text-primary">{top.breed.nameKo}</h1>
         {top.breed.nameKo !== top.breed.nameEn && (
           <p className="mt-1 text-sm text-muted-foreground">{top.breed.nameEn}</p>
         )}
