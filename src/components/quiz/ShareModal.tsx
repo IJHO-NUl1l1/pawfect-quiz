@@ -35,17 +35,12 @@ export default function ShareModal({
 
   const code = encodeAnswers(answers);
   const url = resultUrl(answers);
-  // 카카오 스크랩·OG용은 공개 canonical URL(siteUrl)이어야 한다.
   const imageUrl = `${siteUrl()}/r/${code}/image`;
-  // 다운로드·blob fetch는 현재 접속한 오리진에서 받아야 same-origin이 된다.
-  // (siteUrl이 다른 도메인을 가리키면 cross-origin이라 download 속성이 무시되고
-  //  브라우저가 이미지로 이동만 함 — localhost에서 나던 버그의 원인)
   const localImageUrl =
     typeof window !== "undefined" ? `${window.location.origin}/r/${code}/image` : imageUrl;
   const title = `나랑 찰떡인 강아지는 ${top.breed.nameKo}! (${top.similarity}%)`;
   const desc = "Pawfect Quiz로 나에게 맞는 강아지를 찾아보세요 🐶";
 
-  // Kakao SDK 초기화 (키 있을 때만)
   useEffect(() => {
     if (KAKAO_KEY && window.Kakao && !window.Kakao.isInitialized())
       window.Kakao.init(KAKAO_KEY);
@@ -65,24 +60,19 @@ export default function ShareModal({
         title,
         description: desc,
         imageUrl,
-        // 세로형 카드(900×1200)임을 알려 카톡 피드에서 잘못 크롭되지 않게 한다.
         imageWidth: 900,
         imageHeight: 1200,
         link: { mobileWebUrl: url, webUrl: url },
       },
-      // 카드 탭·버튼 모두 티저(/r/{code}, "친구가 찾은 강아지는")로 보낸다.
-      // 티저 안의 "나도 테스트하기"가 퀴즈로 유도하는 funnel — 버튼이 홈으로 바로
-      // 가면 티저를 건너뛰므로, 목적지(결과 티저)에 맞춰 라벨도 "결과 보기"로 둔다.
       buttons: [
         {
-          title: "결과 보기",
+          title: "나도 테스트 하기",
           link: { mobileWebUrl: url, webUrl: url },
         },
       ],
     });
   }
 
-  // 이미지 파일 확보 (다운로드·Web Share 공용)
   async function getImageFile(): Promise<File | null> {
     try {
       const res = await fetch(localImageUrl);
@@ -94,8 +84,6 @@ export default function ShareModal({
     }
   }
 
-  // 공유 시트 하나로 통합: 모바일이면 이미지+텍스트를 OS 시트로(문자·인스타 스토리·기타 앱),
-  // 파일 공유가 안 되는 데스크톱이면 링크 공유 시트 → 그마저 없으면 이미지 다운로드로 폴백.
   async function shareSheet() {
     setBusy(true);
     const file = await getImageFile();
@@ -132,9 +120,6 @@ export default function ShareModal({
     setTimeout(() => URL.revokeObjectURL(href), 10_000);
   }
 
-  // 모바일 브라우저(특히 iOS Safari)는 <a download>를 대부분 무시하고 이미지 화면으로
-  // 이동만 한다. 파일 공유가 되면(모바일 대부분) 공유 시트로 넘겨 '사진에 저장'을 쓰게 하고,
-  // 파일 공유가 없는 데스크톱에서만 same-origin 앵커 다운로드를 한다.
   async function saveImage() {
     setBusy(true);
     const file = await getImageFile();
@@ -241,7 +226,6 @@ export default function ShareModal({
   );
 }
 
-/** 카카오 공식 심볼(말풍선) — 브랜드 가이드에 맞춘 노란 버튼용 */
 function KakaoLogo() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -250,7 +234,6 @@ function KakaoLogo() {
   );
 }
 
-/** 카카오톡 공유 버튼 — 공식 노란색(#FEE500) + 심볼 (Kakao 브랜드 가이드) */
 function KakaoButton({ disabled, onClick }: { disabled?: boolean; onClick: () => void }) {
   return (
     <button
