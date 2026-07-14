@@ -70,6 +70,54 @@ export function getBreedBadges(breed: BreedData): BreedBadge[] {
   ].map(({ text, kind }) => ({ text, kind }));
 }
 
+// "상상 일상" 서사 — 배지와 같은 추측 금지 원칙: 각 문장이 feature 값에 결정적으로 대응.
+// 견종에서 가장 극단적인(변별력 큰) 장면 4개를 골라 하루 순서(order)로 이어 한 문단을 만든다.
+const MID = 30;
+
+interface DayScene {
+  f: FeatureKey;
+  order: number;
+  high: string;
+  low: string;
+}
+
+const DAY_SCENES: DayScene[] = [
+  { f: "energy_level", order: 0,
+    high: "아침이 밝기 무섭게 침대 위로 뛰어올라 산책을 조릅니다.",
+    low: "아침엔 이불 속에서 함께 늦잠을 자며 느긋하게 하루를 엽니다." },
+  { f: "independence", order: 1,
+    high: "호기심이 많아 새 냄새만 나면 혼자 탐험을 떠나려 해요.",
+    low: "어딜 가든 당신 뒤를 졸졸 따라다니는 껌딱지예요." },
+  { f: "tolerates_alone", order: 2,
+    high: "당신이 없는 낮에도 의젓하게 혼자만의 시간을 보냅니다.",
+    low: "집을 비우면 문 앞에서 하염없이 당신을 기다려요." },
+  { f: "stranger_friendly", order: 3,
+    high: "초인종이 울리면 제일 먼저 달려나가 꼬리로 손님을 반깁니다.",
+    low: "낯선 손님이 오면 당신 뒤에 숨어 조심스레 살펴요." },
+  { f: "barking", order: 4,
+    high: "낯선 소리엔 우렁차게 짖어 온 집안에 알립니다.",
+    low: "웬만해선 짖지 않아 온종일 조용합니다." },
+  { f: "protective", order: 5,
+    high: "누가 다가오면 당신을 등 뒤로 감싸는 든든한 보디가드가 돼요.",
+    low: "경계심이 없어 누구에게나 배를 내보이며 발라당 누워요." },
+  { f: "intensity", order: 6,
+    high: "퇴근길 문소리에 온몸을 흔들며 폭발적으로 반겨줍니다.",
+    low: "반가워도 눈빛과 살랑이는 꼬리로만 은은하게 표현해요." },
+  { f: "cold_tolerance", order: 7,
+    high: "한겨울 눈밭에서도 신나서 뛰노는 추위 강자예요.",
+    low: "쌀쌀해지면 담요 속으로 파고드는 추위 타는 아이예요." },
+];
+
+/** 견종 feature에서 파생한 "이 아이와의 하루" 한 문단 */
+export function getBreedDayStory(breed: BreedData): string {
+  return DAY_SCENES.map((s) => ({ s, v: breed.features[s.f] }))
+    .sort((a, b) => Math.abs(b.v - MID) - Math.abs(a.v - MID))
+    .slice(0, 4)
+    .sort((a, b) => a.s.order - b.s.order)
+    .map(({ s, v }) => (v >= MID ? s.high : s.low))
+    .join(" ");
+}
+
 /** registry group 한글 표기 (7개 고정값 — 결정적 매핑) */
 export const GROUP_KO: Record<string, string> = {
   Companion: "반려견",

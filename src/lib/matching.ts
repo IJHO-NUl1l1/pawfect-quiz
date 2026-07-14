@@ -55,6 +55,7 @@ export interface BreedData {
     traits: string[];
     description: string;
     descriptionKo: string | null;
+    story: string | null;
     temperament: string | null;
     popularity: number | null;
   };

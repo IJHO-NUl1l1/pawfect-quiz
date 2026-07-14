@@ -1,12 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 import { QUESTIONS } from "@/data/questions";
 import PawPrint from "@/components/quiz/PawPrint";
 import QuizResult from "@/components/quiz/QuizResult";
 
 const AUTO_ADVANCE_MS = 350;
+
+// 진행 중 새로고침해도 답이 날아가지 않게 세션에 임시 저장 (완료 시 정리)
+const STORAGE_KEY = "pawfect-quiz-progress";
+type Progress = { step: number; answers: (number | null)[] };
+
+function loadProgress(): Progress | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const p = JSON.parse(sessionStorage.getItem(STORAGE_KEY) ?? "null") as Progress | null;
+    if (
+      !p ||
+      typeof p.step !== "number" ||
+      p.step < 0 ||
+      p.step > QUESTIONS.length ||
+      !Array.isArray(p.answers) ||
+      p.answers.length !== QUESTIONS.length
+    )
+      return null;
+    return p;
+  } catch {
+    return null;
+  }
+}
+
+function saveProgress(p: Progress) {
+  try {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+  } catch {}
+}
+
+function clearProgress() {
+  try {
+    sessionStorage.removeItem(STORAGE_KEY);
+  } catch {}
+}
 
 const variants = {
   enter: (dir: 1 | -1) => ({ x: dir * 60, opacity: 0 }),
@@ -74,8 +110,30 @@ export default function QuizFlow() {
   );
   const [direction, setDirection] = useState<1 | -1>(1);
   const [locked, setLocked] = useState(false);
+  // 세션에서 복원하기 전엔 저장하지 않도록 하는 게이트 (초기값 덮어쓰기 방지)
+  const [hydrated, setHydrated] = useState(false);
 
   const done = step >= QUESTIONS.length;
+
+  // 세션 진행상황을 마운트 후 1회 복원 — 지연 초기화는 SSR 하이드레이션 불일치를 일으킨다.
+  useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect */
+    const saved = loadProgress();
+    if (saved) {
+      setStep(saved.step);
+      setAnswers(saved.answers);
+    } else {
+      track("quiz_start");
+    }
+    setHydrated(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    if (done) clearProgress();
+    else saveProgress({ step, answers });
+  }, [hydrated, step, answers, done]);
 
   function select(optionIdx: number) {
     if (locked) return;
@@ -99,6 +157,8 @@ export default function QuizFlow() {
   }
 
   function restart() {
+    clearProgress();
+    track("quiz_start");
     setAnswers(Array(QUESTIONS.length).fill(null));
     setDirection(-1);
     setStep(0);

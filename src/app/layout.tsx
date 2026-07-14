@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Jua } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { siteUrl } from "@/lib/share";
+import Providers from "./providers";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,10 +22,15 @@ const jua = Jua({
   preload: false,
 });
 
+const title = "Pawfect Quiz — 성향으로 찾는 나의 반려견";
+const description = "재미있는 퀴즈로 내 라이프스타일에 딱 맞는 견종 Top 3를 찾아보세요!";
+
 export const metadata: Metadata = {
-  title: "Pawfect Quiz — 나에게 맞는 강아지 찾기",
-  description:
-    "재미있는 퀴즈로 내 라이프스타일에 맞는 견종 Top 3를 찾아보세요!",
+  metadataBase: new URL(siteUrl()),
+  title,
+  description,
+  openGraph: { title, description, type: "website", siteName: "Pawfect Quiz" },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({
@@ -35,7 +43,10 @@ export default function RootLayout({
       lang="ko"
       className={`${geistSans.variable} ${geistMono.variable} ${jua.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Providers>{children}</Providers>
+        <Analytics />
+      </body>
     </html>
   );
 }

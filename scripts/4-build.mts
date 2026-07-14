@@ -16,6 +16,7 @@ import path from "node:path";
 import { DATA_DIR, ROOT, readJson, writeJson } from "./util.mts";
 import { nameKo } from "./name-ko.mts";
 import { descKo } from "./desc-ko.mts";
+import { storyKo } from "./story-ko.mts";
 
 interface MergedBreed {
   id: string;
@@ -97,6 +98,7 @@ const breeds = merged.map((m) => {
       traits: g.personalityTraits,
       description: g.shortDescription,
       descriptionKo: descKo[m.id] ?? null,
+      story: storyKo[m.id] ?? null,
       temperament: m.dogapi?.temperament ?? null,
       popularity: g.popularity,
     },

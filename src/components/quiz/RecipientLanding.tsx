@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 import type { MatchResult } from "@/lib/matching";
 import { Button } from "@/components/ui/button";
 import PawPrint from "@/components/quiz/PawPrint";
@@ -13,11 +14,7 @@ const BLUR =
     '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="#ece3d6"/></svg>',
   );
 
-/**
- * 공유 링크(/r/[code])로 들어온 사람이 보는 티저 랜딩.
- * 공유한 사람의 1위 견종만 미리보기로 보여주고, 전체 결과·상세·재공유는 노출하지 않는다.
- * 핵심 CTA는 "나도 해보기" → 첫 화면(/)으로 유도.
- */
+
 export default function RecipientLanding({ top }: { top: MatchResult }) {
   return (
     <motion.main
@@ -59,7 +56,13 @@ export default function RecipientLanding({ top }: { top: MatchResult }) {
 
       <div className="mt-2 flex w-full flex-col items-center gap-3">
         <p className="font-heading text-lg">나랑 찰떡인 강아지는 누구일까?</p>
-        <Button size="lg" className="w-full" nativeButton={false} render={<Link href="/" />}>
+        <Button
+          size="lg"
+          className="w-full"
+          nativeButton={false}
+          render={<Link href="/" />}
+          onClick={() => track("recipient_cta", { breed: top.breed.id })}
+        >
           <PawPrint /> 나도 테스트하기
         </Button>
       </div>

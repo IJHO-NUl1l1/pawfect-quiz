@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, animate, motion, type Variants } from "framer-motion";
+import { track } from "@vercel/analytics";
 import { Trophy, Medal, Lightbulb, Heart, Frown } from "lucide-react";
 import { rankBreeds, type BreedData, type MatchResult } from "@/lib/matching";
 import PawPrint from "@/components/quiz/PawPrint";
@@ -11,6 +12,7 @@ import {
   GROUP_DESC,
   GROUP_KO,
   getBreedBadges,
+  getBreedDayStory,
   getBreedStats,
 } from "@/lib/breed-detail";
 import { Button } from "@/components/ui/button";
@@ -183,6 +185,7 @@ export default function QuizResult({
 }) {
   const [results, setResults] = useState<MatchResult[] | null>(null);
   const [error, setError] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
   const [analyzeDone, setAnalyzeDone] = useState(false);
   const [detailIdx, setDetailIdx] = useState<number | null>(null);
   const [zoom, setZoom] = useState<LightboxImage | null>(null);
@@ -200,6 +203,7 @@ export default function QuizResult({
         const ranked = rankBreeds(breeds, answers);
         preloadImages(ranked);
         setResults(ranked);
+        track("quiz_complete", { breed: ranked[0].breed.id });
       })
       .catch(() => {
         if (!cancelled) setError(true);
@@ -207,7 +211,12 @@ export default function QuizResult({
     return () => {
       cancelled = true;
     };
-  }, [answers]);
+  }, [answers, reloadKey]);
+
+  function retry() {
+    setError(false);
+    setReloadKey((k) => k + 1);
+  }
 
   const handleAnalyzeDone = useCallback(() => setAnalyzeDone(true), []);
 
@@ -218,9 +227,12 @@ export default function QuizResult({
         <p className="text-muted-foreground">
           결과를 불러오지 못했어요. 잠시 후 다시 시도해주세요.
         </p>
-        <Button variant="outline" onClick={onRestart}>
-          다시 해보기
-        </Button>
+        <div className="flex gap-3">
+          <Button onClick={retry}>다시 시도</Button>
+          <Button variant="outline" onClick={onRestart}>
+            처음부터
+          </Button>
+        </div>
       </div>
     );
 
@@ -287,6 +299,18 @@ export default function QuizResult({
         </Button>
       </motion.div>
 
+      <motion.div
+        variants={revealItem}
+        className="w-full rounded-3xl border-2 border-primary/15 bg-accent/40 p-6"
+      >
+        <p className="mb-3 flex items-center gap-1.5 font-heading text-base text-primary">
+          <PawPrint size={18} /> {first.breed.nameKo}와의 하루
+        </p>
+        <p className="text-[15px] leading-relaxed text-foreground/80">
+          {first.breed.meta.story ?? getBreedDayStory(first.breed)}
+        </p>
+      </motion.div>
+
       <motion.div variants={revealItem} className="grid w-full grid-cols-2 gap-3">
         {rest.map((r, i) => {
           const idx = i + 1;
@@ -341,13 +365,24 @@ export default function QuizResult({
             transition={{ duration: 0.25, ease: "easeOut" }}
             className="w-full overflow-hidden"
           >
-            <BreedDetail result={results[detailIdx]} onZoom={setZoom} />
+            <BreedDetail
+              result={results[detailIdx]}
+              onZoom={setZoom}
+              story={detailIdx !== 0}
+            />
           </motion.div>
         )}
       </AnimatePresence>
 
       <motion.div variants={revealItem} className="w-full">
-        <Button size="lg" className="w-full" onClick={() => setShareOpen(true)}>
+        <Button
+          size="lg"
+          className="w-full"
+          onClick={() => {
+            track("share_click", { breed: first.breed.id });
+            setShareOpen(true);
+          }}
+        >
           <PawPrint /> 결과 공유하기
         </Button>
       </motion.div>
@@ -375,9 +410,11 @@ export default function QuizResult({
 function BreedDetail({
   result,
   onZoom,
+  story,
 }: {
   result: MatchResult;
   onZoom: (img: LightboxImage) => void;
+  story?: boolean;
 }) {
   const { breed } = result;
   const badges = getBreedBadges(breed);
@@ -395,6 +432,15 @@ function BreedDetail({
       <motion.p variants={detailItem} className="font-heading text-lg">
         <span className="text-primary">{breed.nameKo}</span>는 어떤 아이일까요?
       </motion.p>
+
+      {story && (
+        <motion.p
+          variants={detailItem}
+          className="text-[15px] leading-relaxed text-foreground/80"
+        >
+          {breed.meta.story ?? getBreedDayStory(breed)}
+        </motion.p>
+      )}
 
       {/* 기본 정보 — 세 칸 라벨 줄 높이를 h-5로 통일해 값 정렬 맞춤 */}
       <motion.div variants={detailItem} className="grid grid-cols-3 gap-2 text-center">

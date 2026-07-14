@@ -3,6 +3,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Script from "next/script";
 import { AnimatePresence, motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 import { Share2, Link2, Download, Check } from "lucide-react";
 import type { MatchResult } from "@/lib/matching";
 import { encodeAnswers, resultUrl, siteUrl } from "@/lib/share";
@@ -47,6 +48,7 @@ export default function ShareModal({
   }, []);
 
   async function copyLink() {
+    track("share_channel", { channel: "copy" });
     await navigator.clipboard.writeText(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
@@ -54,6 +56,7 @@ export default function ShareModal({
 
   function shareKakao() {
     if (!window.Kakao?.isInitialized()) return;
+    track("share_channel", { channel: "kakao" });
     window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
@@ -85,6 +88,7 @@ export default function ShareModal({
   }
 
   async function shareSheet() {
+    track("share_channel", { channel: "sheet" });
     setBusy(true);
     const file = await getImageFile();
     setBusy(false);
@@ -121,6 +125,7 @@ export default function ShareModal({
   }
 
   async function saveImage() {
+    track("share_channel", { channel: "save" });
     setBusy(true);
     const file = await getImageFile();
     setBusy(false);

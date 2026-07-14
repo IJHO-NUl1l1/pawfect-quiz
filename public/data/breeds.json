@@ -35,6 +35,7 @@
       ],
       "description": "The Chihuahua is a tiny, vivacious companion with a huge personality and captivating charm.",
       "descriptionKo": "아주 작은 몸에 커다란 개성과 매력을 지닌 발랄한 반려견이에요.",
+      "story": "작은 몸에 커다란 배포를 지닌 치와와와의 하루는 늘 당신 곁에서 흘러가요. 무릎 위나 후드 속을 제일 좋아하고, 쌀쌀한 날엔 담요를 파고들죠. 작아도 겁은 없어서 낯선 기척이 나면 제일 먼저 앙칼지게 경고를 날립니다.",
       "temperament": "Alert, devoted, intelligent, confident, courageous, lively",
       "popularity": 5
     },
@@ -83,6 +84,7 @@
       ],
       "description": "The playful and sociable Siberian Husky is a friendly, medium-sized sled dog with striking eyes.",
       "descriptionKo": "장난기 많고 사교적인 중형 썰매견으로, 매혹적인 눈빛이 인상적이에요.",
+      "story": "썰매를 끌던 피가 흐르는 허스키와의 하루는 쉼 없이 달려요. 눈밭이든 어디든 지칠 줄 모르고 뛰고, 사람도 다른 개도 반갑게 맞이하죠. 짖음 대신 하울링으로 온 동네에 수다를 떨고, 혼자 두면 외로움을 크게 타는 정 많은 아이예요.",
       "temperament": "Friendly, outgoing, intelligent, alert, gentle, independent, energetic",
       "popularity": 5
     },
@@ -131,6 +133,7 @@
       ],
       "description": "Vivacious, loving Yorkshire Terriers boast a silky coat and a feisty terrier spirit.",
       "descriptionKo": "비단결 같은 털에 씩씩한 테리어 기질을 지닌, 활발하고 다정한 아이예요.",
+      "story": "공장의 쥐를 잡던 당찬 테리어 기질이 그대로 남은 요키와의 하루는 작지만 씩씩해요. 비단 같은 긴 털을 휘날리며 온 집을 순찰하고, 작은 몸으로도 겁 없이 낯선 소리에 앞장서죠. 활기가 넘쳐 잠시도 심심할 틈을 안 줍니다.",
       "temperament": "Confident, courageous, energetic, affectionate, alert, intelligent",
       "popularity": 5
     },
@@ -179,6 +182,7 @@
       ],
       "description": "The French Bulldog is a jovial, adaptable, and wise companion with charming bat ears.",
       "descriptionKo": "박쥐 귀가 매력 포인트! 쾌활하고 적응력 좋은 영리한 반려견이에요.",
+      "story": "박쥐 귀가 매력인 프렌치 불도그와의 하루는 느긋하고 다정해요. 격한 운동보다 소파에서 당신과 뒹구는 걸 좋아하고, 도시 아파트에도 척척 적응하죠. 곁을 무척 좋아해서 오래 혼자 있는 건 서운해하는 사람바라기예요.",
       "temperament": "Affectionate, playful, alert, adaptable, smart",
       "popularity": 5
     },
@@ -227,6 +231,7 @@
       ],
       "description": "The German Shepherd Dog is a wise, brave, and self-assured all-purpose worker.",
       "descriptionKo": "지혜롭고 용감하며 자신감 넘치는 만능 일꾼이에요.",
+      "story": "양치기에서 경찰·군견까지 못 하는 일이 없는 저먼 셰퍼드와의 하루는 늘 임무 수행 중이에요. 영리해서 뭐든 금방 배우고, 온 가족을 제 무리처럼 지키죠. 넘치는 에너지와 진지함을 함께 쏟을 상대를 만나면 세상 든든한 파트너가 됩니다.",
       "temperament": "Confident, courageous, intelligent, loyal, protective",
       "popularity": 5
     },
@@ -275,6 +280,7 @@
       ],
       "description": "Labrador Retrievers are sociable, dynamic, and amicable, making them perfect family companions.",
       "descriptionKo": "사교적이고 활동적이며 상냥해서 가족 반려견으로 완벽한 아이예요.",
+      "story": "어부의 그물을 물어 나르던 물개 같은 래브라도와의 하루는 활기와 물이 가득해요. 힘차게 흔드는 수달 꼬리로 물만 보면 뛰어들고, 아이든 다른 개든 누구와도 금세 친구가 되죠. 넓은 곳에서 실컷 뛰고 물어오기 놀이를 해줄수록 세상 행복한 아이예요.",
       "temperament": "Friendly, outgoing, energetic, intelligent, gentle, eager to please",
       "popularity": 5
     },
@@ -323,6 +329,7 @@
       ],
       "description": "The Dachshund is a vivacious, inquisitive, and amicable hound with a distinctive long and low silhouette.",
       "descriptionKo": "길고 낮은 실루엣이 트레이드마크인, 활발하고 호기심 많은 하운드예요.",
+      "story": "땅속 오소리를 쫓던 사냥꾼, 닥스훈트와의 하루는 코부터 바빠요. 낮고 긴 몸으로 구석구석 냄새를 파고들고, 수상한 기척엔 우렁차게 짖어 알리죠. 겁 없고 고집 있는 사냥개라 낯선 사람은 한 번 더 살피는 신중파예요.",
       "temperament": "Courageous, intelligent, independent, alert, playful, devoted",
       "popularity": 5
     },
@@ -371,6 +378,7 @@
       ],
       "description": "Golden Retrievers are devoted, clever, and friendly companions with a love for life and play.",
       "descriptionKo": "헌신적이고 영리하며 다정한, 삶과 놀이를 사랑하는 친구예요.",
+      "story": "사냥감을 회수하고 사람을 돕도록 길러진 골든 리트리버와의 하루는 다정함으로 넘쳐요. 누구를 만나든 꼬리부터 흔들며 반기고, 물어오기 놀이라면 하루 종일도 좋아하죠. 곁을 워낙 좋아해서 혼자 있는 시간만큼은 서운해하는 마음이 큰 아이예요.",
       "temperament": "Friendly, intelligent, devoted, confident, loyal, eager to please",
       "popularity": 5
     },
@@ -419,6 +427,7 @@
       ],
       "description": "The Beagle is a joyful, inquisitive hound, known for its friendly nature and adorable appearance.",
       "descriptionKo": "명랑하고 호기심 가득한 하운드로, 친근한 성격과 사랑스러운 외모가 매력이에요.",
+      "story": "토끼를 쫓던 후각 사냥꾼, 비글과의 하루는 코가 이끄는 대로 흘러가요. 바닥의 냄새 하나에 온 정신이 팔리고, 신나면 특유의 우렁찬 소리로 노래하듯 짖죠. 사람도 개도 좋아하지만, 매력적인 냄새 앞에선 '이리 와'가 잘 안 들리는 자유로운 영혼이에요.",
       "temperament": "Friendly, gentle, alert, outgoing, curious, energetic",
       "popularity": 5
     },
@@ -467,6 +476,7 @@
       ],
       "description": "The Bulldog: serene, amicable, and brave, with a distinctive appearance and loyal companionship.",
       "descriptionKo": "차분하고 상냥하고 용감한, 독특한 외모의 충실한 동반자예요.",
+      "story": "투우견의 후예지만 지금은 세상 순한 불도그와의 하루는 느릿느릿 평화로워요. 격한 운동보다 시원한 바닥에서 코를 골며 쉬는 걸 사랑하고, 곁을 떠나기 싫어 늘 당신 발치에 붙어 있죠. 처음 보는 사람에게도 순하게 다가가는 다정한 게으름뱅이예요.",
       "temperament": "Friendly, courageous, calm, docile, loyal",
       "popularity": 5
     },
@@ -515,6 +525,7 @@
       ],
       "description": "Miniature Poodles are intelligent, dynamic companions, known for their esteemed elegance and hypoallergenic curly coats.",
       "descriptionKo": "우아함과 곱슬곱슬한 저자극성 털을 지닌 영리하고 활동적인 아이예요.",
+      "story": "영리하기로 소문난 미니어처 푸들과의 하루는 머리 쓰는 재미로 가득해요. 새로운 트릭이든 놀이든 순식간에 배워 뽐내고, 곱슬곱슬한 털로 온 집을 우아하게 누비죠. 똑똑한 만큼 심심한 걸 싫어해서 함께 놀아줄수록 눈을 반짝이는 재간둥이예요.",
       "temperament": null,
       "popularity": 4
     },
@@ -563,6 +574,7 @@
       ],
       "description": "The Australian Shepherd is a brainy, tireless, and trainable herding dog perfect for active owners.",
       "descriptionKo": "지치지 않는 두뇌파 목양견 — 활동적인 보호자에게 딱이에요.",
+      "story": "목장을 누비던 일꾼, 오스트레일리안 셰퍼드와의 하루는 '오늘의 할 일'을 찾는 걸로 시작해요. 넘치는 에너지로 새든 강아지든 심지어 아이들까지 몰고 다니려 하고, 영리해서 새 과제를 주면 눈을 반짝이죠. 넓은 마당에서 몸과 머리를 실컷 쓸 상대가 필요한 열정파예요.",
       "temperament": "Intelligent, energetic, work-focused, loyal, devoted, athletic",
       "popularity": 4
     },
@@ -611,6 +623,7 @@
       ],
       "description": "The Great Dane, a reliable and amicable giant, excels as a tolerant and protective companion.",
       "descriptionKo": "믿음직하고 상냥한 거인으로, 너그럽고 든든한 동반자예요.",
+      "story": "'개들의 아폴로'라 불리는 거인, 그레이트 데인과의 하루는 크기만큼 다정해요. 멧돼지를 사냥하고 저택을 지키던 위엄이 있지만, 정작 본인은 당신 무릎에 올라오려는 대형 애교쟁이죠. 덩치에 걸맞은 넓은 공간과 곁을 지켜줄 사람만 있으면 세상 온순한 신사예요.",
       "temperament": "Friendly, gentle, confident, loyal, affectionate",
       "popularity": 4
     },
@@ -659,6 +672,7 @@
       ],
       "description": "The German Shorthaired Pointer is a compliant, amicable, and wise sporting dog, perfect for active families.",
       "descriptionKo": "순응적이고 상냥하며 영리한 스포팅 독 — 활동적인 가족에게 잘 맞아요.",
+      "story": null,
       "temperament": "Friendly, intelligent, energetic, eager to please, athletic",
       "popularity": 4
     },
@@ -707,6 +721,7 @@
       ],
       "description": "The Shetland Sheepdog, or Sheltie, is an intelligent, jovial, and vivacious herding dog from Scotland.",
       "descriptionKo": "스코틀랜드 출신의 영리하고 쾌활하며 활발한 목양견, 셸티예요.",
+      "story": null,
       "temperament": "Intelligent, loyal, alert, playful, gentle, eager to please",
       "popularity": 4
     },
@@ -755,6 +770,7 @@
       ],
       "description": "Standard Poodles are intelligent, dynamic companions with a proud, curly coat and exceptional versatility.",
       "descriptionKo": "당당한 곱슬 털과 뛰어난 다재다능함을 지닌 영리하고 활동적인 아이예요.",
+      "story": null,
       "temperament": null,
       "popularity": 4
     },
@@ -803,6 +819,7 @@
       ],
       "description": "The Shih Tzu is a sociable, loving companion, perfect for apartment living and great with children.",
       "descriptionKo": "사교적이고 애정 넘치는 반려견으로, 아파트 생활과 아이들과 잘 맞아요.",
+      "story": "황실의 무릎을 지키던 '사자개' 시츄와의 하루는 우아하고 다정해요. 격한 활동보다 곁에서 사랑받는 걸 좋아하고, 처음 보는 사람에게도 스스럼없이 다가가죠. 비단 같은 긴 털을 나풀거리며 온 집의 귀여움을 독차지하는 타고난 반려견이에요.",
       "temperament": "Affectionate, playful, outgoing, loyal",
       "popularity": 4
     },
@@ -851,6 +868,7 @@
       ],
       "description": "The Rottweiler is a self-assured, loving, and faithful guardian breed with a strong, imposing presence.",
       "descriptionKo": "자신감 있고 다정하며 충직한 수호견 — 강인하고 당당한 존재감이 있어요.",
+      "story": "로마 군단의 소몰이에서 정육점의 돈을 지키던 로트와일러와의 하루는 묵직하고 든든해요. 가족에겐 장난기 많은 곰 같지만, 낯선 이 앞에선 침착하게 거리를 두며 집을 지키죠. 힘과 자신감이 넘쳐 리더십 있는 보호자를 만나면 더없이 충직한 파수꾼이 됩니다.",
       "temperament": "Confident, loyal, courageous, calm, protective, affectionate",
       "popularity": 4
     },
@@ -899,6 +917,7 @@
       ],
       "description": "The Staffordshire Bull Terrier is a brave, intelligent, and affectionate companion with a strong, muscular build.",
       "descriptionKo": "용감하고 영리하며 애정 많은, 탄탄한 근육질의 동반자예요.",
+      "story": null,
       "temperament": "Courageous, intelligent, affectionate, loyal, confident, energetic",
       "popularity": 4
     },
@@ -947,6 +966,7 @@
       ],
       "description": "The Belgian Malinois is an intelligent, confident, and industrious herding breed with a strong work ethic.",
       "descriptionKo": "영리하고 자신감 넘치며 성실한, 투철한 직업 정신의 목양견이에요.",
+      "story": null,
       "temperament": "Intelligent, confident, energetic, loyal, alert, work-focused, protective",
       "popularity": 4
     },
@@ -995,6 +1015,7 @@
       ],
       "description": "The Samoyed is a friendly, adaptable working dog known for its perpetual smile and thick, white coat.",
       "descriptionKo": "한결같은 미소와 새하얀 풍성한 털의 친근하고 적응력 좋은 아이예요.",
+      "story": "'미소 짓는 썰매개' 사모예드와의 하루는 새하얀 웃음으로 환해요. 순록을 몰고 썰매를 끌던 활력으로 신나게 뛰놀고, 사람도 개도 반갑게 맞이하죠. 밤이면 가족과 붙어 자며 온기를 나누던 습관대로, 폭신한 털을 기대오는 다정한 아이예요.",
       "temperament": "Friendly, gentle, adaptable, alert, intelligent, playful",
       "popularity": 4
     },
@@ -1043,6 +1064,7 @@
       ],
       "description": "Pembroke Welsh Corgis are wise, vigilant, and loving herding dogs known for their lively and affectionate nature.",
       "descriptionKo": "지혜롭고 기민하며 애정 많은 목양견 — 활발하고 다정한 성격으로 유명해요.",
+      "story": "소의 발꿈치를 톡톡 몰던 짧은 다리의 일꾼, 코기와의 하루는 야무지고 바빠요. 낮은 몸으로 부지런히 온 집을 순찰하고, 영리해서 뭐든 금방 배우죠. 반가운 사람은 폭발적으로 환영하면서도, 수상하면 우렁차게 알리는 당찬 파수꾼이에요.",
       "temperament": "Intelligent, affectionate, alert, outgoing, playful",
       "popularity": 4
     },
@@ -1091,6 +1113,7 @@
       ],
       "description": "The Newfoundland is a gentle giant, known for its tolerance, dedication, and tender nature.",
       "descriptionKo": "너그럽고 헌신적이며 순한, 마음씨 착한 거인이에요.",
+      "story": null,
       "temperament": "Gentle, loyal, devoted, calm, intelligent",
       "popularity": 4
     },
@@ -1139,6 +1162,7 @@
       ],
       "description": "The Doberman Pinscher is brave, vigilant, and faithful, making them exceptional guardian dogs.",
       "descriptionKo": "용감하고 기민하며 충직한, 최고의 수호견이에요.",
+      "story": null,
       "temperament": "Intelligent, alert, loyal, energetic, confident",
       "popularity": 4
     },
@@ -1187,6 +1211,7 @@
       ],
       "description": "The Bichon Frise is a vivacious, inquisitive, and jovial companion with a plush, hypoallergenic coat.",
       "descriptionKo": "포근한 저자극성 털의 발랄하고 호기심 많고 쾌활한 친구예요.",
+      "story": null,
       "temperament": null,
       "popularity": 4
     },
@@ -1235,6 +1260,7 @@
       ],
       "description": "The tender, jovial Maltese is a captivating, affectionate companion with a luxurious silky coat.",
       "descriptionKo": "다정하고 명랑한 성격에 고급스러운 비단결 털을 지닌 매력적인 아이예요.",
+      "story": "2천 년 넘게 귀족의 무릎을 지켜온 말티즈와의 하루는 포근하고 애교로 가득해요. 눈처럼 흰 긴 털을 나풀거리며 당신 곁을 졸졸 따라다니고, 잠시도 떨어지기 싫어하죠. 작고 여려서 추운 날엔 품을 파고드는, 사랑받으려 태어난 아이예요.",
       "temperament": "Playful, gentle, affectionate, charming, fearless, alert, adaptable",
       "popularity": 4
     },
@@ -1283,6 +1309,7 @@
       ],
       "description": "The Miniature Schnauzer is a wise, compliant, and amicable small dog with a charming, human-like expression.",
       "descriptionKo": "지혜롭고 순응적이며 상냥한 소형견 — 사람 같은 표정이 매력이에요.",
+      "story": "독일 농장의 쥐를 잡던 야무진 슈나우저와의 하루는 씩씩하고 똑똑해요. 눈썹과 수염이 인상적인 얼굴로 온 집을 살피고, 영리해서 뭐든 금방 배우죠. 활기차면서도 혼자 있는 시간을 의젓하게 버틸 줄 아는 균형 잡힌 소형 만능견이에요.",
       "temperament": "Friendly, intelligent, alert, outgoing, energetic",
       "popularity": 4
     },
@@ -1331,6 +1358,7 @@
       ],
       "description": "The West Highland White Terrier is an entertaining, faithful, and joyful companion.",
       "descriptionKo": "유쾌하고 충실하며 명랑한 동반자예요.",
+      "story": null,
       "temperament": "Confident, alert, playful, loyal, independent",
       "popularity": 4
     },
@@ -1379,6 +1407,7 @@
       ],
       "description": "Cocker Spaniels are tender, joyful companions with big, dreamy eyes and a silky, wavy coat.",
       "descriptionKo": "크고 그윽한 눈망울과 부드러운 웨이브 털의 다정하고 명랑한 친구예요.",
+      "story": null,
       "temperament": "Friendly, affectionate, playful, intelligent, outgoing",
       "popularity": 4
     },
@@ -1427,6 +1456,7 @@
       ],
       "description": "The playful, captivating, and loving Pug makes a perfect companion with a charming personality and delightful expressions.",
       "descriptionKo": "장난기 많고 매력 넘치는 사랑둥이 — 익살스러운 표정이 일품이에요.",
+      "story": "중국 황제의 무릎을 독차지하던 퍼그와의 하루는 느긋하고 유쾌해요. '작은 몸에 가득한 매력'이라는 말처럼, 격한 운동보다 당신 곁에서 코를 골며 애교 부리는 걸 사랑하죠. 주름진 얼굴로 온 가족을 웃기는, 곁을 떠나기 싫어하는 사랑둥이예요.",
       "temperament": "Affectionate, playful, friendly, charming, adaptable",
       "popularity": 4
     },
@@ -1475,6 +1505,7 @@
       ],
       "description": "The Boston Terrier is a friendly, intelligent, and entertaining companion known as 'The American Gentleman.'",
       "descriptionKo": "'아메리칸 젠틀맨'이라 불리는 친근하고 영리하며 유쾌한 반려견이에요.",
+      "story": "턱시도를 차려입은 '미국 신사' 보스턴 테리어와의 하루는 유쾌한 장난으로 가득해요. 똘똘한 유머 감각으로 가족을 웃기고, 아이든 다른 개든 두루두루 잘 어울리죠. 도시 아파트에서도 제 할 일을 스스로 찾아 노는 명랑하고 독립적인 친구예요.",
       "temperament": "Friendly, intelligent, outgoing, playful",
       "popularity": 4
     },
@@ -1523,6 +1554,7 @@
       ],
       "description": "The Bernese Mountain Dog is a strong, serene, and benevolent working breed, perfect for families.",
       "descriptionKo": "강인하고 차분하며 인자한 사역견 — 가족과 함께하기 완벽해요.",
+      "story": null,
       "temperament": "Calm, gentle, loyal, intelligent, affectionate, good-natured",
       "popularity": 4
     },
@@ -1571,6 +1603,7 @@
       ],
       "description": "Pomeranians are vibrant, brave, and inquisitive companions with a lush coat and a big-dog demeanor.",
       "descriptionKo": "풍성한 털과 대형견 같은 당당함을 지닌 생기발랄하고 용감한 아이예요.",
+      "story": "큰 썰매개의 후예가 작아진 포메라니안과의 하루는 복슬복슬하고 당차요. 여우 같은 얼굴로 늘 미소 짓다가도, 수상한 기척엔 몸집보다 큰 목소리로 우렁차게 알리죠. 작아도 겁 없는 성격에 곁을 좋아해서 당신 무릎을 제일 안전한 자리로 여기는 아이예요.",
       "temperament": "Alert, intelligent, playful, confident, outgoing",
       "popularity": 4
     },
@@ -1619,6 +1652,7 @@
       ],
       "description": "The Weimaraner, a sleek, energetic, and friendly companion, is known for its distinctive silvery-gray coat.",
       "descriptionKo": "은회색 매끈한 털이 시그니처인 에너지 넘치고 친근한 동반자예요.",
+      "story": null,
       "temperament": "Energetic, intelligent, loyal, friendly, alert, courageous, athletic",
       "popularity": 4
     },
@@ -1667,6 +1701,7 @@
       ],
       "description": "The English Springer Spaniel is a friendly, energetic, and highly trainable sporting dog.",
       "descriptionKo": "친근하고 에너지 넘치며 훈련이 잘 되는 스포팅 독이에요.",
+      "story": null,
       "temperament": "Friendly, intelligent, energetic, eager to please, playful",
       "popularity": 4
     },
@@ -1715,6 +1750,7 @@
       ],
       "description": "Dalmatians are wise, stately, and sociable dogs known for their iconic spotted coats.",
       "descriptionKo": "아이코닉한 점박이 털의 지혜롭고 기품 있으며 사교적인 아이예요.",
+      "story": null,
       "temperament": "Energetic, outgoing, intelligent, alert, athletic",
       "popularity": 4
     },
@@ -1763,6 +1799,7 @@
       ],
       "description": "The Cavalier King Charles Spaniel is an elegant, loving, and tender companion dog.",
       "descriptionKo": "우아하고 사랑스러우며 다정한 반려견의 정석이에요.",
+      "story": null,
       "temperament": "Gentle, affectionate, intelligent, friendly, happy, playful",
       "popularity": 4
     },
@@ -1811,6 +1848,7 @@
       ],
       "description": "The Border Collie: an intelligent, vivacious, and loving herding dog, perfect for active, dedicated owners.",
       "descriptionKo": "영리하고 활발하며 다정한 목양견 — 활동적이고 헌신적인 보호자에게 딱이에요.",
+      "story": "세상에서 가장 똑똑한 일꾼, 보더 콜리와의 하루는 쉴 틈 없이 머리와 몸을 써요. 그 유명한 '허딩 아이'로 무엇이든 몰고 다니려 하고, 새 과제를 던지면 눈을 빛내며 순식간에 해내죠. 넘치는 에너지와 지능을 함께 쏟아줄 상대를 만나야 진가를 발휘하는 열정 천재예요.",
       "temperament": "Intelligent, energetic, alert, work-focused, loyal, eager to please",
       "popularity": 4
     },
@@ -1859,6 +1897,7 @@
       ],
       "description": "Boxers are playful, dynamic, and intelligent, making them excellent family companions and vigilant protectors.",
       "descriptionKo": "장난기 많고 역동적이며 영리한, 훌륭한 가족 반려견이자 든든한 보호자예요.",
+      "story": null,
       "temperament": "Playful, energetic, loyal, intelligent, friendly, alert",
       "popularity": 4
     },
@@ -1907,6 +1946,7 @@
       ],
       "description": "The vivacious and wise Standard Schnauzer is a brave, medium-sized, protective family companion.",
       "descriptionKo": "활발하고 지혜로운 중형견으로, 용감하게 가족을 지키는 동반자예요.",
+      "story": null,
       "temperament": "Intelligent, alert, energetic, loyal, protective, devoted",
       "popularity": 3
     },
@@ -1955,6 +1995,7 @@
       ],
       "description": "The Akita is a dignified, courageous, and loyal guardian with a striking appearance.",
       "descriptionKo": "품위 있고 용맹하며 충성스러운, 강렬한 인상의 수호견이에요.",
+      "story": null,
       "temperament": "Courageous, loyal, dignified, independent, protective, alert",
       "popularity": 3
     },
@@ -2003,6 +2044,7 @@
       ],
       "description": "The Russell Terrier is vibrant, vigilant, inquisitive, and always ready for action.",
       "descriptionKo": "생기 넘치고 기민하며 호기심 가득 — 언제나 액션할 준비가 된 아이예요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -2051,6 +2093,7 @@
       ],
       "description": "The Dogue de Bordeaux is a loyal, brave, and loving guardian with a powerful build and affectionate nature.",
       "descriptionKo": "강력한 체구와 다정한 마음을 지닌 충직하고 용감한 수호견이에요.",
+      "story": null,
       "temperament": "Loyal, affectionate, courageous, calm, protective, devoted",
       "popularity": 3
     },
@@ -2099,6 +2142,7 @@
       ],
       "description": "The Miniature Pinscher, playful and brave, is a spirited and esteemed companion dog.",
       "descriptionKo": "장난기 많고 용감한, 씩씩하고 기품 있는 반려견이에요.",
+      "story": null,
       "temperament": "Energetic, alert, confident, intelligent, courageous, fearless",
       "popularity": 3
     },
@@ -2147,6 +2191,7 @@
       ],
       "description": "The sociable, clever Nova Scotia Duck Tolling Retriever is an energetic, affectionate, and agile sporting breed.",
       "descriptionKo": "사교적이고 영리한 스포팅 독 — 에너지와 애정, 민첩함을 두루 갖췄어요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -2195,6 +2240,7 @@
       ],
       "description": "The Bullmastiff is a brave, faithful, and loving guardian, ideal for families seeking a protective companion.",
       "descriptionKo": "용감하고 충실하며 다정한 수호견 — 든든한 가족 지킴이를 찾는다면 딱이에요.",
+      "story": null,
       "temperament": "Loyal, protective, calm, courageous, affectionate, confident",
       "popularity": 3
     },
@@ -2243,6 +2289,7 @@
       ],
       "description": "The Giant Schnauzer is a loyal, vigilant, and teachable guardian dog with an imposing presence.",
       "descriptionKo": "충직하고 기민하며 배움이 빠른, 당당한 존재감의 수호견이에요.",
+      "story": null,
       "temperament": "Loyal, intelligent, alert, energetic, courageous, confident",
       "popularity": 3
     },
@@ -2291,6 +2338,7 @@
       ],
       "description": "The Airedale Terrier is intelligent, brave, and versatile, known as 'The King of Terriers.'",
       "descriptionKo": "'테리어의 왕'이라 불리는 영리하고 용감하며 다재다능한 아이예요.",
+      "story": null,
       "temperament": "Confident, intelligent, courageous, alert, energetic, outgoing",
       "popularity": 3
     },
@@ -2339,6 +2387,7 @@
       ],
       "description": "The English Cocker Spaniel is an alert, vivacious, and joyful sporting dog with a silky, wavy coat.",
       "descriptionKo": "기민하고 활발하며 명랑한 스포팅 독 — 부드러운 웨이브 털이 매력이에요.",
+      "story": null,
       "temperament": "Merry, affectionate, intelligent, energetic, playful, gentle, eager to please",
       "popularity": 3
     },
@@ -2387,6 +2436,7 @@
       ],
       "description": "The Mastiff is a colossal, brave, and benevolent guardian with a stately presence and unwavering loyalty.",
       "descriptionKo": "거대하고 용감하며 인자한 수호견 — 기품 있는 존재감과 한결같은 충성심이 있어요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -2435,6 +2485,7 @@
       ],
       "description": "The English Setter: a joyful, amicable, and relaxed sporting dog with stunning speckled coats.",
       "descriptionKo": "명랑하고 상냥하며 느긋한 스포팅 독 — 얼룩무늬 털이 아름다워요.",
+      "story": null,
       "temperament": "Friendly, gentle, affectionate, intelligent, energetic",
       "popularity": 3
     },
@@ -2483,6 +2534,7 @@
       ],
       "description": "The Shiba Inu is a spirited, alert, and dynamic Japanese companion dog.",
       "descriptionKo": "씩씩하고 기민하며 활동적인 일본 출신 반려견이에요.",
+      "story": null,
       "temperament": "Alert, confident, intelligent, independent, loyal, courageous",
       "popularity": 3
     },
@@ -2531,6 +2583,7 @@
       ],
       "description": "The Toy Poodle is a clever, self-assured, and nimble companion, perfect for families.",
       "descriptionKo": "영리하고 자신감 넘치며 재빠른, 가족에게 완벽한 반려견이에요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -2579,6 +2632,7 @@
       ],
       "description": "The American Eskimo Dog is adaptable, faithful, and wise, making a delightful and intelligent companion.",
       "descriptionKo": "적응력 좋고 충실하며 지혜로운, 사랑스럽고 영리한 동반자예요.",
+      "story": null,
       "temperament": "Intelligent, alert, friendly, playful, energetic, eager to please",
       "popularity": 3
     },
@@ -2627,6 +2681,7 @@
       ],
       "description": "The Brittany is an agile, intelligent, and playful sporting dog, perfect for active families and hunting enthusiasts.",
       "descriptionKo": "민첩하고 영리하며 장난기 많은 스포팅 독 — 활동적인 가족에게 잘 맞아요.",
+      "story": null,
       "temperament": "Intelligent, energetic, eager to please, friendly, athletic, happy",
       "popularity": 3
     },
@@ -2675,6 +2730,7 @@
       ],
       "description": "The Cardigan Welsh Corgi is a wise, faithful, and loving herding dog, perfect for families.",
       "descriptionKo": "지혜롭고 충실하며 다정한 목양견 — 가족과 함께하기 좋아요.",
+      "story": null,
       "temperament": "Affectionate, loyal, intelligent, alert, adaptable",
       "popularity": 3
     },
@@ -2723,6 +2779,7 @@
       ],
       "description": "The Belgian Tervuren: a bright, brave, and clever herding dog with an elegant and alert demeanor.",
       "descriptionKo": "총명하고 용감하며 영리한 목양견 — 우아하고 기민한 분위기가 있어요.",
+      "story": null,
       "temperament": "Intelligent, courageous, alert, loyal, energetic",
       "popularity": 3
     },
@@ -2771,6 +2828,7 @@
       ],
       "description": "The inquisitive, amicable Bloodhound excels at tracking scents and is a gentle, affectionate family companion.",
       "descriptionKo": "후각 추적의 달인이자 순하고 다정한 가족 반려견이에요.",
+      "story": null,
       "temperament": "Gentle, friendly, independent, alert, devoted, affectionate",
       "popularity": 3
     },
@@ -2819,6 +2877,7 @@
       ],
       "description": "The Anatolian Shepherd Dog is a loyal, autonomous, and imposing flock guardian.",
       "descriptionKo": "충직하고 독립적이며 당당한 가축 수호견이에요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -2867,6 +2926,7 @@
       ],
       "description": "The German Wirehaired Pointer is an eager, loving, and observant sporting breed.",
       "descriptionKo": "열정적이고 다정하며 관찰력 좋은 스포팅 독이에요.",
+      "story": null,
       "temperament": "Intelligent, energetic, loyal, affectionate, alert, eager to please",
       "popularity": 3
     },
@@ -2915,6 +2975,7 @@
       ],
       "description": "The Belgian Sheepdog is a resolute, intelligent herder with an elegant, muscular build and abundant black coat.",
       "descriptionKo": "결단력 있고 영리한 목양견 — 우아한 근육질 몸과 풍성한 검은 털이 특징이에요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -2963,6 +3024,7 @@
       ],
       "description": "The Gordon Setter is a brave, self-assured, and loving sporting dog.",
       "descriptionKo": "용감하고 자신감 넘치며 다정한 스포팅 독이에요.",
+      "story": null,
       "temperament": "Confident, loyal, affectionate, intelligent, eager to please, alert",
       "popularity": 3
     },
@@ -3011,6 +3073,7 @@
       ],
       "description": "The Italian Greyhound is an observant, vigilant, and jovial toy companion with elegant, slender lines.",
       "descriptionKo": "관찰력 좋고 기민하며 명랑한 토이 그룹 반려견 — 우아하고 날씬한 라인이 매력이에요.",
+      "story": null,
       "temperament": "Affectionate, gentle, playful, alert, intelligent",
       "popularity": 3
     },
@@ -3059,6 +3122,7 @@
       ],
       "description": "Brave, loving, and joyful, Border Terriers are hardy and affectionate companions with a distinctive otter-like head.",
       "descriptionKo": "용감하고 다정하며 명랑한, 수달 닮은 얼굴의 강단 있는 친구예요.",
+      "story": null,
       "temperament": "Affectionate, intelligent, alert, energetic, courageous, adaptable",
       "popularity": 3
     },
@@ -3107,6 +3171,7 @@
       ],
       "description": "The Flat-Coated Retriever is an entertaining, joyful, and positive companion with a forever-young spirit.",
       "descriptionKo": "언제나 소년 같은 마음을 지닌 유쾌하고 긍정적인 동반자예요.",
+      "story": null,
       "temperament": "Friendly, outgoing, optimistic, intelligent, energetic, playful, devoted",
       "popularity": 3
     },
@@ -3155,6 +3220,7 @@
       ],
       "description": "The Chinese Crested is a loving, vigilant, and vibrant companion with a unique hairless appearance.",
       "descriptionKo": "독특한 헤어리스 외모의 다정하고 기민하며 생기 넘치는 아이예요.",
+      "story": null,
       "temperament": "Affectionate, alert, playful, lively, intelligent, gentle",
       "popularity": 3
     },
@@ -3203,6 +3269,7 @@
       ],
       "description": "Dynamic and loving, the Portuguese Water Dog is a smart, easy-to-train, curly-coated companion.",
       "descriptionKo": "활동적이고 다정한 곱슬 털 친구 — 영리하고 훈련도 잘 돼요.",
+      "story": null,
       "temperament": "Intelligent, loyal, energetic, athletic, eager to please",
       "popularity": 3
     },
@@ -3251,6 +3318,7 @@
       ],
       "description": "Greyhounds are elegant, gentle sprinters with a noble presence and an independent spirit.",
       "descriptionKo": "기품 있는 우아한 스프린터 — 순하고 독립적인 성격이에요.",
+      "story": null,
       "temperament": "Gentle, calm, intelligent, affectionate, independent",
       "popularity": 3
     },
@@ -3299,6 +3367,7 @@
       ],
       "description": "The Old English Sheepdog is a wise, adaptable, and tender herding breed with a distinctive shaggy coat.",
       "descriptionKo": "복슬복슬한 털이 트레이드마크인 지혜롭고 순하며 적응력 좋은 목양견이에요.",
+      "story": null,
       "temperament": "Intelligent, gentle, playful, adaptable, affectionate",
       "popularity": 3
     },
@@ -3347,6 +3416,7 @@
       ],
       "description": "Saint Bernards are inquisitive, jovial giants known for their captivating, friendly nature and patience with children.",
       "descriptionKo": "호기심 많고 명랑한 거인 — 친근하고 아이들에게 인내심이 많아요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -3395,6 +3465,7 @@
       ],
       "description": "The joyful and vigilant Papillon is a small, amiable companion with distinctive butterfly-like ears.",
       "descriptionKo": "나비 날개 같은 귀가 매력인 명랑하고 기민한 소형 반려견이에요.",
+      "story": null,
       "temperament": "Friendly, intelligent, alert, energetic, happy",
       "popularity": 3
     },
@@ -3443,6 +3514,7 @@
       ],
       "description": "The serene and loving Whippet is a swift, low-maintenance, and affectionate companion.",
       "descriptionKo": "차분하고 다정한 스피드스터 — 손이 많이 가지 않는 애정꾼이에요.",
+      "story": null,
       "temperament": "Gentle, affectionate, calm, intelligent, playful",
       "popularity": 3
     },
@@ -3491,6 +3563,7 @@
       ],
       "description": "American Bulldogs are brave, faithful, and self-assured working dogs with great strength and agility.",
       "descriptionKo": "용감하고 충실하며 자신감 넘치는, 힘과 민첩성을 겸비한 사역견이에요.",
+      "story": null,
       "temperament": "Confident, loyal, protective, energetic, affectionate, courageous",
       "popularity": 3
     },
@@ -3539,6 +3612,7 @@
       ],
       "description": "The Rhodesian Ridgeback: a serene, stately, and loving hound with a distinctive back ridge.",
       "descriptionKo": "등의 리지(역모)가 시그니처인 차분하고 기품 있으며 다정한 하운드예요.",
+      "story": null,
       "temperament": "Loyal, intelligent, confident, independent, affectionate",
       "popularity": 3
     },
@@ -3587,6 +3661,7 @@
       ],
       "description": "American Staffordshire Terriers are wise, benevolent, and self-assured companions with a muscular build and confident gait.",
       "descriptionKo": "지혜롭고 인자하며 자신감 있는, 근육질 몸매의 당당한 동반자예요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -3635,6 +3710,7 @@
       ],
       "description": "The Scottish Terrier is a confident, vivacious, and autonomous breed with a vivid personality.",
       "descriptionKo": "자신감 넘치고 활발하며 독립적인, 개성 뚜렷한 아이예요.",
+      "story": null,
       "temperament": "Confident, independent, alert, intelligent, loyal",
       "popularity": 3
     },
@@ -3683,6 +3759,7 @@
       ],
       "description": "The Vizsla is a tender, vivacious, and loving sporting dog with a sleek golden-rust coat.",
       "descriptionKo": "황금빛 매끈한 털의 다정하고 활발하며 애정 넘치는 스포팅 독이에요.",
+      "story": null,
       "temperament": "Energetic, affectionate, gentle, intelligent, athletic",
       "popularity": 3
     },
@@ -3731,6 +3808,7 @@
       ],
       "description": "The Pekingese, a regal, loyal, and loving toy breed with a distinctive rolling gait and lion-like mane.",
       "descriptionKo": "사자 갈기 같은 털과 특유의 걸음걸이를 지닌 기품 있고 충성스러운 아이예요.",
+      "story": null,
       "temperament": "Loyal, independent, confident, courageous, affectionate, alert",
       "popularity": 3
     },
@@ -3779,6 +3857,7 @@
       ],
       "description": "The Great Pyrenees is a majestic, serene guardian, known for its strength, wisdom, and tolerance.",
       "descriptionKo": "강인함과 지혜, 너그러움을 지닌 장엄하고 차분한 수호견이에요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -3827,6 +3906,7 @@
       ],
       "description": "The Alaskan Malamute is a strong, loving, and jovial sled dog with a weatherproof coat and a dignified demeanor.",
       "descriptionKo": "강인하고 다정하며 명랑한 썰매견 — 어떤 날씨도 끄떡없는 털과 품위가 있어요.",
+      "story": null,
       "temperament": "Affectionate, friendly, loyal, playful, intelligent, energetic, outgoing",
       "popularity": 3
     },
@@ -3875,6 +3955,7 @@
       ],
       "description": "The Havanese is a cheerful, clever, and sociable companion with a silky coat and lively personality.",
       "descriptionKo": "비단결 털과 발랄한 성격의 쾌활하고 영리하며 사교적인 친구예요.",
+      "story": null,
       "temperament": "Outgoing, intelligent, friendly, playful, affectionate, adaptable",
       "popularity": 3
     },
@@ -3923,6 +4004,7 @@
       ],
       "description": "The Chinese Shar-Pei is a serene, autonomous, and faithful companion with unique physical traits.",
       "descriptionKo": "독특한 주름이 매력인 차분하고 독립적이며 충실한 동반자예요.",
+      "story": null,
       "temperament": "Loyal, independent, calm, alert, protective, intelligent",
       "popularity": 3
     },
@@ -3971,6 +4053,7 @@
       ],
       "description": "The Afghan Hound: an elegant, autonomous, and tender breed with a regal appearance and silky coat.",
       "descriptionKo": "왕족 같은 자태와 비단결 털의 우아하고 독립적이며 다정한 아이예요.",
+      "story": null,
       "temperament": "Independent, dignified, aloof, loyal, confident",
       "popularity": 3
     },
@@ -4019,6 +4102,7 @@
       ],
       "description": "The Basset Hound is a serene, captivating, and tolerant companion with a distinctively charming appearance.",
       "descriptionKo": "매력 만점 외모의 차분하고 너그러운 동반자예요.",
+      "story": null,
       "temperament": "Friendly, calm, gentle, loyal, independent, devoted",
       "popularity": 3
     },
@@ -4067,6 +4151,7 @@
       ],
       "description": "The Australian Cattle Dog is an energetic, clever herder with a loyal, persistent nature.",
       "descriptionKo": "에너지 넘치고 영리한 목축견 — 충직하고 끈기 있는 성격이에요.",
+      "story": null,
       "temperament": "Intelligent, alert, loyal, energetic, courageous",
       "popularity": 3
     },
@@ -4115,6 +4200,7 @@
       ],
       "description": "The Soft Coated Wheaten Terrier is a joyful, dedicated, and amicable terrier with a silky, wavy coat.",
       "descriptionKo": "부드러운 웨이브 털의 명랑하고 헌신적이며 상냥한 테리어예요.",
+      "story": null,
       "temperament": "Friendly, happy, intelligent, devoted, energetic",
       "popularity": 3
     },
@@ -4163,6 +4249,7 @@
       ],
       "description": "The Lhasa Apso is a regal, entertaining, and wise companion with a luxurious, silky coat.",
       "descriptionKo": "고급스러운 비단결 털의 기품 있고 유쾌하며 지혜로운 동반자예요.",
+      "story": null,
       "temperament": "Confident, independent, alert, loyal, smart, protective",
       "popularity": 3
     },
@@ -4211,6 +4298,7 @@
       ],
       "description": "The Chesapeake Bay Retriever is an intelligent, loving, and observant sporting dog with a waterproof, wavy coat.",
       "descriptionKo": "방수 웨이브 털을 지닌 영리하고 다정하며 관찰력 좋은 스포팅 독이에요.",
+      "story": null,
       "temperament": "Intelligent, courageous, loyal, protective, confident",
       "popularity": 3
     },
@@ -4259,6 +4347,7 @@
       ],
       "description": "Serene, faithful, and industrious, Pointers are graceful sporting dogs and loyal companions.",
       "descriptionKo": "차분하고 충실하며 성실한, 우아한 스포팅 독이자 충직한 동반자예요.",
+      "story": null,
       "temperament": "Intelligent, loyal, energetic, affectionate, even-tempered, adaptable",
       "popularity": 3
     },
@@ -4307,6 +4396,7 @@
       ],
       "description": "The elegant and dedicated Collie is a beloved, intelligent herding dog with a storied history.",
       "descriptionKo": "사랑받아온 유서 깊은 목양견 — 우아하고 헌신적이며 영리해요.",
+      "story": null,
       "temperament": null,
       "popularity": 3
     },
@@ -4355,6 +4445,7 @@
       ],
       "description": "The Bull Terrier is a playful, jovial, and captivating companion with a unique egg-shaped head.",
       "descriptionKo": "달걀 모양 머리가 유니크한 장난기 많고 명랑하며 매력 넘치는 친구예요.",
+      "story": null,
       "temperament": "Playful, energetic, courageous, confident, affectionate, outgoing",
       "popularity": 3
     },
@@ -4403,6 +4494,7 @@
       ],
       "description": "The serene and stately Irish Wolfhound is a brave, gentle giant, perfect for families.",
       "descriptionKo": "차분하고 기품 있는 용감한 순둥이 거인 — 가족과 함께하기 좋아요.",
+      "story": null,
       "temperament": "Gentle, calm, dignified, courageous, loyal",
       "popularity": 3
     },
@@ -4451,6 +4543,7 @@
       ],
       "description": "The Irish Setter: a sociable, dynamic, and tender sporting dog with a gorgeous red coat.",
       "descriptionKo": "화려한 붉은 털의 사교적이고 역동적이며 다정한 스포팅 독이에요.",
+      "story": null,
       "temperament": "Friendly, outgoing, energetic, intelligent, playful, affectionate",
       "popularity": 3
     },
@@ -4499,6 +4592,7 @@
       ],
       "description": "Stately and clever, the Cane Corso is a loving, powerful guardian.",
       "descriptionKo": "기품 있고 영리한, 애정 깊고 강력한 수호견이에요.",
+      "story": null,
       "temperament": "Confident, protective, intelligent, loyal, affectionate",
       "popularity": 3
     },
@@ -4547,6 +4641,7 @@
       ],
       "description": "The Chow Chow is a resolute, stately, and intelligent guardian with a dignified presence and unique charm.",
       "descriptionKo": "의연하고 기품 있으며 영리한 수호견 — 품위와 독특한 매력이 있어요.",
+      "story": null,
       "temperament": "Loyal, independent, aloof, alert, calm, protective",
       "popularity": 3
     },
@@ -4595,6 +4690,7 @@
       ],
       "description": "Cairn Terriers are dynamic, vigilant, and joyful small dogs, perfect for active, affectionate families.",
       "descriptionKo": "역동적이고 기민하며 명랑한 소형견 — 활동적이고 다정한 가족에게 딱이에요.",
+      "story": null,
       "temperament": "Alert, confident, friendly, intelligent, courageous, energetic",
       "popularity": 3
     },
@@ -4643,6 +4739,7 @@
       ],
       "description": "The Basenji is a small, autonomous, and wise hound known as Africa's 'Barkless Dog.'",
       "descriptionKo": "아프리카의 '짖지 않는 개'로 유명한 작고 독립적이며 지혜로운 하운드예요.",
+      "story": null,
       "temperament": "Independent, intelligent, alert, energetic, curious, affectionate",
       "popularity": 2
     },
@@ -4691,6 +4788,7 @@
       ],
       "description": "The Irish Water Spaniel is a brave, jovial, and industrious sporting dog with a distinctive curly coat.",
       "descriptionKo": "특유의 곱슬 털을 지닌 용감하고 명랑하며 성실한 스포팅 독이에요.",
+      "story": null,
       "temperament": "Intelligent, playful, alert, courageous, eager to please",
       "popularity": 2
     },
@@ -4739,6 +4837,7 @@
       ],
       "description": "The Polish Lowland Sheepdog is a vibrant, intelligent, and self-assured herding breed with a shaggy coat.",
       "descriptionKo": "덥수룩한 털의 생기 넘치고 영리하며 자신감 있는 목양견이에요.",
+      "story": null,
       "temperament": "Intelligent, confident, alert, loyal, energetic",
       "popularity": 2
     },
@@ -4787,6 +4886,7 @@
       ],
       "description": "Norwich Terriers are plucky, faithful, and inquisitive little companions with a big-dog attitude.",
       "descriptionKo": "작지만 대형견 마인드! 당차고 충실하며 호기심 많은 친구예요.",
+      "story": null,
       "temperament": "Alert, energetic, affectionate, courageous, outgoing",
       "popularity": 2
     },
@@ -4835,6 +4935,7 @@
       ],
       "description": "The vibrant, clever, and brave German Pinscher is a sleek, intelligent working dog.",
       "descriptionKo": "생기 넘치고 영리하며 용감한, 매끈한 몸매의 사역견이에요.",
+      "story": null,
       "temperament": "Alert, courageous, intelligent, energetic, confident, loyal",
       "popularity": 2
     },
@@ -4883,6 +4984,7 @@
       ],
       "description": "The Ibizan Hound is a courteous, sociable, and serene rabbit courser with a sleek, elegant body.",
       "descriptionKo": "매끈하고 우아한 몸의 정중하고 사교적이며 차분한 하운드예요.",
+      "story": null,
       "temperament": "Independent, intelligent, athletic, gentle, alert, playful",
       "popularity": 2
     },
@@ -4931,6 +5033,7 @@
       ],
       "description": "The elegant Saluki is a gentle, agile, and loyal hound with ancient, royal origins.",
       "descriptionKo": "고대 왕실 혈통의 우아한 하운드 — 순하고 민첩하며 충성스러워요.",
+      "story": null,
       "temperament": "Gentle, independent, intelligent, devoted, calm, reserved",
       "popularity": 2
     },
@@ -4979,6 +5082,7 @@
       ],
       "description": "The Boerboel is a serene, clever, and self-assured guardian devoted to protecting family and home.",
       "descriptionKo": "가족과 집을 지키는 데 헌신하는 차분하고 영리하며 자신감 있는 수호견이에요.",
+      "story": null,
       "temperament": "Confident, intelligent, loyal, protective, calm",
       "popularity": 2
     },
@@ -5027,6 +5131,7 @@
       ],
       "description": "The Bearded Collie is a vivacious, wise, and captivating herding dog with a shaggy, wavy coat.",
       "descriptionKo": "덥수룩한 웨이브 털의 활발하고 지혜로우며 매력 넘치는 목양견이에요.",
+      "story": null,
       "temperament": "Intelligent, energetic, playful, affectionate, alert, confident, outgoing",
       "popularity": 2
     },
@@ -5075,6 +5180,7 @@
       ],
       "description": "The Puli is a sociable, faithful, and wise herder with a distinctive corded coat.",
       "descriptionKo": "밧줄 같은 코드 털이 시그니처인 사교적이고 충실하며 지혜로운 목양견이에요.",
+      "story": null,
       "temperament": "Intelligent, energetic, loyal, alert, devoted, playful",
       "popularity": 2
     },
@@ -5123,6 +5229,7 @@
       ],
       "description": "The bold Lakeland Terrier is a zesty, brave, and self-assured small dog with a low-shedding, wiry coat.",
       "descriptionKo": "털 빠짐 적은 거친 털의 당차고 용감하며 자신감 넘치는 소형견이에요.",
+      "story": null,
       "temperament": "Confident, alert, courageous, intelligent, friendly, energetic",
       "popularity": 2
     },
@@ -5171,6 +5278,7 @@
       ],
       "description": "The serene, vigilant, and faithful Xoloitzcuintli is a smooth-skinned, ancient Aztec companion.",
       "descriptionKo": "고대 아즈텍부터 함께한 매끈한 피부의 차분하고 기민하며 충실한 동반자예요.",
+      "story": null,
       "temperament": null,
       "popularity": 2
     },
@@ -5219,6 +5327,7 @@
       ],
       "description": "The Welsh Springer Spaniel is a joyful, reticent, and positive medium-sized sporting dog with striking red and white coats.",
       "descriptionKo": "레드&화이트 털이 아름다운 명랑하고 점잖으며 긍정적인 중형 스포팅 독이에요.",
+      "story": null,
       "temperament": "Friendly, loyal, energetic, intelligent, affectionate, eager to please",
       "popularity": 2
     },
@@ -5267,6 +5376,7 @@
       ],
       "description": "The Borzoi is a stately, faithful, and loving sighthound known for its grace and speed.",
       "descriptionKo": "우아함과 스피드로 유명한 기품 있고 충실하며 다정한 사이트하운드예요.",
+      "story": null,
       "temperament": "Gentle, independent, calm, intelligent, affectionate",
       "popularity": 2
     },
@@ -5315,6 +5425,7 @@
       ],
       "description": "The Greater Swiss Mountain Dog is a reliable, sociable, and immensely strong working dog.",
       "descriptionKo": "믿음직하고 사교적이며 엄청난 힘을 지닌 사역견이에요.",
+      "story": null,
       "temperament": "Gentle, loyal, confident, alert, friendly",
       "popularity": 2
     },
@@ -5363,6 +5474,7 @@
       ],
       "description": "The Briard is a faithful, self-assured herding dog with a wavy, rough coat and wise demeanor.",
       "descriptionKo": "웨이브 진 거친 털과 지혜로운 분위기의 충실하고 자신감 있는 목양견이에요.",
+      "story": null,
       "temperament": "Loyal, intelligent, protective, confident, courageous, devoted",
       "popularity": 2
     },
@@ -5411,6 +5523,7 @@
       ],
       "description": "The Dutch Shepherd is a dynamic, clever, and vibrant herding dog, known for its loyalty and athleticism.",
       "descriptionKo": "충성심과 운동 능력으로 유명한 역동적이고 영리한 목양견이에요.",
+      "story": null,
       "temperament": "Intelligent, loyal, alert, energetic, athletic, work-focused, independent",
       "popularity": 2
     },
@@ -5459,6 +5572,7 @@
       ],
       "description": "The Wirehaired Pointing Griffon is a teachable, amicable, and dedicated gundog with a rugged, low-shedding coat.",
       "descriptionKo": "털 빠짐 적은 러프한 털의 배움 빠르고 상냥하며 헌신적인 사냥 파트너예요.",
+      "story": null,
       "temperament": "Friendly, intelligent, eager to please, loyal, energetic",
       "popularity": 2
     },
@@ -5507,6 +5621,7 @@
       ],
       "description": "The vibrant Petit Basset Griffon Vendéen is a joyful, shaggy French hound excelling in companionship and rabbit hunting.",
       "descriptionKo": "명랑하고 덥수룩한 프랑스 하운드 — 함께 있기 좋은 유쾌한 친구예요.",
+      "story": null,
       "temperament": null,
       "popularity": 2
     },
@@ -5555,6 +5670,7 @@
       ],
       "description": "The Lagotto Romagnolo is a relaxed, loving, and observant truffle-hunting dog with a curly, low-shedding coat.",
       "descriptionKo": "트러플 사냥꾼 출신! 털 빠짐 적은 곱슬 털의 느긋하고 다정한 아이예요.",
+      "story": null,
       "temperament": "Affectionate, intelligent, energetic, loyal, alert, work-focused",
       "popularity": 2
     },
@@ -5603,6 +5719,7 @@
       ],
       "description": "The Treeing Walker Coonhound is a brave, wise, and courteous hunter with boundless energy and charm.",
       "descriptionKo": "무한 에너지와 매력을 지닌 용감하고 지혜로우며 정중한 사냥개예요.",
+      "story": null,
       "temperament": "Intelligent, confident, friendly, energetic, courageous, alert",
       "popularity": 2
     },
@@ -5651,6 +5768,7 @@
       ],
       "description": "The Tibetan Terrier is a faithful, observant, and loving companion with a luxurious double coat.",
       "descriptionKo": "고급스러운 이중모의 충실하고 관찰력 좋으며 다정한 동반자예요.",
+      "story": null,
       "temperament": "Affectionate, intelligent, loyal, alert, playful",
       "popularity": 2
     },
@@ -5699,6 +5817,7 @@
       ],
       "description": "The Irish Terrier: a tender, brave, and elegant terrier with a fiery red coat and bold spirit.",
       "descriptionKo": "불타는 붉은 털과 대담한 기백의 다정하고 용감하며 우아한 테리어예요.",
+      "story": null,
       "temperament": "Courageous, loyal, intelligent, energetic, spirited",
       "popularity": 2
     },
@@ -5747,6 +5866,7 @@
       ],
       "description": "The Manchester Terrier (Standard) is an intelligent, observant, and vivacious terrier, perfect for active families.",
       "descriptionKo": "영리하고 관찰력 좋으며 활발한 테리어 — 활동적인 가족에게 잘 맞아요.",
+      "story": null,
       "temperament": null,
       "popularity": 2
     },
@@ -5795,6 +5915,7 @@
       ],
       "description": "The Finnish Spitz is a lively, golden-red companion known for its vibrant, vocal personality and fox-like appearance.",
       "descriptionKo": "여우 닮은 외모와 골든 레드 털의 활기차고 목소리 큰 개성파예요.",
+      "story": null,
       "temperament": "Friendly, alert, intelligent, independent, playful, courageous",
       "popularity": 2
     },
@@ -5843,6 +5964,7 @@
       ],
       "description": "The American Foxhound is a tender, relaxed, and autonomous hound, known for its speed and endurance.",
       "descriptionKo": "스피드와 지구력으로 유명한 다정하고 느긋하며 독립적인 하운드예요.",
+      "story": null,
       "temperament": "Independent, friendly, gentle, energetic, intelligent",
       "popularity": 2
     },
@@ -5891,6 +6013,7 @@
       ],
       "description": "The Neapolitan Mastiff is a massive, stately guardian known for its protective instincts and unique, wrinkled appearance.",
       "descriptionKo": "독특한 주름 외모와 보호 본능을 지닌 거대하고 기품 있는 수호견이에요.",
+      "story": null,
       "temperament": "Protective, loyal, calm, confident, affectionate",
       "popularity": 2
     },
@@ -5939,6 +6062,7 @@
       ],
       "description": "Graceful, lively, and protective, Bedlington Terriers are charming companions with a unique sheep-like appearance.",
       "descriptionKo": "양 닮은 유니크한 외모의 우아하고 활기차며 보호 본능 있는 친구예요.",
+      "story": null,
       "temperament": "Intelligent, affectionate, energetic, playful, courageous, alert",
       "popularity": 2
     },
@@ -5987,6 +6111,7 @@
       ],
       "description": "The Spinone Italiano is a sociable, compliant, and tolerant sporting dog with a rough, wire coat.",
       "descriptionKo": "거친 와이어 털의 사교적이고 순응적이며 너그러운 스포팅 독이에요.",
+      "story": null,
       "temperament": "Gentle, patient, loyal, intelligent, docile, affectionate",
       "popularity": 2
     },
@@ -6035,6 +6160,7 @@
       ],
       "description": "The Finnish Lapphund is a nimble, vigilant, and amicable herding dog with a luscious, weatherproof coat.",
       "descriptionKo": "어떤 날씨도 견디는 풍성한 털의 재빠르고 기민하며 상냥한 목양견이에요.",
+      "story": null,
       "temperament": "Friendly, alert, intelligent, calm, courageous, loyal, adaptable",
       "popularity": 2
     },
@@ -6083,6 +6209,7 @@
       ],
       "description": "The Norwegian Elkhound is a reliable, amicable, and self-assured hound with a dignified yet friendly demeanor.",
       "descriptionKo": "품위와 친근함을 겸비한 믿음직하고 상냥하며 자신감 있는 하운드예요.",
+      "story": null,
       "temperament": "Friendly, confident, energetic, loyal, independent",
       "popularity": 2
     },
@@ -6131,6 +6258,7 @@
       ],
       "description": "The Manchester Terrier (Toy) is observant, intelligent, and vivacious, perfect for an energetic companion.",
       "descriptionKo": "관찰력 좋고 영리하며 활발한, 에너지 넘치는 작은 동반자예요.",
+      "story": null,
       "temperament": "Alert, intelligent, spirited, devoted, playful",
       "popularity": 2
     },
@@ -6179,6 +6307,7 @@
       ],
       "description": "The Silky Terrier: a lively, affectionate, and alert small companion with a stunning silky coat.",
       "descriptionKo": "눈부신 비단결 털의 활기차고 다정하며 기민한 소형 반려견이에요.",
+      "story": null,
       "temperament": null,
       "popularity": 2
     },
@@ -6227,6 +6356,7 @@
       ],
       "description": "The Keeshond is a vibrant, sociable companion with striking 'spectacles' and a plush double coat.",
       "descriptionKo": "'안경' 무늬와 포근한 이중모가 매력인 생기 넘치고 사교적인 친구예요.",
+      "story": null,
       "temperament": "Friendly, intelligent, outgoing, alert, eager to please",
       "popularity": 2
     },
@@ -6275,6 +6405,7 @@
       ],
       "description": "The Welsh Terrier is a vivacious, clever, and amicable companion with a spirited yet calm demeanor.",
       "descriptionKo": "활발하고 영리하며 상냥한 — 씩씩하면서도 차분한 매력의 테리어예요.",
+      "story": null,
       "temperament": "Friendly, alert, intelligent, spirited, energetic, confident",
       "popularity": 2
     },
@@ -6323,6 +6454,7 @@
       ],
       "description": "The Leonberger is a gentle, jovial giant with a lush coat and a loving, family-friendly nature.",
       "descriptionKo": "풍성한 털의 순하고 명랑한 거인 — 애정 넘치는 가족견이에요.",
+      "story": null,
       "temperament": "Gentle, calm, loyal, friendly, intelligent, confident",
       "popularity": 2
     },
@@ -6371,6 +6503,7 @@
       ],
       "description": "The Affenpinscher is a brave, self-assured, and entertaining companion with a distinctive 'monkey-like' appearance.",
       "descriptionKo": "'원숭이 닮은 얼굴'이 매력인 용감하고 자신감 있으며 유쾌한 아이예요.",
+      "story": null,
       "temperament": "Confident, alert, playful, loyal, courageous",
       "popularity": 2
     },
@@ -6419,6 +6552,7 @@
       ],
       "description": "The Coton de Tulear is a joyful, intelligent, and captivating companion known for its cotton-like coat.",
       "descriptionKo": "솜사탕 같은 털로 유명한 명랑하고 영리하며 매력적인 동반자예요.",
+      "story": null,
       "temperament": "Happy, playful, affectionate, alert, friendly, intelligent, adaptable",
       "popularity": 2
     },
@@ -6467,6 +6601,7 @@
       ],
       "description": "The Irish Red and White Setter is resolute, brave, and vivacious, perfect for hunting and family life.",
       "descriptionKo": "결단력 있고 용감하며 활발한 — 사냥과 가족 생활 모두에 잘 맞아요.",
+      "story": null,
       "temperament": "Friendly, energetic, intelligent, courageous, devoted, gentle, eager to please",
       "popularity": 2
     },
@@ -6515,6 +6650,7 @@
       ],
       "description": "The Black and Tan Coonhound is a friendly, intelligent, and relaxed hunting breed.",
       "descriptionKo": "친근하고 영리하며 느긋한 사냥개 출신 친구예요.",
+      "story": null,
       "temperament": "Friendly, outgoing, intelligent, alert, adaptable, easygoing",
       "popularity": 2
     },
@@ -6563,6 +6699,7 @@
       ],
       "description": "The Catahoula Leopard Dog is a loyal, observant, and energetic working breed from Louisiana.",
       "descriptionKo": "루이지애나 출신의 충직하고 관찰력 좋으며 에너지 넘치는 사역견이에요.",
+      "story": null,
       "temperament": "Independent, intelligent, loyal, protective, energetic, work-focused",
       "popularity": 2
     },
@@ -6611,6 +6748,7 @@
       ],
       "description": "Bouvier des Flandres: Brave, loving, and stubborn; this powerful herding dog makes an excellent watchdog.",
       "descriptionKo": "용감하고 다정하지만 고집도 있는, 파워풀한 목양견이자 훌륭한 경비견이에요.",
+      "story": null,
       "temperament": "Loyal, intelligent, protective, courageous, calm, gentle",
       "popularity": 2
     },
@@ -6659,6 +6797,7 @@
       ],
       "description": "The Kuvasz is a brave, faithful, and tender working dog, known for its majestic white coat.",
       "descriptionKo": "장엄한 흰 털로 유명한 용감하고 충실하며 다정한 사역견이에요.",
+      "story": null,
       "temperament": "Loyal, protective, independent, courageous, intelligent, calm",
       "popularity": 2
     },
@@ -6707,6 +6846,7 @@
       ],
       "description": "The vivacious Australian Terrier is a loving, brave, and spirited small dog.",
       "descriptionKo": "사랑스럽고 용감하며 씩씩한 활기찬 소형견이에요.",
+      "story": null,
       "temperament": "Courageous, alert, friendly, loyal, intelligent",
       "popularity": 2
     },
@@ -6755,6 +6895,7 @@
       ],
       "description": "The Japanese Chin is a stately, captivating, and loving toy companion with an aristocratic, feline-like grace.",
       "descriptionKo": "고양이 같은 우아함을 지닌 기품 있고 매력적이며 다정한 토이 그룹 반려견이에요.",
+      "story": null,
       "temperament": "Alert, intelligent, affectionate, independent, playful, calm",
       "popularity": 2
     },
@@ -6803,6 +6944,7 @@
       ],
       "description": "The Redbone Coonhound is a serene, amicable, and compliant hound with a sleek red coat.",
       "descriptionKo": "매끈한 붉은 털의 차분하고 상냥하며 순응적인 하운드예요.",
+      "story": null,
       "temperament": "Friendly, loyal, eager to please, energetic, affectionate",
       "popularity": 2
     },
@@ -6851,6 +6993,7 @@
       ],
       "description": "The Australian Kelpie: energetic, clever, and faithful, perfect for tireless herding tasks.",
       "descriptionKo": "에너지 넘치고 영리하며 충실한 — 지칠 줄 모르는 목축의 달인이에요.",
+      "story": null,
       "temperament": "Intelligent, energetic, loyal, work-focused, alert",
       "popularity": 2
     },
@@ -6899,6 +7042,7 @@
       ],
       "description": "The Dogo Argentino is a dynamic, brave, and faithful working dog with a striking all-white coat.",
       "descriptionKo": "새하얀 털이 인상적인 역동적이고 용감하며 충실한 사역견이에요.",
+      "story": null,
       "temperament": "Courageous, loyal, protective, confident, intelligent, energetic",
       "popularity": 2
     },
@@ -6947,6 +7091,7 @@
       ],
       "description": "The Scottish Deerhound is a courteous, stately, and tender giant with a wire, rough coat.",
       "descriptionKo": "거칠고 억센 털의 정중하고 기품 있으며 순한 거인이에요.",
+      "story": null,
       "temperament": "Gentle, dignified, calm, loyal, friendly",
       "popularity": 2
     },
@@ -6995,6 +7140,7 @@
       ],
       "description": "The Tibetan Spaniel is a small, self-assured, and intelligent companion with a silky coat and expressive eyes.",
       "descriptionKo": "비단결 털과 그윽한 눈빛의 작지만 자신감 넘치는 영리한 동반자예요.",
+      "story": null,
       "temperament": "Intelligent, alert, independent, playful, confident, affectionate",
       "popularity": 2
     },
@@ -7043,6 +7189,7 @@
       ],
       "description": "The Toy Fox Terrier is an amicable, vigilant, and clever companion, packed with a lively, playful spirit.",
       "descriptionKo": "발랄한 장난기가 가득한 상냥하고 기민하며 영리한 반려견이에요.",
+      "story": null,
       "temperament": "Alert, intelligent, energetic, friendly, playful, loyal, outgoing",
       "popularity": 2
     },
@@ -7091,6 +7238,7 @@
       ],
       "description": "The Brussels Griffon is a small, faithful, and inquisitive companion with a big, charming personality.",
       "descriptionKo": "작은 몸에 큰 매력! 충실하고 호기심 많은 개성파 동반자예요.",
+      "story": null,
       "temperament": null,
       "popularity": 2
     },
@@ -7139,6 +7287,7 @@
       ],
       "description": "Rat Terriers are loving, inquisitive, and playful companions, perfect for active families.",
       "descriptionKo": "다정하고 호기심 많으며 장난기 넘치는 — 활동적인 가족에게 완벽해요.",
+      "story": null,
       "temperament": "Alert, intelligent, energetic, friendly, playful, loyal",
       "popularity": 2
     },
@@ -7187,6 +7336,7 @@
       ],
       "description": "The Schipperke is a self-assured, vigilant, and inquisitive small companion dog from Belgium.",
       "descriptionKo": "벨기에 출신의 자신감 있고 기민하며 호기심 많은 소형 반려견이에요.",
+      "story": null,
       "temperament": "Alert, confident, energetic, intelligent, independent, curious",
       "popularity": 2
     },
@@ -7235,6 +7385,7 @@
       ],
       "description": "The Curly-Coated Retriever is an intelligent, self-assured gundog known for its versatile abilities and distinctive curly coat.",
       "descriptionKo": "특유의 곱슬 털과 다재다능함을 지닌 영리하고 자신감 있는 아이예요.",
+      "story": null,
       "temperament": "Confident, intelligent, independent, loyal, energetic",
       "popularity": 2
     },
@@ -7283,6 +7434,7 @@
       ],
       "description": "The sociable Kerry Blue Terrier is a vigilant, wise watchdog with a striking, soft blue coat.",
       "descriptionKo": "매혹적인 블루 빛 부드러운 털의 기민하고 지혜로운 경비 능력자예요.",
+      "story": null,
       "temperament": "Alert, intelligent, loyal, playful, energetic, courageous",
       "popularity": 2
     },
@@ -7331,6 +7483,7 @@
       ],
       "description": "Norfolk Terriers are small, loyal, and playful, with a brave spirit and a love for adventure.",
       "descriptionKo": "작지만 용감한 모험가 — 충성스럽고 장난기 넘치는 친구예요.",
+      "story": null,
       "temperament": "Alert, courageous, affectionate, energetic, playful",
       "popularity": 2
     },
@@ -7379,6 +7532,7 @@
       ],
       "description": "The English Toy Spaniel is a tender, clever, and jovial lapdog with a royal heritage.",
       "descriptionKo": "왕실 혈통의 다정하고 영리하며 명랑한 무릎견이에요.",
+      "story": null,
       "temperament": null,
       "popularity": 1
     },
@@ -7427,6 +7581,7 @@
       ],
       "description": "The Dandie Dinmont Terrier is a dignified, wise, and autonomous small companion.",
       "descriptionKo": "품위 있고 지혜로우며 독립적인 작은 동반자예요.",
+      "story": null,
       "temperament": "Independent, intelligent, loyal, affectionate, confident, gentle",
       "popularity": 1
     },
@@ -7475,6 +7630,7 @@
       ],
       "description": "Courteous and relaxed, the Clumber Spaniel is an entertaining and amiable companion.",
       "descriptionKo": "정중하고 느긋한, 유쾌하고 상냥한 동반자예요.",
+      "story": null,
       "temperament": "Gentle, loyal, calm, intelligent, playful",
       "popularity": 1
     },
@@ -7523,6 +7679,7 @@
       ],
       "description": "The Komondor is a brave, stately, and faithful Hungarian flock guardian with a unique corded coat.",
       "descriptionKo": "밧줄 같은 코드 털이 유니크한 헝가리 출신의 용감하고 충실한 가축 수호견이에요.",
+      "story": null,
       "temperament": "Loyal, protective, independent, courageous, calm",
       "popularity": 1
     },
@@ -7571,6 +7728,7 @@
       ],
       "description": "Vivacious and clever, the American Leopard Hound is a versatile hunter and protective family companion.",
       "descriptionKo": "활발하고 영리한 다재다능 사냥꾼이자 가족을 지키는 든든한 동반자예요.",
+      "story": null,
       "temperament": "Intelligent, energetic, loyal, work-focused, protective, athletic",
       "popularity": 1
     },
@@ -7619,6 +7777,7 @@
       ],
       "description": "The Lancashire Heeler is a small, clever, and loving herding dog, always ready for adventure.",
       "descriptionKo": "언제나 모험할 준비가 된 작고 영리하며 다정한 목축견이에요.",
+      "story": null,
       "temperament": "Intelligent, alert, energetic, friendly, playful, courageous",
       "popularity": 1
     },
@@ -7667,6 +7826,7 @@
       ],
       "description": "The Plott Hound: a clever, faithful, and vigilant hunting dog with a striking brindle coat.",
       "descriptionKo": "인상적인 브린들 털의 영리하고 충실하며 기민한 사냥개예요.",
+      "story": null,
       "temperament": "Loyal, alert, courageous, intelligent, devoted",
       "popularity": 1
     },
@@ -7715,6 +7875,7 @@
       ],
       "description": "The German Spitz is a wise, dynamic, and devoted companion with a striking double coat.",
       "descriptionKo": "인상적인 이중모의 지혜롭고 활동적이며 헌신적인 동반자예요.",
+      "story": null,
       "temperament": "Alert, intelligent, confident, lively, devoted",
       "popularity": 1
     },
@@ -7763,6 +7924,7 @@
       ],
       "description": "The Alaskan Klee Kai is an alert, faithful, and clever small companion dog.",
       "descriptionKo": "기민하고 충실하며 영리한 소형 반려견이에요.",
+      "story": null,
       "temperament": "Alert, intelligent, energetic, loyal, curious, playful",
       "popularity": 1
     },
@@ -7811,6 +7973,7 @@
       ],
       "description": "The Bluetick Coonhound: a persistent, wise, and dedicated hunter with irresistible droopy-eared charm.",
       "descriptionKo": "처진 귀가 매력 만점인 끈기 있고 지혜로우며 헌신적인 사냥개예요.",
+      "story": null,
       "temperament": "Friendly, intelligent, loyal, devoted, work-focused",
       "popularity": 1
     },
@@ -7859,6 +8022,7 @@
       ],
       "description": "The Portuguese Podengo Pequeno is a vibrant, jovial, and captivating small hound.",
       "descriptionKo": "생기 넘치고 명랑하며 매력적인 소형 하운드예요.",
+      "story": null,
       "temperament": null,
       "popularity": 1
     },
@@ -7907,6 +8071,7 @@
       ],
       "description": "The Skye Terrier: an elegant, brave, and serene companion with a distinctive, long, low profile.",
       "descriptionKo": "길고 낮은 실루엣이 특징인 우아하고 용감하며 차분한 동반자예요.",
+      "story": null,
       "temperament": "Loyal, courageous, intelligent, calm, confident",
       "popularity": 1
     },
@@ -7955,6 +8120,7 @@
       ],
       "description": "The Azawakh is a loving, autonomous, and faithful West African sighthound.",
       "descriptionKo": "서아프리카 출신 사이트하운드 — 다정하고 독립적이며 충성스러워요.",
+      "story": null,
       "temperament": "Independent, loyal, alert, protective, affectionate, aloof",
       "popularity": 1
     },
@@ -8003,6 +8169,7 @@
       ],
       "description": "The Puggle is a delightful mix of Pug and Beagle, known for its friendly and playful personality.",
       "descriptionKo": "퍼그와 비글의 매력 믹스 — 친근하고 장난기 많은 성격으로 사랑받아요.",
+      "story": null,
       "temperament": "Friendly, playful, affectionate, outgoing, energetic, intelligent",
       "popularity": 5
     },
@@ -8051,6 +8218,7 @@
       ],
       "description": "The Chiweenie is a spunky mix of Chihuahua and Dachshund, known for its affectionate and spirited nature.",
       "descriptionKo": "치와와와 닥스훈트의 씩씩한 믹스 — 다정하고 활기찬 성격이 매력이에요.",
+      "story": null,
       "temperament": "Loyal, alert, playful, confident, energetic, affectionate",
       "popularity": 5
     },
@@ -8099,6 +8267,7 @@
       ],
       "description": "The Labradoodle is a friendly, energetic hybrid of the Labrador Retriever and Poodle.",
       "descriptionKo": "래브라도 리트리버와 푸들의 친근하고 에너지 넘치는 믹스예요.",
+      "story": null,
       "temperament": "Friendly, intelligent, energetic, gentle, outgoing, affectionate",
       "popularity": 5
     },
@@ -8147,6 +8316,7 @@
       ],
       "description": "The Goldendoodle is a cheerful, affectionate hybrid of the Golden Retriever and Poodle.",
       "descriptionKo": "골든 리트리버와 푸들의 쾌활하고 다정한 믹스예요.",
+      "story": null,
       "temperament": "Friendly, intelligent, gentle, affectionate, outgoing, playful",
       "popularity": 5
     },
@@ -8195,6 +8365,7 @@
       ],
       "description": "The Cockapoo is an affectionate and cheerful cross between a Cocker Spaniel and Poodle.",
       "descriptionKo": "코커 스패니얼과 푸들의 다정하고 명랑한 믹스예요.",
+      "story": null,
       "temperament": "Friendly, intelligent, affectionate, playful, outgoing",
       "popularity": 4
     },
@@ -8243,6 +8414,7 @@
       ],
       "description": "The Maltipoo is a cuddly, energetic mix of Maltese and Poodle, ideal for families and singles alike.",
       "descriptionKo": "말티즈와 푸들의 포근하고 활기찬 믹스 — 가족에게도 1인 가구에게도 좋아요.",
+      "story": null,
       "temperament": "Affectionate, friendly, intelligent, playful, gentle",
       "popularity": 4
     },
@@ -8291,6 +8463,7 @@
       ],
       "description": "The Pomsky is a playful and fluffy mix of Pomeranian and Siberian Husky, adored for its striking appearance.",
       "descriptionKo": "포메라니안과 시베리안 허스키의 장난기 많고 복슬복슬한 믹스 — 외모가 인상적이에요.",
+      "story": null,
       "temperament": "Playful, intelligent, energetic, alert, affectionate, loyal",
       "popularity": 5
     },
@@ -8339,6 +8512,7 @@
       ],
       "description": "The Yorkipoo is a lively and affectionate mix of Yorkshire Terrier and Poodle, perfect for small dog enthusiasts.",
       "descriptionKo": "요크셔 테리어와 푸들의 활기차고 다정한 믹스 — 소형견 팬에게 딱이에요.",
+      "story": null,
       "temperament": "Intelligent, affectionate, playful, energetic, confident",
       "popularity": 5
     },
@@ -8387,6 +8561,7 @@
       ],
       "description": "The Schnoodle is a versatile, intelligent mix of Schnauzer and Poodle, loved for its adaptable and friendly nature.",
       "descriptionKo": "슈나우저와 푸들의 다재다능하고 영리한 믹스 — 적응력 좋고 친근해요.",
+      "story": null,
       "temperament": "Intelligent, loyal, playful, alert, affectionate, devoted, energetic",
       "popularity": 4
     },
@@ -8435,6 +8610,7 @@
       ],
       "description": "The Cavapoo is a loving and playful mix of Cavalier King Charles Spaniel and Poodle, adored for its gentle nature.",
       "descriptionKo": "카발리에 킹 찰스 스패니얼과 푸들의 사랑스럽고 장난기 많은 믹스 — 순한 성격으로 사랑받아요.",
+      "story": null,
       "temperament": "Affectionate, intelligent, friendly, playful, gentle, outgoing",
       "popularity": 4
     },
@@ -8483,6 +8659,7 @@
       ],
       "description": "The Morkie is a spirited and affectionate mix of Maltese and Yorkshire Terrier, ideal for small dog lovers.",
       "descriptionKo": "말티즈와 요크셔 테리어의 씩씩하고 다정한 믹스 — 소형견 애호가에게 좋아요.",
+      "story": null,
       "temperament": "Affectionate, playful, alert, energetic, intelligent",
       "popularity": 5
     },
@@ -8531,6 +8708,7 @@
       ],
       "description": "The Aussiedoodle is a smart and energetic mix of Australian Shepherd and Poodle, perfect for active families.",
       "descriptionKo": "오스트레일리안 셰퍼드와 푸들의 영리하고 에너지 넘치는 믹스 — 활동적인 가족에게 딱이에요.",
+      "story": null,
       "temperament": "Intelligent, energetic, friendly, loyal, affectionate, playful",
       "popularity": 4
     },
@@ -8579,6 +8757,7 @@
       ],
       "description": "The Chorkie is a sassy and lovable mix of Chihuahua and Yorkshire Terrier, perfect for small dog lovers.",
       "descriptionKo": "치와와와 요크셔 테리어의 당돌하고 사랑스러운 믹스예요.",
+      "story": null,
       "temperament": "Alert, loyal, energetic, confident, affectionate, playful, intelligent",
       "popularity": 5
     },
@@ -8627,6 +8806,7 @@
       ],
       "description": "The Pitsky is a loyal and energetic mix of Pit Bull and Siberian Husky, ideal for active families.",
       "descriptionKo": "핏불과 시베리안 허스키의 충직하고 에너지 넘치는 믹스 — 활동적인 가족에게 잘 맞아요.",
+      "story": null,
       "temperament": "Energetic, loyal, intelligent, confident, playful",
       "popularity": 4
     },
@@ -8675,6 +8855,7 @@
       ],
       "description": "The Goldador is a gentle and hardworking mix of Golden Retriever and Labrador, known for its versatility.",
       "descriptionKo": "골든 리트리버와 래브라도의 순하고 성실한 믹스 — 다재다능함으로 유명해요.",
+      "story": null,
       "temperament": null,
       "popularity": 5
     },
@@ -8723,6 +8904,7 @@
       ],
       "description": "The Bernedoodle is a sweet and intelligent mix of Bernese Mountain Dog and Poodle, loved for its affectionate nature.",
       "descriptionKo": "버니즈 마운틴 독과 푸들의 스위트하고 영리한 믹스 — 다정한 성격으로 사랑받아요.",
+      "story": null,
       "temperament": "Intelligent, friendly, gentle, playful, affectionate, loyal",
       "popularity": 4
     },
@@ -8771,6 +8953,7 @@
       ],
       "description": "The Shorkie is a feisty and affectionate mix of Shih Tzu and Yorkshire Terrier, perfect for small-dog enthusiasts.",
       "descriptionKo": "시츄와 요크셔 테리어의 씩씩하고 다정한 믹스예요.",
+      "story": null,
       "temperament": "Affectionate, playful, intelligent, alert, loyal, confident",
       "popularity": 5
     },
@@ -8819,6 +9002,7 @@
       ],
       "description": "The Boxador is a friendly and energetic mix of Boxer and Labrador Retriever, ideal for active families.",
       "descriptionKo": "복서와 래브라도 리트리버의 친근하고 에너지 넘치는 믹스 — 활동적인 가족에게 좋아요.",
+      "story": null,
       "temperament": null,
       "popularity": 5
     },
@@ -8867,6 +9051,7 @@
       ],
       "description": "The Bullmatian is a spirited and loyal mix of Bulldog and Dalmatian, known for its playful personality.",
       "descriptionKo": "불도그와 달마시안의 활기차고 충직한 믹스 — 장난기 많은 성격으로 유명해요.",
+      "story": null,
       "temperament": null,
       "popularity": 5
     },
@@ -8915,6 +9100,7 @@
       ],
       "description": "The Doxiepoo is a quirky and affectionate mix of Dachshund and Poodle, loved for its unique personality.",
       "descriptionKo": "닥스훈트와 푸들의 엉뚱하고 다정한 믹스 — 유니크한 개성으로 사랑받아요.",
+      "story": null,
       "temperament": "Intelligent, playful, affectionate, loyal, alert",
       "popularity": 5
     },
@@ -8963,6 +9149,7 @@
       ],
       "description": "The Sheepadoodle is a friendly and intelligent mix of Old English Sheepdog and Poodle, adored for its affectionate temperament.",
       "descriptionKo": "올드 잉글리시 쉽독과 푸들의 친근하고 영리한 믹스 — 다정한 기질이 매력이에요.",
+      "story": null,
       "temperament": "Intelligent, playful, gentle, energetic, friendly, loyal",
       "popularity": 4
     },
@@ -9011,6 +9198,7 @@
       ],
       "description": "The Cheagle is a spirited and affectionate mix of Chihuahua and Beagle, known for its energetic charm.",
       "descriptionKo": "치와와와 비글의 씩씩하고 다정한 믹스 — 에너지 넘치는 매력이 있어요.",
+      "story": null,
       "temperament": null,
       "popularity": 5
     },
@@ -9059,6 +9247,7 @@
       ],
       "description": "The Springador is an energetic and loyal mix of Springer Spaniel and Labrador Retriever, perfect for active families.",
       "descriptionKo": "스프링어 스패니얼과 래브라도 리트리버의 에너지 넘치고 충직한 믹스예요.",
+      "story": null,
       "temperament": null,
       "popularity": 5
     },
@@ -9107,6 +9296,7 @@
       ],
       "description": "The Shihpoo is a sweet and playful mix of Shih Tzu and Poodle, loved for its affectionate nature.",
       "descriptionKo": "시츄와 푸들의 스위트하고 장난기 많은 믹스 — 다정한 성격으로 사랑받아요.",
+      "story": null,
       "temperament": "Affectionate, friendly, playful, intelligent, outgoing",
       "popularity": 4
     },
@@ -9155,6 +9345,7 @@
       ],
       "description": "The Bordoodle is a smart and energetic mix of Border Collie and Poodle, ideal for active and experienced dog owners.",
       "descriptionKo": "보더 콜리와 푸들의 영리하고 에너지 넘치는 믹스 — 활동적이고 경험 있는 보호자에게 좋아요.",
+      "story": null,
       "temperament": "Intelligent, energetic, loyal, playful, eager to please",
       "popularity": 4
     },
@@ -9203,6 +9394,7 @@
       ],
       "description": "The Cockalier is a gentle and loving mix of Cocker Spaniel and Cavalier King Charles Spaniel, adored for its sweet nature.",
       "descriptionKo": "코커 스패니얼과 카발리에 킹 찰스 스패니얼의 순하고 사랑스러운 믹스예요.",
+      "story": null,
       "temperament": null,
       "popularity": 4
     },
@@ -9251,6 +9443,7 @@
       ],
       "description": "The Cavachon is a charming and gentle mix of Cavalier King Charles Spaniel and Bichon Frise, perfect for families and singles.",
       "descriptionKo": "카발리에 킹 찰스 스패니얼과 비숑 프리제의 매력적이고 순한 믹스예요.",
+      "story": null,
       "temperament": null,
       "popularity": 4
     },
