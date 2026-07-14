@@ -4,45 +4,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { track } from "@vercel/analytics";
 import { QUESTIONS } from "@/data/questions";
+import { clearProgress, loadProgress, saveProgress } from "@/lib/quiz-progress";
 import PawPrint from "@/components/quiz/PawPrint";
 import QuizResult from "@/components/quiz/QuizResult";
 
 const AUTO_ADVANCE_MS = 350;
-
-// 진행 중 새로고침해도 답이 날아가지 않게 세션에 임시 저장 (완료 시 정리)
-const STORAGE_KEY = "pawfect-quiz-progress";
-type Progress = { step: number; answers: (number | null)[] };
-
-function loadProgress(): Progress | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const p = JSON.parse(sessionStorage.getItem(STORAGE_KEY) ?? "null") as Progress | null;
-    if (
-      !p ||
-      typeof p.step !== "number" ||
-      p.step < 0 ||
-      p.step > QUESTIONS.length ||
-      !Array.isArray(p.answers) ||
-      p.answers.length !== QUESTIONS.length
-    )
-      return null;
-    return p;
-  } catch {
-    return null;
-  }
-}
-
-function saveProgress(p: Progress) {
-  try {
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(p));
-  } catch {}
-}
-
-function clearProgress() {
-  try {
-    sessionStorage.removeItem(STORAGE_KEY);
-  } catch {}
-}
 
 const variants = {
   enter: (dir: 1 | -1) => ({ x: dir * 60, opacity: 0 }),
@@ -129,11 +95,10 @@ export default function QuizFlow() {
     /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
+  // 완료(결과) 상태까지 저장 → 결과 화면에서 새로고침해도 유지. 새로 시작은 홈 버튼/다시하기가 정리.
   useEffect(() => {
-    if (!hydrated) return;
-    if (done) clearProgress();
-    else saveProgress({ step, answers });
-  }, [hydrated, step, answers, done]);
+    if (hydrated) saveProgress({ step, answers });
+  }, [hydrated, step, answers]);
 
   function select(optionIdx: number) {
     if (locked) return;

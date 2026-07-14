@@ -9,12 +9,6 @@ export interface LightboxImage {
   alt: string;
 }
 
-/**
- * 사진 확대 라이트박스.
- * - 반투명 회색 배경, 배경 클릭 시 닫힘
- * - 우측 상단 X 버튼, ESC 키로도 닫힘
- * - 모바일/데스크톱 반응형 (뷰포트에 맞춰 최대 크기 제한)
- */
 export default function Lightbox({
   image,
   onClose,

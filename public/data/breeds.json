@@ -672,7 +672,7 @@
       ],
       "description": "The German Shorthaired Pointer is a compliant, amicable, and wise sporting dog, perfect for active families.",
       "descriptionKo": "순응적이고 상냥하며 영리한 스포팅 독 — 활동적인 가족에게 잘 맞아요.",
-      "story": null,
+      "story": "들판과 물을 가리지 않는 만능 사냥개, 저먼 쇼트헤어드 포인터와의 하루는 에너지로 폭발해요. 지칠 줄 모르고 뛰고 헤엄치며, 영리해서 뭐든 척척 배우죠. 넓은 곳에서 실컷 몸을 쓰고 가족과 함께할수록 행복한 열정 가득한 파트너예요.",
       "temperament": "Friendly, intelligent, energetic, eager to please, athletic",
       "popularity": 4
     },
@@ -721,7 +721,7 @@
       ],
       "description": "The Shetland Sheepdog, or Sheltie, is an intelligent, jovial, and vivacious herding dog from Scotland.",
       "descriptionKo": "스코틀랜드 출신의 영리하고 쾌활하며 활발한 목양견, 셸티예요.",
-      "story": null,
+      "story": "스코틀랜드 셰틀랜드 섬의 양치기, 셔틀랜드 쉽독과의 하루는 영리하고 상냥해요. 작은 콜리처럼 풍성한 털을 나부끼며 온 가족을 살뜰히 챙기고, 눈치가 빨라 뭐든 금세 배우죠. 아이에게도 손님에게도 다정하면서 집안을 야무지게 살피는 친구예요.",
       "temperament": "Intelligent, loyal, alert, playful, gentle, eager to please",
       "popularity": 4
     },
@@ -917,7 +917,7 @@
       ],
       "description": "The Staffordshire Bull Terrier is a brave, intelligent, and affectionate companion with a strong, muscular build.",
       "descriptionKo": "용감하고 영리하며 애정 많은, 탄탄한 근육질의 동반자예요.",
-      "story": null,
+      "story": "투견의 역사를 딛고 다정한 가족견이 된 스태퍼드셔 불 테리어와의 하루는 힘차고 애정이 넘쳐요. 단단한 근육질 몸으로 씩씩하게 놀다가도, 아이들 앞에선 한없이 참을성 있는 '보모견'이 되죠. 가족을 향한 사랑과 용기가 가득한, 겉보기와 다른 순둥이예요.",
       "temperament": "Courageous, intelligent, affectionate, loyal, confident, energetic",
       "popularity": 4
     },
@@ -966,7 +966,7 @@
       ],
       "description": "The Belgian Malinois is an intelligent, confident, and industrious herding breed with a strong work ethic.",
       "descriptionKo": "영리하고 자신감 넘치며 성실한, 투철한 직업 정신의 목양견이에요.",
-      "story": null,
+      "story": "경찰견·군견으로 세계가 찾는 벨기에의 일꾼, 말리노이즈와의 하루는 한순간도 멈추지 않아요. 넘치는 에너지와 집중력으로 임무를 찾아 나서고, 영리해서 어려운 훈련도 즐기듯 해내죠. 몸과 머리를 끝까지 쏟을 상대를 만나야 진가를 발휘하는 최고의 파트너예요.",
       "temperament": "Intelligent, confident, energetic, loyal, alert, work-focused, protective",
       "popularity": 4
     },
@@ -1113,7 +1113,7 @@
       ],
       "description": "The Newfoundland is a gentle giant, known for its tolerance, dedication, and tender nature.",
       "descriptionKo": "너그럽고 헌신적이며 순한, 마음씨 착한 거인이에요.",
-      "story": null,
+      "story": "어부와 함께 물에서 사람을 구하던 거인, 뉴펀들랜드와의 하루는 크기만큼 온화해요. 물을 사랑하는 타고난 구조견답게 헤엄을 즐기고, 아이들을 제 새끼처럼 지키는 다정한 보모가 되죠. 곁을 무척 좋아해서 가족과 붙어 있을 때 가장 행복한 순한 거인이에요.",
       "temperament": "Gentle, loyal, devoted, calm, intelligent",
       "popularity": 4
     },
@@ -1162,7 +1162,7 @@
       ],
       "description": "The Doberman Pinscher is brave, vigilant, and faithful, making them exceptional guardian dogs.",
       "descriptionKo": "용감하고 기민하며 충직한, 최고의 수호견이에요.",
-      "story": null,
+      "story": "보디가드를 위해 태어난 도베르만과의 하루는 늘 곁을 지키는 경계 근무 중이에요. 매끈한 근육질 몸으로 우아하게 움직이며, 영리해서 뭐든 빠르게 배우죠. 가족에겐 충직하고 다정하지만 낯선 기척엔 누구보다 먼저 반응하는 든든한 파수꾼이에요.",
       "temperament": "Intelligent, alert, loyal, energetic, confident",
       "popularity": 4
     },
@@ -1358,7 +1358,7 @@
       ],
       "description": "The West Highland White Terrier is an entertaining, faithful, and joyful companion.",
       "descriptionKo": "유쾌하고 충실하며 명랑한 동반자예요.",
-      "story": null,
+      "story": "스코틀랜드 고원에서 여우와 쥐를 쫓던 사냥꾼, 웨스티와의 하루는 인형 같은 외모 속에 당찬 기질이 숨어 있어요. 새하얀 털을 휘날리며 씩씩하게 온 집을 순찰하고, 겁 없이 낯선 소리에 앞장서죠. 작아도 진짜 워킹 테리어라 활기와 용기가 넘치는 친구예요.",
       "temperament": "Confident, alert, playful, loyal, independent",
       "popularity": 4
     },
@@ -1407,7 +1407,7 @@
       ],
       "description": "Cocker Spaniels are tender, joyful companions with big, dreamy eyes and a silky, wavy coat.",
       "descriptionKo": "크고 그윽한 눈망울과 부드러운 웨이브 털의 다정하고 명랑한 친구예요.",
-      "story": null,
+      "story": "멧도요를 사냥하던 상냥한 사냥개, 코커 스패니얼과의 하루는 다정함과 즐거움으로 가득해요. 크고 그윽한 눈망울로 당신을 바라보며 곁을 떠나기 싫어하고, 냄새 하나에 코가 발동해 신나게 탐색하죠. 영리하고 명랑해서 함께하는 모든 순간을 반짝이게 하는 친구예요.",
       "temperament": "Friendly, affectionate, playful, intelligent, outgoing",
       "popularity": 4
     },
@@ -1554,7 +1554,7 @@
       ],
       "description": "The Bernese Mountain Dog is a strong, serene, and benevolent working breed, perfect for families.",
       "descriptionKo": "강인하고 차분하며 인자한 사역견 — 가족과 함께하기 완벽해요.",
-      "story": null,
+      "story": "스위스 농장에서 수레를 끌고 가축을 몰던 버니즈 마운틴 독과의 하루는 크고 포근해요. 삼색 털로 눈밭을 누비던 힘을 지녔지만, 정작 온 가족에게 살갑게 기대는 다정한 거인이죠. 곁을 무척 좋아해서 사람과 함께할 때 가장 환하게 웃는 순둥이예요.",
       "temperament": "Calm, gentle, loyal, intelligent, affectionate, good-natured",
       "popularity": 4
     },
@@ -8169,7 +8169,7 @@
       ],
       "description": "The Puggle is a delightful mix of Pug and Beagle, known for its friendly and playful personality.",
       "descriptionKo": "퍼그와 비글의 매력 믹스 — 친근하고 장난기 많은 성격으로 사랑받아요.",
-      "story": null,
+      "story": "퍼그의 애교와 비글의 호기심을 반씩 물려받은 퍼글과의 하루는 다정하고 유쾌해요. 주름진 얼굴로 온 가족에게 살갑게 굴다가도, 비글에게 받은 코가 발동하면 신나게 냄새를 쫓죠. 사람도 개도 가리지 않고 좋아하는 붙임성 만점 친구예요.",
       "temperament": "Friendly, playful, affectionate, outgoing, energetic, intelligent",
       "popularity": 5
     },
@@ -8218,7 +8218,7 @@
       ],
       "description": "The Chiweenie is a spunky mix of Chihuahua and Dachshund, known for its affectionate and spirited nature.",
       "descriptionKo": "치와와와 닥스훈트의 씩씩한 믹스 — 다정하고 활기찬 성격이 매력이에요.",
-      "story": null,
+      "story": "치와와와 닥스훈트가 만난 치위니와의 하루는 작은 몸에 당찬 기운이 가득해요. 길쭉한 몸으로 당신 무릎을 독차지하고, 치와와를 닮아 겁 없이 낯선 기척엔 야무지게 짖어대죠. 추위를 많이 타서 쌀쌀하면 이불 속으로 쏙 파고드는 애교쟁이예요.",
       "temperament": "Loyal, alert, playful, confident, energetic, affectionate",
       "popularity": 5
     },
@@ -8267,7 +8267,7 @@
       ],
       "description": "The Labradoodle is a friendly, energetic hybrid of the Labrador Retriever and Poodle.",
       "descriptionKo": "래브라도 리트리버와 푸들의 친근하고 에너지 넘치는 믹스예요.",
-      "story": null,
+      "story": "안내견을 위해 래브라도와 푸들을 교배해 태어난 래브라두들과의 하루는 영리하고 사교적이에요. 곱슬곱슬한 저자극 털을 휘날리며 신나게 뛰놀고, 사람을 워낙 좋아해 치료견으로도 활약하죠. 배우는 걸 즐겨서 함께 훈련하면 눈을 반짝이는 다정한 모범생이에요.",
       "temperament": "Friendly, intelligent, energetic, gentle, outgoing, affectionate",
       "popularity": 5
     },
@@ -8316,7 +8316,7 @@
       ],
       "description": "The Goldendoodle is a cheerful, affectionate hybrid of the Golden Retriever and Poodle.",
       "descriptionKo": "골든 리트리버와 푸들의 쾌활하고 다정한 믹스예요.",
-      "story": null,
+      "story": "골든의 다정함과 푸들의 영리함을 물려받은 골든두들과의 하루는 따뜻하고 활기차요. 알레르기 걱정 적은 물결 털로 아이들과 뒹굴고, 배우는 걸 즐겨 뭐든 금방 익히죠. 사람 곁을 사랑해서 치료견으로도 활약하는 온 가족의 친구예요.",
       "temperament": "Friendly, intelligent, gentle, affectionate, outgoing, playful",
       "popularity": 5
     },
@@ -8463,7 +8463,7 @@
       ],
       "description": "The Pomsky is a playful and fluffy mix of Pomeranian and Siberian Husky, adored for its striking appearance.",
       "descriptionKo": "포메라니안과 시베리안 허스키의 장난기 많고 복슬복슬한 믹스 — 외모가 인상적이에요.",
-      "story": null,
+      "story": "포메라니안과 허스키를 섞어 만든 폼스키와의 하루는 작은 허스키처럼 활기차요. 눈처럼 폭신한 이중모와 또렷한 눈으로 시선을 사로잡고, 수상하면 몸집보다 큰 목소리로 우렁차게 알리죠. 추위엔 강하지만 혼자는 외로워하는, 곁을 좋아하는 아이예요.",
       "temperament": "Playful, intelligent, energetic, alert, affectionate, loyal",
       "popularity": 5
     },
@@ -8512,7 +8512,7 @@
       ],
       "description": "The Yorkipoo is a lively and affectionate mix of Yorkshire Terrier and Poodle, perfect for small dog enthusiasts.",
       "descriptionKo": "요크셔 테리어와 푸들의 활기차고 다정한 믹스 — 소형견 팬에게 딱이에요.",
-      "story": null,
+      "story": "요크셔 테리어와 푸들이 만난 요키푸와의 하루는 작지만 영리하고 발랄해요. 저자극 곱슬 털을 나풀거리며 온 집을 씩씩하게 누비고, 똑똑해서 뭐든 금방 배우죠. 사람을 무척 따라서 처음 키우는 사람에게도 살가운 친구가 돼요.",
       "temperament": "Intelligent, affectionate, playful, energetic, confident",
       "popularity": 5
     },
@@ -8659,7 +8659,7 @@
       ],
       "description": "The Morkie is a spirited and affectionate mix of Maltese and Yorkshire Terrier, ideal for small dog lovers.",
       "descriptionKo": "말티즈와 요크셔 테리어의 씩씩하고 다정한 믹스 — 소형견 애호가에게 좋아요.",
-      "story": null,
+      "story": "말티즈의 우아함과 요크셔의 당참을 반씩 지닌 몰키와의 하루는 작은 몸에 큰 배포가 담겨 있어요. 비단 같은 흰 털을 휘날리며 온 집을 누비고, 작아도 겁 없이 낯선 소리엔 앞장서 짖죠. 애교 많고 충직해서 늘 당신 곁을 지키는 아이예요.",
       "temperament": "Affectionate, playful, alert, energetic, intelligent",
       "popularity": 5
     },
@@ -8757,7 +8757,7 @@
       ],
       "description": "The Chorkie is a sassy and lovable mix of Chihuahua and Yorkshire Terrier, perfect for small dog lovers.",
       "descriptionKo": "치와와와 요크셔 테리어의 당돌하고 사랑스러운 믹스예요.",
-      "story": null,
+      "story": "치와와와 요크셔가 만난 초키와의 하루는 작지만 다부지고 다정해요. 당신에게 껌딱지처럼 붙어 사랑을 쏟다가도, 충직한 파수꾼답게 낯선 기척엔 야무지게 짖어 알리죠. 작고 여려서 추운 날엔 품을 파고드는 사랑둥이예요.",
       "temperament": "Alert, loyal, energetic, confident, affectionate, playful, intelligent",
       "popularity": 5
     },
@@ -8953,7 +8953,7 @@
       ],
       "description": "The Shorkie is a feisty and affectionate mix of Shih Tzu and Yorkshire Terrier, perfect for small-dog enthusiasts.",
       "descriptionKo": "시츄와 요크셔 테리어의 씩씩하고 다정한 믹스예요.",
-      "story": null,
+      "story": "시츄와 요크셔가 만난 쇼키와의 하루는 작은 몸에 활기와 애정이 가득해요. 부드러운 비단 털을 나풀거리며 온 집을 발랄하게 누비고, 가족에게 깊이 정을 붙여 늘 곁에 머물죠. 아파트에서도 씩씩하게 잘 지내는 붙임성 좋은 친구예요.",
       "temperament": "Affectionate, playful, intelligent, alert, loyal, confident",
       "popularity": 5
     },
@@ -9100,7 +9100,7 @@
       ],
       "description": "The Doxiepoo is a quirky and affectionate mix of Dachshund and Poodle, loved for its unique personality.",
       "descriptionKo": "닥스훈트와 푸들의 엉뚱하고 다정한 믹스 — 유니크한 개성으로 사랑받아요.",
-      "story": null,
+      "story": "닥스훈트의 장난기와 푸들의 영리함을 섞은 독시푸와의 하루는 똑똑하고 사랑스러워요. 가족에게 깊이 정을 붙여 살갑게 굴고, 수상한 기척엔 야무지게 짖어 알리죠. 배우는 머리는 좋지만 닥스훈트를 닮은 고집도 살짝 있는 개성 뚜렷한 친구예요.",
       "temperament": "Intelligent, playful, affectionate, loyal, alert",
       "popularity": 5
     },

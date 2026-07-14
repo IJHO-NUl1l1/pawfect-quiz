@@ -32,7 +32,9 @@ export default function ShareModal({
   top: MatchResult;
 }) {
   const [copied, setCopied] = useState(false);
-  const [busy, setBusy] = useState(false);
+  // 이미지를 미리 받아둔다 → 클릭 시 await 없이 navigator.share를 제스처 안에서 즉시 호출
+  // (안드로이드/삼성은 share 앞에 await가 끼면 사용자 제스처가 소실돼 NotAllowedError)
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const code = encodeAnswers(answers);
   const url = resultUrl(answers);
@@ -47,9 +49,40 @@ export default function ShareModal({
       window.Kakao.init(KAKAO_KEY);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(localImageUrl);
+        if (!res.ok || cancelled) return;
+        const blob = await res.blob();
+        if (!cancelled)
+          setImageFile(new File([blob], `pawfect-${top.breed.id}.png`, { type: "image/png" }));
+      } catch {}
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [open, localImageUrl, top.breed.id]);
+
   async function copyLink() {
     track("share_channel", { channel: "copy" });
-    await navigator.clipboard.writeText(url);
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // 클립보드 API 불가(일부 인앱 브라우저) → execCommand 폴백
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand("copy");
+      } catch {}
+      ta.remove();
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
   }
@@ -76,74 +109,48 @@ export default function ShareModal({
     });
   }
 
-  async function getImageFile(): Promise<File | null> {
-    try {
-      const res = await fetch(localImageUrl);
-      if (!res.ok) return null;
-      const blob = await res.blob();
-      return new File([blob], `pawfect-${top.breed.id}.png`, { type: "image/png" });
-    } catch {
-      return null;
-    }
-  }
-
-  async function shareSheet() {
-    track("share_channel", { channel: "sheet" });
-    setBusy(true);
-    const file = await getImageFile();
-    setBusy(false);
-    if (file && navigator.canShare?.({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], text: `${title}\n${url}` });
-      } catch {
-        /* 사용자가 시트에서 취소 — 폴백 없음 */
-      }
-      return;
-    }
-    if (navigator.share) {
-      try {
-        await navigator.share({ title, text: desc, url });
-        return;
-      } catch {
-        return;
-      }
-    }
-    if (file) downloadFile(file);
-  }
-
-  function downloadFile(file: File) {
-    const href = URL.createObjectURL(file);
-    const a = document.createElement("a");
-    a.href = href;
-    a.download = file.name;
-    // Firefox는 DOM에 붙어 있어야 클릭이 다운로드로 이어진다.
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    // 즉시 revoke하면 다운로드가 시작되기 전에 URL이 폐기돼 취소된다 → 다음 틱에 정리.
-    setTimeout(() => URL.revokeObjectURL(href), 10_000);
-  }
-
-  async function saveImage() {
-    track("share_channel", { channel: "save" });
-    setBusy(true);
-    const file = await getImageFile();
-    setBusy(false);
-    if (file && navigator.canShare?.({ files: [file] })) {
-      try {
-        // 캡션 없이 이미지만 — 시트에서 '사진에 저장' 선택 유도
-        await navigator.share({ files: [file] });
-      } catch {
-        /* 사용자가 시트에서 취소 */
-      }
-      return;
-    }
+  function anchorDownload() {
     const a = document.createElement("a");
     a.href = localImageUrl;
     a.download = `pawfect-${top.breed.id}.png`;
     document.body.appendChild(a);
     a.click();
     a.remove();
+  }
+
+  // 공유하기: 미리 받아둔 파일이 있으면 await 없이 즉시 파일 공유(캡션 포함) → 제스처 유지.
+  // 아직 파일이 없거나 파일 공유 미지원이면 링크 공유, 그마저 없으면 이미지 다운로드로 폴백.
+  async function shareSheet() {
+    track("share_channel", { channel: "sheet" });
+    if (imageFile && navigator.canShare?.({ files: [imageFile] })) {
+      try {
+        await navigator.share({ files: [imageFile], text: `${title}\n${url}` });
+      } catch {
+        /* 사용자가 시트에서 취소 */
+      }
+      return;
+    }
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, text: desc, url });
+      } catch {}
+      return;
+    }
+    anchorDownload();
+  }
+
+  // 이미지 저장: 파일 공유 가능하면(모바일) 시트로 '사진에 저장', 아니면 same-origin 앵커 다운로드.
+  async function saveImage() {
+    track("share_channel", { channel: "save" });
+    if (imageFile && navigator.canShare?.({ files: [imageFile] })) {
+      try {
+        await navigator.share({ files: [imageFile] });
+      } catch {
+        /* 사용자가 시트에서 취소 */
+      }
+      return;
+    }
+    anchorDownload();
   }
 
   return (
@@ -193,11 +200,10 @@ export default function ShareModal({
 
                 <button
                   onClick={shareSheet}
-                  disabled={busy}
-                  className="flex items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
+                  className="flex items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 font-medium text-primary-foreground transition-opacity hover:opacity-90"
                 >
                   <Share2 className="size-5" />
-                  {busy ? "처리 중…" : "공유하기"}
+                  공유하기
                 </button>
 
                 <div className="grid grid-cols-2 gap-3">
@@ -209,7 +215,6 @@ export default function ShareModal({
                   <ShareButton
                     icon={<Download className="size-5" />}
                     label="이미지 저장"
-                    busy={busy}
                     onClick={saveImage}
                   />
                 </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, animate, motion, type Variants } from "framer-motion";
 import { track } from "@vercel/analytics";
-import { Trophy, Medal, Lightbulb, Heart, Frown } from "lucide-react";
+import { Trophy, Medal, Lightbulb, Heart, Frown, ChevronDown, ChevronUp } from "lucide-react";
 import { rankBreeds, type BreedData, type MatchResult } from "@/lib/matching";
 import PawPrint from "@/components/quiz/PawPrint";
 import {
@@ -319,7 +319,7 @@ export default function QuizResult({
             <div
               key={r.breed.id}
               onClick={() => setDetailIdx(open ? null : idx)}
-              className={`flex cursor-pointer flex-col items-center gap-2 rounded-2xl border-2 bg-card p-4 text-center transition-colors ${
+              className={`group/card flex cursor-pointer flex-col items-center gap-2 rounded-2xl border-2 bg-card p-4 text-center transition-colors ${
                 open ? "border-primary/40" : "border-border hover:border-primary/25"
               }`}
             >
@@ -347,8 +347,9 @@ export default function QuizResult({
                 />
               </button>
               <p className="break-keep text-sm font-semibold leading-tight">{r.breed.nameKo}</p>
-              <span className="text-[11px] text-muted-foreground">
-                {open ? "상세 닫기" : "눌러서 상세 보기"}
+              <span className="mt-0.5 inline-flex items-center gap-0.5 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold text-primary transition-colors group-hover/card:bg-primary/20">
+                {open ? "닫기" : "자세히 보기"}
+                {open ? <ChevronUp className="size-3" /> : <ChevronDown className="size-3" />}
               </span>
             </div>
           );
