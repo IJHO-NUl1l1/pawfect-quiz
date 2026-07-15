@@ -139,10 +139,13 @@ export default function ShareModal({
     anchorDownload();
   }
 
-  // 이미지 저장: 파일 공유 가능하면(모바일) 시트로 '사진에 저장', 아니면 same-origin 앵커 다운로드.
+  // 이미지 저장: 모바일은 사진 앱에 바로 저장할 방법이 시트뿐이라 시트로 보내고,
+  // 데스크톱은 직접 다운로드가 되므로 바로 받는다.
+  // (canShare(files)는 Windows Chrome·macOS Safari에서도 true라 모바일 판별기로 못 쓴다)
   async function saveImage() {
     track("share_channel", { channel: "save" });
-    if (imageFile && navigator.canShare?.({ files: [imageFile] })) {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouch && imageFile && navigator.canShare?.({ files: [imageFile] })) {
       try {
         await navigator.share({ files: [imageFile] });
       } catch {
