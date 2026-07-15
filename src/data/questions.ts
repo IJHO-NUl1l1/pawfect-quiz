@@ -377,31 +377,30 @@ export const QUESTIONS: QuizQuestion[] = [
   },
   {
     // 크기는 델타가 아닌 절대 필터 — 선택한 범위 밖의 견종은 후보에서 제외.
-    // 실측 몸무게 기준 (한국 통용: 소형 ~10kg / 중형 10~25kg / 대형 25kg+).
-    // 콩알 컷은 4kg→5kg로 확장 (≤4kg는 9종뿐이라 결과 쏠림, ≤5kg면 24종).
-    // 밴드별 후보: 24 / 41 / 58 / 70종.
+    // 실측 몸무게 기준. 밴드별 견종 수가 고르도록 4분위 근사(7/18/28kg)로 잡아
+    // 밴드 간 1위 쏠림을 완화 (밴드별 후보 47/40/55/51, 기존 24/41/58/70).
     id: "size",
     text: "강아지를 품에 안는 상상을 해보세요. 어떤 느낌이 좋아요?",
     options: [
       {
-        label: "한 손에 쏙 들어오는 콩알만 한 아기 (~5kg)",
+        label: "한 손에 쏙 들어오는 소형견 (~7kg)",
         scores: {},
-        filters: { weightKg: [0, 5] },
+        filters: { weightKg: [0, 7] },
       },
       {
-        label: "무릎 위에 딱 맞는 아담한 사이즈 (5~10kg)",
+        label: "무릎 위에 딱 맞는 아담한 중형견 (7~18kg)",
         scores: {},
-        filters: { weightKg: [5, 10] },
+        filters: { weightKg: [7, 18] },
       },
       {
-        label: "안으면 팔이 꽉 차는 든든한 중형견 (10~25kg)",
+        label: "안으면 팔이 꽉 차는 든든한 대형견 (18~28kg)",
         scores: {},
-        filters: { weightKg: [10, 25] },
+        filters: { weightKg: [18, 28] },
       },
       {
-        label: "오히려 걔가 날 안아줄 것 같은 대형견 (25kg~)",
+        label: "오히려 걔가 날 안아줄 것 같은 초대형견 (28kg~)",
         scores: {},
-        filters: { weightKg: [25, 999] },
+        filters: { weightKg: [28, 999] },
       },
     ],
   },
